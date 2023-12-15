@@ -534,7 +534,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         if (i == selected_item)
         {
-            color = PKGI_COLOR_TEXT_MENU_SELECTED
+            color = PKGI_COLOR_TEXT_MENU_SELECTED;
             
             // 
             //    pkgi_draw_text(0, y, PKGI_COLOR_TEXT_MENU_SELECTED, item->content.c_str());
