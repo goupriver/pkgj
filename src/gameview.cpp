@@ -235,7 +235,7 @@ void GameView::printDiagnostic()
     }
 
     if (ok)
-        ImGui::TextColored(Green, "All green");
+        ImGui::TextColored(Green, "Все условия соблюдены");
 }
 
 std::string GameView::get_min_system_version()

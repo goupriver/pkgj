@@ -204,7 +204,7 @@ void pkgi_refresh_thread(void)
             {
                 std::lock_guard<Mutex> lock(refresh_mutex);
                 current_action = fmt::format(
-                        "Refreshing {} [{}/{}]",
+                        "Обновление {} [{}/{}]",
                         pkgi_mode_to_string(mode),
                         i + 1,
                         mode_count);
@@ -217,7 +217,7 @@ void pkgi_refresh_thread(void)
             {
                 std::lock_guard<Mutex> lock(refresh_mutex);
                 current_action = fmt::format(
-                        "Refreshing games compatibility packs [{}/{}]",
+                        "Обновления пакета совместимости игр[{}/{}]",
                         mode_count - 1,
                         mode_count);
             }
@@ -229,7 +229,7 @@ void pkgi_refresh_thread(void)
             {
                 std::lock_guard<Mutex> lock(refresh_mutex);
                 current_action = fmt::format(
-                        "Refreshing updates compatibility packs [{}/{}]",
+                        "Обновление пакетов совместимости обновлений [{}/{}]",
                         mode_count,
                         mode_count);
             }
@@ -880,7 +880,7 @@ void pkgi_do_tail(Downloader& downloader)
     }
     else
     {
-        pkgi_snprintf(text, sizeof(text), "Показано: %u, из %u", count, total);
+        pkgi_snprintf(text, sizeof(text), "Показано: %u из %u", count, total);
     }
     pkgi_draw_text(0, second_line, PKGI_COLOR_TEXT_TAIL, text);
 
