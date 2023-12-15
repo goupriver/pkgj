@@ -37,33 +37,33 @@ typedef struct
 } MenuEntry;
 
 static const MenuEntry menu_entries[] = {
-        {MenuSearch, "Search...", 0},
+        {MenuSearch, "Поиск...", 0},
         {MenuSearchClear, PKGI_UTF8_CLEAR " clear", 0},
 
-        {MenuText, "Sort by:", 0},
-        {MenuSort, "Title", SortByTitle},
-        {MenuSort, "Region", SortByRegion},
-        {MenuSort, "Name", SortByName},
-        {MenuSort, "Size", SortBySize},
-        {MenuSort, "Date", SortByDate},
+        {MenuText, "Сортировать по:", 0},
+        {MenuSort, "Коду (TITLE_ID)", SortByTitle},
+        {MenuSort, "Региону", SortByRegion},
+        {MenuSort, "Названию", SortByName},
+        {MenuSort, "Размеру", SortBySize},
+        {MenuSort, "Дате добавления", SortByDate},
 
-        {MenuText, "Filters:", 0},
-        {MenuFilter, "Asia", DbFilterRegionASA},
-        {MenuFilter, "Europe", DbFilterRegionEUR},
-        {MenuFilter, "Japan", DbFilterRegionJPN},
-        {MenuFilter, "USA", DbFilterRegionUSA},
-        {MenuFilter, "Installed games only", DbFilterInstalled},
+        {MenuText, "Фильтр показа:", 0},
+        {MenuFilter, "Азия", DbFilterRegionASA},
+        {MenuFilter, "Европа", DbFilterRegionEUR},
+        {MenuFilter, "Япония", DbFilterRegionJPN},
+        {MenuFilter, "США", DbFilterRegionUSA},
+        {MenuFilter, "Только установленное", DbFilterInstalled},
 
-        {MenuRefresh, "Refresh", 0},
+        {MenuRefresh, "Обновить списки", 0},
 
-        {MenuShow, "Show games", 1},
-        {MenuShow, "Show DLCs", 2},
-        {MenuShow, "Show demos", 64},
-        {MenuShow, "Show themes", 32},
-        {MenuShow, "Show PS1 games", 4},
-        {MenuShow, "Show PSP games", 8},
-        {MenuShow, "Show PSP DLCs", 128},
-        {MenuShow, "Show PSM games", 16},
+        {MenuShow, "Показать PSV игры", 1},
+        {MenuShow, "Показать PSV дополнения", 2},
+        {MenuShow, "Показать PSV демо-версии", 64},
+        {MenuShow, "Показать PSV темы", 32},
+        {MenuShow, "Показать PS1 игры", 4},
+        {MenuShow, "Показать PSP игры", 8},
+        {MenuShow, "Показать PSP дополнения", 128},
+        {MenuShow, "Показать PSM игры", 16},
 };
 
 int pkgi_menu_is_open(void)
