@@ -534,12 +534,16 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         if (i == selected_item)
         {
-            pkgi_draw_rect(
-                    0,
-                    y,
-                    VITA_WIDTH,
-                    font_height + PKGI_MAIN_ROW_PADDING - 1,
-                    PKGI_COLOR_SELECTED_BACKGROUND);
+            // 
+
+            // 
+
+            // pkgi_draw_rect(
+            //         0,
+            //         y,
+            //         VITA_WIDTH,
+            //         font_height + PKGI_MAIN_ROW_PADDING - 1,
+            //         PKGI_COLOR_SELECTED_BACKGROUND);
         }
 
         pkgi_draw_text(col_titleid, y, color, titleid);
