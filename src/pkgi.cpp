@@ -546,7 +546,9 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             //         VITA_WIDTH,
             //         font_height + PKGI_MAIN_ROW_PADDING - 1,
             //         PKGI_COLOR_SELECTED_BACKGROUND);
-        } else {
+        }
+        else if 
+        {
             color = PKGI_COLOR_TEXT
         }
 
