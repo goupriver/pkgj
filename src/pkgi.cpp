@@ -547,10 +547,6 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             //         font_height + PKGI_MAIN_ROW_PADDING - 1,
             //         PKGI_COLOR_SELECTED_BACKGROUND);
         }
-        else if 
-        {
-            color = PKGI_COLOR_TEXT
-        }
 
         pkgi_draw_text(col_titleid, y, color, titleid);
         const char* region;
