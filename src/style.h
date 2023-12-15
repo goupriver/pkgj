@@ -28,7 +28,7 @@
 #define PKGI_UTF8_CHECK_ON "\xe2\x97\x8f" // 0x25cf
 #define PKGI_UTF8_CHECK_OFF "\xe2\x97\x8b" // 0x25cb
 
-#define PKGI_COLOR_DIALOG_BACKGROUND PKGI_COLOR(20, 20, 20)
+#define PKGI_COLOR_DIALOG_BACKGROUND PKGI_COLOR(48, 48, 48)
 // при открытии где фильтры и сортировка [styler] menu.cpp
 // #define PKGI_COLOR_MENU_BACKGROUND PKGI_COLOR(48, 48, 48)
 #define PKGI_COLOR_MENU_BACKGROUND PKGI_COLOR(18, 18, 18)
