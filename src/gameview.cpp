@@ -53,18 +53,18 @@ void GameView::render()
     ImGui::PushTextWrapPos(
             _image_fetcher.get_texture() == nullptr ? 0.f
                                                     : GameViewWidth - 300.f);
-    ImGui::Text(fmt::format("Firmware version: {}", pkgi_get_system_version())
+    ImGui::Text(fmt::format("Версия ПО консоли: {}", pkgi_get_system_version())
                         .c_str());
     ImGui::Text(
             fmt::format(
-                    "Required firmware version: {}", get_min_system_version())
+                    "Необходимая версия ПО: {}", get_min_system_version())
                     .c_str());
 
     ImGui::Text(" ");
 
     ImGui::Text(fmt::format(
-                        "Installed game version: {}",
-                        _game_version.empty() ? "not installed" : _game_version)
+                        "Установлена версия: {}",
+                        _game_version.empty() ? "не установлена" : _game_version)
                         .c_str());
     if (_comppack_versions.present && _comppack_versions.base.empty() &&
         _comppack_versions.patch.empty())
@@ -74,13 +74,13 @@ void GameView::render()
     else
     {
         ImGui::Text(fmt::format(
-                            "Installed base compatibility pack: {}",
-                            _comppack_versions.base.empty() ? "no" : "yes")
+                            "Пак для игры установлен: {}",
+                            _comppack_versions.base.empty() ? "нет" : "да")
                             .c_str());
         ImGui::Text(fmt::format(
-                            "Installed patch compatibility pack version: {}",
+                            "Пак для патча установлен: {}",
                             _comppack_versions.patch.empty()
-                                    ? "none"
+                                    ? "нет"
                                     : _comppack_versions.patch)
                             .c_str());
     }
@@ -95,12 +95,12 @@ void GameView::render()
 
     if (_patch_info_fetcher.get_status() == PatchInfoFetcher::Status::Found)
     {
-        if (ImGui::Button("Install game and patch###installgame"))
+        if (ImGui::Button("Установить игру и патч###installgame"))
             start_download_package();
     }
     else
     {
-        if (ImGui::Button("Install game###installgame"))
+        if (ImGui::Button("Установить игру###installgame"))
             start_download_package();
     }
     ImGui::SetItemDefaultFocus();
@@ -170,7 +170,7 @@ void GameView::printDiagnostic()
     auto const systemVersion = pkgi_get_system_version();
     auto const minSystemVersion = get_min_system_version();
 
-    ImGui::Text("Diagnostic:");
+    ImGui::Text("Информация:");
 
     if (systemVersion < minSystemVersion)
     {
@@ -188,7 +188,7 @@ void GameView::printDiagnostic()
     }
     else
     {
-        ImGui::Text("- Your firmware is recent enough");
+        ImGui::Text("- Версия прошивки подходит для запуска");
     }
 
     if (_comppack_versions.present && _comppack_versions.base.empty() &&
@@ -230,7 +230,7 @@ void GameView::printDiagnostic()
 
     if (_item->presence != PresenceInstalled)
     {
-        ImGui::Text("- Game not installed");
+        ImGui::Text("- Игра не установлена");
         ok = false;
     }
 
