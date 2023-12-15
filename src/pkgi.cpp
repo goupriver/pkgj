@@ -746,7 +746,7 @@ void pkgi_do_head(void)
         pkgi_snprintf(
                 battery,
                 sizeof(battery),
-                "Battery: %u%%",
+                "Аккумулятор: %u%%",
                 pkgi_bettery_get_level());
 
         uint32_t color;
@@ -858,14 +858,14 @@ void pkgi_do_tail(Downloader& downloader)
         pkgi_snprintf(
                 text,
                 sizeof(text),
-                "Downloading %s: %s (%s, %d%%)",
+                "Загрузка %s: %s (%s, %d%%)",
                 type_to_string(current_download->type).c_str(),
                 current_download->name.c_str(),
                 sspeed.c_str(),
                 static_cast<int>(download_offset * 100 / download_size));
     }
     else
-        pkgi_snprintf(text, sizeof(text), "Idle");
+        pkgi_snprintf(text, sizeof(text), "Нет активных задач");
 
     pkgi_draw_text(0, bottom_y, PKGI_COLOR_TEXT_TAIL, text);
 
@@ -876,11 +876,11 @@ void pkgi_do_tail(Downloader& downloader)
 
     if (count == total)
     {
-        pkgi_snprintf(text, sizeof(text), "Count: %u", count);
+        pkgi_snprintf(text, sizeof(text), "Показано: %u", count);
     }
     else
     {
-        pkgi_snprintf(text, sizeof(text), "Count: %u (%u)", count, total);
+        pkgi_snprintf(text, sizeof(text), "Показано: %u, из (%u)", count, total);
     }
     pkgi_draw_text(0, second_line, PKGI_COLOR_TEXT_TAIL, text);
 
@@ -900,7 +900,7 @@ void pkgi_do_tail(Downloader& downloader)
     }
 
     char free[64];
-    pkgi_snprintf(free, sizeof(free), "Free: %s", size);
+    pkgi_snprintf(free, sizeof(free), "Свободно: %s", size);
 
     int rightw = pkgi_text_width(free);
     pkgi_draw_text(
@@ -916,28 +916,28 @@ void pkgi_do_tail(Downloader& downloader)
     if (gameview || pkgi_dialog_is_open())
     {
         bottom_text = fmt::format(
-                "{} select {} close", pkgi_get_ok_str(), pkgi_get_cancel_str());
+                "{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
     }
     else if (pkgi_menu_is_open())
     {
         bottom_text = fmt::format(
-                "{} select  " PKGI_UTF8_T " close  {} cancel",
+                "{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена",
                 pkgi_get_ok_str(),
                 pkgi_get_cancel_str());
     }
     else
     {
         if (mode == ModeGames)
-            bottom_text += fmt::format("{} details ", pkgi_get_ok_str());
+            bottom_text += fmt::format("{} Просмотр ", pkgi_get_ok_str());
         else
         {
             DbItem* item = db->get(selected_item);
             if (item && item->presence == PresenceInstalling)
-                bottom_text += fmt::format("{} cancel ", pkgi_get_ok_str());
+                bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
             else if (item && item->presence != PresenceInstalled)
-                bottom_text += fmt::format("{} install ", pkgi_get_ok_str());
+                bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
         }
-        bottom_text += PKGI_UTF8_T " menu";
+        bottom_text += PKGI_UTF8_T " Меню";
     }
 
     pkgi_clip_set(
