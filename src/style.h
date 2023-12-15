@@ -31,7 +31,7 @@
 #define PKGI_COLOR_DIALOG_BACKGROUND PKGI_COLOR(20, 20, 20)
 // при открытии где фильтры и сортировка [styler] menu.cpp
 // #define PKGI_COLOR_MENU_BACKGROUND PKGI_COLOR(48, 48, 48)
-#define PKGI_COLOR_MENU_BACKGROUND PKGI_COLOR(26, 26, 26)
+#define PKGI_COLOR_MENU_BACKGROUND PKGI_COLOR(18, 18, 18)
 #define PKGI_COLOR_TEXT_MENU PKGI_COLOR(255, 255, 255)
 
 // текст выбранный в фильтрах и сортировке [styler] menu.cpp
