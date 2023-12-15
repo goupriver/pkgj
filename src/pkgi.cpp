@@ -880,7 +880,7 @@ void pkgi_do_tail(Downloader& downloader)
     }
     else
     {
-        pkgi_snprintf(text, sizeof(text), "Показано: %u, из (%u)", count, total);
+        pkgi_snprintf(text, sizeof(text), "Показано: %u, из %u", count, total);
     }
     pkgi_draw_text(0, second_line, PKGI_COLOR_TEXT_TAIL, text);
 
