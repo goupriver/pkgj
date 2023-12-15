@@ -534,8 +534,10 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         if (i == selected_item)
         {
+            color = PKGI_COLOR_TEXT_MENU_SELECTED
+            
             // 
-               pkgi_draw_text(0, y, PKGI_COLOR_TEXT_MENU_SELECTED, item->content.c_str());
+            //    pkgi_draw_text(0, y, PKGI_COLOR_TEXT_MENU_SELECTED, item->content.c_str());
             // 
 
             // pkgi_draw_rect(
@@ -544,6 +546,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             //         VITA_WIDTH,
             //         font_height + PKGI_MAIN_ROW_PADDING - 1,
             //         PKGI_COLOR_SELECTED_BACKGROUND);
+        } else {
+            color = PKGI_COLOR_TEXT
         }
 
         pkgi_draw_text(col_titleid, y, color, titleid);
