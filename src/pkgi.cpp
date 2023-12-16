@@ -63,6 +63,16 @@ int bottom_y;
 char search_text[256];
 char error_state[256];
 
+void ImGui::StyleColorsCustom(ImGuiStyle* dst)
+{
+    ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
+    // ImGuiStyle& style = ImGui::GetStyle();
+    // ImGuiStyle& style = ImGui::GetStyle();
+    // ImGuiStyle * style = &ImGui::GetStyle();
+    ImVec4* colors = style->Colors;
+    colors[ImGuiCol_Button] = ImVec4(0.13f, 0.8f, 0.44f);
+}
+
 // used for multiple things actually
 Mutex refresh_mutex("refresh_mutex");
 std::string current_action;
@@ -540,12 +550,12 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             //    pkgi_draw_text(0, y, PKGI_COLOR_TEXT_MENU_SELECTED, item->content.c_str());
             // 
 
-            // pkgi_draw_rect(
-            //         0,
-            //         y,
-            //         VITA_WIDTH,
-            //         font_height + PKGI_MAIN_ROW_PADDING - 1,
-            //         PKGI_COLOR_SELECTED_BACKGROUND);
+            pkgi_draw_rect(
+                    0,
+                    y,
+                    VITA_WIDTH,
+                    font_height + PKGI_MAIN_ROW_PADDING - 1,
+                    PKGI_COLOR_SELECTED_BACKGROUND);
         }
 
         pkgi_draw_text(col_titleid, y, color, titleid);
@@ -1203,6 +1213,9 @@ int main()
                 texture_data[y * stride + x] = pixels[y * width + x];
 
         io.Fonts->TexID = font_texture;
+
+        // подключене своего стиля
+        ImGui::StyleColorsCustom()
 
         init_imgui();
 
