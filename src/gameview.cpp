@@ -273,8 +273,8 @@ void GameView::start_download_package()
                 "Хотите загрузить его заново?",
                 _item->name)
                 .c_str(),
-        {{"Redownload.", [this] { this->do_download(); }},
-         {"Dont Redownload.", [] {} }});
+        {{"Да.", [this] { this->do_download(); }},
+         {"Нет.", [] {} }});
         return;
     }
     this->do_download();
