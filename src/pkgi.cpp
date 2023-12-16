@@ -562,7 +562,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     PKGI_COLOR_SELECTED_BACKGROUND);
         }
 
-        pkgi_draw_text(col_titleid, y, color, titleid);
+        pkgi_draw_text(col_titleid, y, PKGI_COLOR_HLINE, titleid);
         const char* region;
         switch (pkgi_get_region(item->titleid))
         {
@@ -585,14 +585,14 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             region = "???";
             break;
         }
-        pkgi_draw_text(col_region, y, color, region);
+        pkgi_draw_text(col_region, y, PKGI_COLOR_HLINE, region);
         if (item->presence == PresenceIncomplete)
         {
-            pkgi_draw_text(col_installed, y, color, PKGI_UTF8_PARTIAL);
+            pkgi_draw_text(col_installed, y, PKGI_COLOR_HLINE, PKGI_UTF8_PARTIAL);
         }
         else if (item->presence == PresenceInstalled)
         {
-            pkgi_draw_text(col_installed, y, color, PKGI_UTF8_INSTALLED);
+            pkgi_draw_text(col_installed, y, PKGI_COLOR_HLINE, PKGI_UTF8_INSTALLED);
         }
         else if (item->presence == PresenceGamePresent)
         {
@@ -604,13 +604,13 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         }
         else if (item->presence == PresenceInstalling)
         {
-            pkgi_draw_text(col_installed, y, color, PKGI_UTF8_INSTALLING);
+            pkgi_draw_text(col_installed, y, PKGI_COLOR_HLINE, PKGI_UTF8_INSTALLING);
         }
         pkgi_draw_text(
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         sizew,
                 y,
-                color,
+                PKGI_COLOR_HLINE,
                 size_str);
         pkgi_clip_remove();
 
