@@ -63,15 +63,19 @@ int bottom_y;
 char search_text[256];
 char error_state[256];
 
-void ImGui::StyleColorsCustom(ImGuiStyle* dst)
-{
-    ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
+// void ImGui::StyleColorsCustom(ImGuiStyle* dst)
+// {
+    // ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
     // ImGuiStyle& style = ImGui::GetStyle();
     // ImGuiStyle& style = ImGui::GetStyle();
     // ImGuiStyle * style = &ImGui::GetStyle();
-    ImVec4* colors = style->Colors;
-    colors[ImGuiCol_Button] = ImVec4(0.13f, 0.8f, 0.44f);
-}
+    // ImVec4* colors = style->Colors;
+    // colors[ImGuiCol_Button] = ImVec4(0.13f, 0.8f, 0.44f);
+
+
+    // ImGuiStyle* style = &ImGui::GetStyle();
+    // style->Colors[ImGuiCol_Text] = ImVec4(0.13f, 0.8f, 0.44f, 1.00f);
+// }
 
 // used for multiple things actually
 Mutex refresh_mutex("refresh_mutex");
@@ -1215,7 +1219,9 @@ int main()
         io.Fonts->TexID = font_texture;
 
         // подключене своего стиля
-        ImGui::StyleColorsCustom()
+        // ImGui::StyleColorsCustom()
+        ImGuiStyle* style = &ImGui::GetStyle();
+        style->Colors[ImGuiCol_Text] = ImVec4(0.13f, 0.8f, 0.44f, 1.00f);
 
         init_imgui();
 
