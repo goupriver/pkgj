@@ -1221,10 +1221,10 @@ int main()
         // подключене своего стиля
         // ImGui::StyleColorsCustom()
         ImGuiStyle* style = &ImGui::GetStyle();
-        style->Colors[ImGuiCol_Button] = ImVec4(0.13f, 0.8f, 0.44f, 1.00f);
-        style->Colors[ImGuiCol_Header] = ImVec4(0.13f, 0.8f, 0.44f, 1.00f);
-        style->Colors[ImGuiCol_HeaderHovered] = ImVec4(0.13f, 0.8f, 0.44f, 1.00f);
-        style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.13f, 0.8f, 0.44f, 1.00f);
+        style->Colors[ImGuiCol_Button] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_Header] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_HeaderHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
 
         init_imgui();
 
