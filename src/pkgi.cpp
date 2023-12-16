@@ -729,7 +729,7 @@ void pkgi_do_head(void)
     const char* version = PKGI_VERSION;
 
     char title[256];
-    pkgi_snprintf(title, sizeof(title), "PKGj v%s rus", version);
+    pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
     pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
 
     pkgi_draw_rect(
