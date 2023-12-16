@@ -15,23 +15,23 @@ std::string type_to_string(Type type)
     switch (type)
     {
     case Type::Game:
-        return "game";
+        return "игры";
     case Type::Patch:
-        return "patch";
+        return "патча";
     case Type::Dlc:
-        return "DLC";
+        return "дополнения";
     case Type::PsmGame:
-        return "PSM game";
+        return "PSM игры";
     case Type::PsxGame:
-        return "PSX game";
+        return "PSX игры";
     case Type::PspGame:
-        return "PSP game";
+        return "PSP игры";
     case Type::PspDlc:
-        return "PSP DLC";
+        return "PSP дополнения";
     case Type::CompPackBase:
-        return "Base Comp Pack";
+        return "базовых пакетов";
     case Type::CompPackPatch:
-        return "Patch Comp Pack";
+        return "пакетов патчей";
     }
     return "unknown";
 }
