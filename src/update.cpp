@@ -25,7 +25,7 @@ void start_download()
         const auto url =
                 fmt::format("{}/pkgj-v{}.vpk", PKGJ_UPDATE_URL, version);
 
-        pkgi_dialog_message("Downloading update", 0);
+        pkgi_dialog_message("Загрузка обновления", 0);
 
         try
         {
@@ -57,14 +57,14 @@ void start_download()
 
         pkgi_dialog_message(
                 fmt::format(
-                        "The update has been downloaded to {}, install "
-                        "it through VitaShell.",
+                        "Обновление загружено на {}, установите "
+                        "его через VitaShell.",
                         filename)
                         .c_str());
     }
     catch (const std::exception& e)
     {
-        pkgi_dialog_error(fmt::format("Download failed: {}", e.what()).c_str());
+        pkgi_dialog_error(fmt::format("Ошибка загрузки: {}", e.what()).c_str());
     }
 }
 
@@ -74,7 +74,7 @@ void update_thread()
     {
         if (!pkgi_is_module_present("NoNpDrm"))
             pkgi_dialog_error(
-                    "NoNpDrm not found. Games cannot be installed or played.");
+                    "NoNpDrm не найден. Игры невозможно установить или запустить.");
 
         while (pkgi_dialog_is_open())
         {
@@ -100,8 +100,8 @@ void update_thread()
 
             pkgi_dialog_question(
                     fmt::format(
-                            "New PKGj version {} is available!\nDo you want to "
-                            "download it?",
+                            "Доступна новая версия PKGj {} !\n  "
+                            "Хотите обновить?",
                             last_version)
                             .c_str(),
                     {{"Yes",

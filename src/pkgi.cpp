@@ -304,8 +304,8 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
         LOGF("[{}] {} - already installed", item->content, item->name);
         pkgi_dialog_question(
         fmt::format(
-                "{} is already installed."
-                "Would you like to redownload it?", 
+                "{} уже установлено."
+                "Хотите загрузить его заново?", 
                 item->name)
                 .c_str(),
         {{"Redownload.", [&downloader, item] { do_download(downloader, item); }},
@@ -630,7 +630,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
     if (db_count == 0)
     {
-        const char* text = "No items! Try to refresh.";
+        const char* text = "Список пуст! Попробуйте обновить.";
 
         int w = pkgi_text_width(text);
         pkgi_draw_text(
@@ -735,7 +735,7 @@ void pkgi_do_head(void)
     const char* version = PKGI_VERSION;
 
     char title[256];
-    pkgi_snprintf(title, sizeof(title), "PKGj v%s", version);
+    pkgi_snprintf(title, sizeof(title), "PKGj v%s rus", version);
     pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
 
     pkgi_draw_rect(
@@ -1003,7 +1003,7 @@ void pkgi_reload()
         LOGF("error during reload: {}", e.what());
         pkgi_dialog_error(
                 fmt::format(
-                        "failed to reload db: {}, try to refresh?", e.what())
+                        "не удалось перезагрузить базу данных: попробуйте обновить", e.what())
                         .c_str());
     }
 }
@@ -1095,7 +1095,7 @@ void pkgi_start_download(Downloader& downloader, const DbItem& item)
                         std::vector<uint8_t>(rif, rif + PKGI_PSM_RIF_SIZE));
                 pkgi_dialog_message(
                         fmt::format(
-                                "Installation of {} queued in LiveArea",
+                                "Установка {} поставлена в очередь в LiveArea",
                                 item.name)
                                 .c_str());
             }
@@ -1126,7 +1126,7 @@ void pkgi_start_download(Downloader& downloader, const DbItem& item)
     catch (const std::exception& e)
     {
         pkgi_dialog_error(
-                fmt::format("Failed to install {}: {}", item.name, e.what())
+                fmt::format("Ошибка установки {}: {}", item.name, e.what())
                         .c_str());
     }
 }
@@ -1153,7 +1153,7 @@ int main()
         downloader.error = [](const std::string& error)
         {
             // FIXME this runs on the wrong thread
-            pkgi_dialog_error(("Download failure: " + error).c_str());
+            pkgi_dialog_error(("Ошибка загрузки: " + error).c_str());
         };
 
         LOG("started");
