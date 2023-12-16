@@ -63,20 +63,6 @@ int bottom_y;
 char search_text[256];
 char error_state[256];
 
-// void ImGui::StyleColorsCustom(ImGuiStyle* dst)
-// {
-    // ImGuiStyle* style = dst ? dst : &ImGui::GetStyle();
-    // ImGuiStyle& style = ImGui::GetStyle();
-    // ImGuiStyle& style = ImGui::GetStyle();
-    // ImGuiStyle * style = &ImGui::GetStyle();
-    // ImVec4* colors = style->Colors;
-    // colors[ImGuiCol_Button] = ImVec4(0.13f, 0.8f, 0.44f);
-
-
-    // ImGuiStyle* style = &ImGui::GetStyle();
-    // style->Colors[ImGuiCol_Text] = ImVec4(0.13f, 0.8f, 0.44f, 1.00f);
-// }
-
 // used for multiple things actually
 Mutex refresh_mutex("refresh_mutex");
 std::string current_action;
@@ -473,6 +459,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         DbItem* item = db->get(i);
 
         uint32_t color = PKGI_COLOR_TEXT;
+        uint32_t colorTextGray = PKGI_COLOR_HLINE;
 
         const auto titleid = item->titleid.c_str();
 
@@ -548,7 +535,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         if (i == selected_item)
         {
-            color = PKGI_COLOR_TEXT_MENU_SELECTED;
+            colorTextGray = PKGI_COLOR_TEXT_MENU_SELECTED;
             
             // 
             //    pkgi_draw_text(0, y, PKGI_COLOR_TEXT_MENU_SELECTED, item->content.c_str());
@@ -562,7 +549,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     PKGI_COLOR_SELECTED_BACKGROUND);
         }
 
-        pkgi_draw_text(col_titleid, y, PKGI_COLOR_HLINE, titleid);
+        pkgi_draw_text(col_titleid, y, colorTextGray, titleid);
         const char* region;
         switch (pkgi_get_region(item->titleid))
         {
@@ -585,14 +572,14 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             region = "???";
             break;
         }
-        pkgi_draw_text(col_region, y, PKGI_COLOR_HLINE, region);
+        pkgi_draw_text(col_region, y, colorTextGray, region);
         if (item->presence == PresenceIncomplete)
         {
-            pkgi_draw_text(col_installed, y, PKGI_COLOR_HLINE, PKGI_UTF8_PARTIAL);
+            pkgi_draw_text(col_installed, y, colorTextGray, PKGI_UTF8_PARTIAL);
         }
         else if (item->presence == PresenceInstalled)
         {
-            pkgi_draw_text(col_installed, y, PKGI_COLOR_HLINE, PKGI_UTF8_INSTALLED);
+            pkgi_draw_text(col_installed, y, colorTextGray, PKGI_UTF8_INSTALLED);
         }
         else if (item->presence == PresenceGamePresent)
         {
@@ -604,13 +591,13 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         }
         else if (item->presence == PresenceInstalling)
         {
-            pkgi_draw_text(col_installed, y, PKGI_COLOR_HLINE, PKGI_UTF8_INSTALLING);
+            pkgi_draw_text(col_installed, y, colorTextGray, PKGI_UTF8_INSTALLING);
         }
         pkgi_draw_text(
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         sizew,
                 y,
-                PKGI_COLOR_HLINE,
+                colorTextGray,
                 size_str);
         pkgi_clip_remove();
 
@@ -1219,12 +1206,24 @@ int main()
         io.Fonts->TexID = font_texture;
 
         // подключене своего стиля
-        // ImGui::StyleColorsCustom()
         ImGuiStyle* style = &ImGui::GetStyle();
         style->Colors[ImGuiCol_Button] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_ButtonHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_ButtonActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+
         style->Colors[ImGuiCol_Header] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
         style->Colors[ImGuiCol_HeaderHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
         style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+
+        style->Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_FrameBgActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+
+        style->Colors[ImGuiCol_CheckMark] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_SliderGrabActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_ResizeGrip] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_ResizeGripActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
 
         init_imgui();
 
