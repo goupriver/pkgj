@@ -1221,7 +1221,7 @@ int main()
         // подключене своего стиля
         // ImGui::StyleColorsCustom()
         ImGuiStyle* style = &ImGui::GetStyle();
-        style->Colors[ImGuiCol_Text] = ImVec4(0.13f, 0.8f, 0.44f, 1.00f);
+        style->Colors[ImGuiCol_Button] = ImVec4(0.13f, 0.8f, 0.44f, 1.00f);
 
         init_imgui();
 
