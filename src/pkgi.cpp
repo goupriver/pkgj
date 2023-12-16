@@ -308,8 +308,8 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
                 "Хотите загрузить его заново?", 
                 item->name)
                 .c_str(),
-        {{"Да.", [&downloader, item] { do_download(downloader, item); }},
-         {"Нет.", [] {} }});
+        {{"Да", [&downloader, item] { do_download(downloader, item); }},
+         {"Нет", [] {} }});
         return;
     }
     
