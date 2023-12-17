@@ -56,14 +56,14 @@ static const MenuEntry menu_entries[] = {
 
         {MenuRefresh, "Обновить списки", 0},
 
-        {MenuShow, "Показать PSV игры", 1},
-        {MenuShow, "Показать PSV дополнения", 2},
-        {MenuShow, "Показать PSV демо-версии", 64},
-        {MenuShow, "Показать PSV темы", 32},
-        {MenuShow, "Показать PS1 игры", 4},
-        {MenuShow, "Показать PSP игры", 8},
-        {MenuShow, "Показать PSP дополнения", 128},
-        {MenuShow, "Показать PSM игры", 16},
+        {MenuShow, " PSV Игры", 1},
+        {MenuShow, " PSV Дополнения", 2},
+        {MenuShow, " PSV Демо-версии", 64},
+        {MenuShow, " PSV Темы", 32},
+        {MenuShow, " PS1 Игры", 4},
+        {MenuShow, " PSP Игры", 8},
+        {MenuShow, " PSP Дополнения", 128},
+        {MenuShow, " PSM Игры", 16},
 };
 
 int pkgi_menu_is_open(void)
