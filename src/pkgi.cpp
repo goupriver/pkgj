@@ -1234,9 +1234,9 @@ int main()
         // style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
 
         // Строка заголовка при фокусе
-        style.Colors[ImGuiCol_TitleBg] = ImColor(165,23,69);
-        style.Colors[ImGuiCol_TitleBgActive] = ImColor(165,23,69);
-        style.Colors[ImGuiCol_TitleBgCollapsed] = ImColor(165,23,69);
+        style->Colors[ImGuiCol_TitleBg] = ImColor(165,23,69);
+        style->Colors[ImGuiCol_TitleBgActive] = ImColor(165,23,69);
+        style->Colors[ImGuiCol_TitleBgCollapsed] = ImColor(165,23,69);
 
         // style->Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
         // style->Colors[ImGuiCol_FrameBgActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
