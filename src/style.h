@@ -32,10 +32,11 @@
 // при открытии где фильтры и сортировка [styler] menu.cpp
 // #define PKGI_COLOR_MENU_BACKGROUND PKGI_COLOR(48, 48, 48)
 #define PKGI_COLOR_MENU_BACKGROUND PKGI_COLOR(18, 18, 18)
-#define PKGI_COLOR_TEXT_MENU PKGI_COLOR(255, 255, 255)
+// #define PKGI_COLOR_TEXT_MENU PKGI_COLOR(255, 255, 255)
 
 // текст выбранный в фильтрах и сортировке [styler] menu.cpp
-// #define PKGI_COLOR_TEXT_MENU_SELECTED PKGI_COLOR(0, 255, 0)
+#define PKGI_COLOR_TEXT_MENU_SELECTED PKGI_COLOR(0, 255, 0)
+#define PKGI_COLOR_TEXT_MENU PKGI_COLOR(200, 200, 200)
 #define PKGI_COLOR_TEXT PKGI_COLOR(240, 240, 240)
 
 // текст общий
@@ -68,6 +69,11 @@
 
 // цвет текста и прямоугольной области в списоке игр в фокусе
 #define PKGI_COLOR_SELECTED_BACKGROUND PKGI_COLOR(23, 23, 23)
+
+
+// цвет кнопок пс отмена зарыть открыть 
+
+#define PKGI_COLOR_PS_VITA_BUTTON PKGI_COLOR(200, 200, 200)
 
 // end
 

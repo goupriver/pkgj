@@ -81,12 +81,14 @@ void pkgi_reload();
 
 const char* pkgi_get_ok_str(void)
 {
-    return pkgi_ok_button() == PKGI_BUTTON_X ? PKGI_UTF8_X : PKGI_UTF8_O;
+    return pkgi_ok_button() == PKGI_BUTTON_X ? ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON}, "%s", PKGI_UTF8_X) :  ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON}, "%s", PKGI_UTF8_O)
+    // return pkgi_ok_button() == PKGI_BUTTON_X ? PKGI_UTF8_X : PKGI_UTF8_O;
 }
 
 const char* pkgi_get_cancel_str(void)
 {
-    return pkgi_cancel_button() == PKGI_BUTTON_O ? PKGI_UTF8_O : PKGI_UTF8_X;
+    return pkgi_ok_button() == PKGI_BUTTON_O ? ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON}, "%s", PKGI_UTF8_O) :  ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON}, "%s", PKGI_UTF8_X)
+    // return pkgi_cancel_button() == PKGI_BUTTON_O ? PKGI_UTF8_O : PKGI_UTF8_X;
 }
 
 Type mode_to_type(Mode mode)
@@ -1227,19 +1229,24 @@ int main()
         style->Colors[ImGuiCol_ButtonHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
         style->Colors[ImGuiCol_ButtonActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
 
-        style->Colors[ImGuiCol_Header] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_HeaderHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_Header] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_HeaderHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
 
-        style->Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_FrameBgActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // Строка заголовка при фокусе
+        style.Colors[ImGuiCol_TitleBg] = ImColor(165,23,69);
+        style.Colors[ImGuiCol_TitleBgActive] = ImColor(165,23,69);
+        style.Colors[ImGuiCol_TitleBgCollapsed] = ImColor(165,23,69);
 
-        style->Colors[ImGuiCol_CheckMark] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_SliderGrabActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_ResizeGrip] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_ResizeGripActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_FrameBgActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+
+        // style->Colors[ImGuiCol_CheckMark] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_SliderGrabActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_ResizeGrip] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        // style->Colors[ImGuiCol_ResizeGripActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
 
         init_imgui();
 
