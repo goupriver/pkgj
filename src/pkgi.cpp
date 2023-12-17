@@ -81,13 +81,13 @@ void pkgi_reload();
 
 const char* pkgi_get_ok_str(void)
 {
-    return pkgi_ok_button() == PKGI_BUTTON_X ? ImGui::TextColored(ImVec4{0,886.f, 0,643.f, 0,169.f, 1.f}, "%s", PKGI_UTF8_X) :  ImGui::TextColored(ImVec4{0,886.f, 0,643.f, 0,169.f, 1.f}, "%s", PKGI_UTF8_O);
+    return pkgi_ok_button() == PKGI_BUTTON_X ? ImGui::TextColored(ImVec4(0,886.f, 0,643.f, 0,169.f, 1.f), PKGI_UTF8_X) :  ImGui::TextColored(ImVec4(0,886.f, 0,643.f, 0,169.f, 1.f), PKGI_UTF8_O);
     // return pkgi_ok_button() == PKGI_BUTTON_X ? PKGI_UTF8_X : PKGI_UTF8_O;
 }
 
 const char* pkgi_get_cancel_str(void)
 {
-    return pkgi_ok_button() == PKGI_BUTTON_O ? ImGui::TextColored(ImVec4{0,886.f, 0,643.f, 0,169.f, 1.f}, "%s", PKGI_UTF8_O) :  ImGui::TextColored(ImVec4{0,886.f, 0,643.f, 0,169.f, 1.f}, "%s", PKGI_UTF8_X);
+    return pkgi_ok_button() == PKGI_BUTTON_O ? ImGui::TextColored(ImVec4(0,886.f, 0,643.f, 0,169.f, 1.f), PKGI_UTF8_O) :  ImGui::TextColored(ImVec4(0,886.f, 0,643.f, 0,169.f, 1.f), PKGI_UTF8_X);
     // return pkgi_cancel_button() == PKGI_BUTTON_O ? PKGI_UTF8_O : PKGI_UTF8_X;
 }
 
@@ -1225,18 +1225,18 @@ int main()
 
         // подключене своего стиля
         ImGuiStyle* style = &ImGui::GetStyle();
-        style->Colors[ImGuiCol_Button] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_ButtonHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        style->Colors[ImGuiCol_ButtonActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_Button] = ImVec4(0.004f, 0.831f, 0.286f, 1.00f);
+        style->Colors[ImGuiCol_ButtonHovered] = ImVec4(0.043f, 0.588f, 0.227f, 1.00f);
+        style->Colors[ImGuiCol_ButtonActive] = ImVec4(0.043f, 0.588f, 0.227f, 1.00f);
 
         // style->Colors[ImGuiCol_Header] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
         // style->Colors[ImGuiCol_HeaderHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
         // style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
 
         // Строка заголовка при фокусе
-        style->Colors[ImGuiCol_TitleBg] = ImColor(165,23,69);
-        style->Colors[ImGuiCol_TitleBgActive] = ImColor(165,23,69);
-        style->Colors[ImGuiCol_TitleBgCollapsed] = ImColor(165,23,69);
+        style->Colors[ImGuiCol_TitleBg] = ImVec4(0.004f, 0.831f, 0.286f, 1.00f);
+        style->Colors[ImGuiCol_TitleBgActive] = ImVec4(0.004f, 0.831f, 0.286f, 1.00f);
+        style->Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.004f, 0.831f, 0.286f, 1.00f);
 
         // style->Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
         // style->Colors[ImGuiCol_FrameBgActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
