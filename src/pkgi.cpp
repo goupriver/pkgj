@@ -81,14 +81,12 @@ void pkgi_reload();
 
 const char* pkgi_get_ok_str(void)
 {
-    return pkgi_ok_button() == PKGI_BUTTON_X ? ImGui::TextColored(ImVec4(0,886.f, 0,643.f, 0,169.f, 1.f), PKGI_UTF8_X) :  ImGui::TextColored(ImVec4(0,886.f, 0,643.f, 0,169.f, 1.f), PKGI_UTF8_O);
-    // return pkgi_ok_button() == PKGI_BUTTON_X ? PKGI_UTF8_X : PKGI_UTF8_O;
+    return pkgi_ok_button() == PKGI_BUTTON_X ? PKGI_UTF8_X : PKGI_UTF8_O;
 }
 
 const char* pkgi_get_cancel_str(void)
 {
-    return pkgi_ok_button() == PKGI_BUTTON_O ? ImGui::TextColored(ImVec4(0,886.f, 0,643.f, 0,169.f, 1.f), PKGI_UTF8_O) :  ImGui::TextColored(ImVec4(0,886.f, 0,643.f, 0,169.f, 1.f), PKGI_UTF8_X);
-    // return pkgi_cancel_button() == PKGI_BUTTON_O ? PKGI_UTF8_O : PKGI_UTF8_X;
+    return pkgi_cancel_button() == PKGI_BUTTON_O ? PKGI_UTF8_O : PKGI_UTF8_X;
 }
 
 Type mode_to_type(Mode mode)
