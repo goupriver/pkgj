@@ -953,20 +953,20 @@ void pkgi_do_tail(Downloader& downloader)
     //             pkgi_get_ok_str(),
     //             pkgi_get_cancel_str());
     // }
-    else
-    {
+    // else
+    // {
         // if (mode == ModeGames)
         //     bottom_text += fmt::format("{} Просмотр ", pkgi_get_ok_str());
-        else
-        {
-            DbItem* item = db->get(selected_item);
-            if (item && item->presence == PresenceInstalling)
-                bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
-            else if (item && item->presence != PresenceInstalled)
-                bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
-        }
-        bottom_text += PKGI_UTF8_T " Меню";
-    }
+    //     else
+    //     {
+    //         DbItem* item = db->get(selected_item);
+    //         if (item && item->presence == PresenceInstalling)
+    //             bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
+    //         else if (item && item->presence != PresenceInstalled)
+    //             bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
+    //     }
+    //     bottom_text += PKGI_UTF8_T " Меню";
+    // }
 
     pkgi_clip_set(
             left,
@@ -1064,6 +1064,9 @@ void pkgi_do_tail(Downloader& downloader)
                 PKGI_COLOR_PS_VITA_BUTTON_TEXT,
                 " Просмотр");
         } 
+
+        pkgi_clip_remove();
+
         // else 
         // {
         //      DbItem* item = db->get(selected_item);
