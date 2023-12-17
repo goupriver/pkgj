@@ -81,13 +81,13 @@ void pkgi_reload();
 
 const char* pkgi_get_ok_str(void)
 {
-    return pkgi_ok_button() == PKGI_BUTTON_X ? ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON}, "%s", PKGI_UTF8_X) :  ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON}, "%s", PKGI_UTF8_O);
+    return pkgi_ok_button() == PKGI_BUTTON_X ? ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON, 1.f}, "%s", PKGI_UTF8_X) :  ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON, 1.f}, "%s", PKGI_UTF8_O);
     // return pkgi_ok_button() == PKGI_BUTTON_X ? PKGI_UTF8_X : PKGI_UTF8_O;
 }
 
 const char* pkgi_get_cancel_str(void)
 {
-    return pkgi_ok_button() == PKGI_BUTTON_O ? ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON}, "%s", PKGI_UTF8_O) :  ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON}, "%s", PKGI_UTF8_X);
+    return pkgi_ok_button() == PKGI_BUTTON_O ? ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON, 1.f}, "%s", PKGI_UTF8_O) :  ImGui::TextColored(ImVec4{PKGI_COLOR_PS_VITA_BUTTON, 1.f}, "%s", PKGI_UTF8_X);
     // return pkgi_cancel_button() == PKGI_BUTTON_O ? PKGI_UTF8_O : PKGI_UTF8_X;
 }
 
