@@ -458,8 +458,11 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
     {
         DbItem* item = db->get(i);
 
-        uint32_t color = PKGI_COLOR_TEXT;
-        uint32_t colorTextGray = PKGI_COLOR_HLINE;
+        uint32_t colorTextTitileId = PKGI_COLOR_LIST_COLOR;
+        uint32_t colorTextRegion = PKGI_COLOR_LIST_COLOR;
+        uint32_t colorTextTitile = PKGI_COLOR_LIST_COLOR;
+        uint32_t colorTextSize = PKGI_COLOR_LIST_COLOR;
+        uint32_t colorCircle = PKGI_COLOR_LIST_COLOR;
 
         const auto titleid = item->titleid.c_str();
 
@@ -535,12 +538,12 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         if (i == selected_item)
         {
-            colorTextGray = PKGI_COLOR_TEXT_MENU_SELECTED;
+            colorTextTitileId = PKGI_COLOR_LIST_TITLE_ID;
+            colorTextRegion = PKGI_COLOR_LIST_REGION;
+            colorTextTitile = PKGI_COLOR_LIST_TITLE;
+            colorTextSize = PKGI_COLOR_LIST_SIZE;
+            colorCircle = PKGI_COLOR_LIST_CIRCLE;
             
-            // 
-            //    pkgi_draw_text(0, y, PKGI_COLOR_TEXT_MENU_SELECTED, item->content.c_str());
-            // 
-
             pkgi_draw_rect(
                     0,
                     y,
@@ -549,7 +552,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     PKGI_COLOR_SELECTED_BACKGROUND);
         }
 
-        pkgi_draw_text(col_titleid, y, colorTextGray, titleid);
+        // id игры 
+        pkgi_draw_text(col_titleid, y, colorTextTitileId, titleid);
         const char* region;
         switch (pkgi_get_region(item->titleid))
         {
@@ -572,32 +576,42 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             region = "???";
             break;
         }
-        pkgi_draw_text(col_region, y, colorTextGray, region);
+
+        // регион
+        pkgi_draw_text(col_region, y, colorTextRegion, region);
+
+        // кружок 
+        // круг
         if (item->presence == PresenceIncomplete)
         {
-            pkgi_draw_text(col_installed, y, colorTextGray, PKGI_UTF8_PARTIAL);
+            pkgi_draw_text(col_installed, y, colorCircle, PKGI_UTF8_PARTIAL);
         }
+        // круг
         else if (item->presence == PresenceInstalled)
         {
-            pkgi_draw_text(col_installed, y, colorTextGray, PKGI_UTF8_INSTALLED);
+            pkgi_draw_text(col_installed, y, colorCircle, PKGI_UTF8_INSTALLED);
         }
+
+        // круг
         else if (item->presence == PresenceGamePresent)
         {
             pkgi_draw_text(
                     col_installed,
                     y,
-                    PKGI_COLOR_GAME_PRESENT,
+                    colorCircle,
                     PKGI_UTF8_INSTALLED);
         }
         else if (item->presence == PresenceInstalling)
+        // круг
         {
-            pkgi_draw_text(col_installed, y, colorTextGray, PKGI_UTF8_INSTALLING);
+            pkgi_draw_text(col_installed, y, colorCircle, PKGI_UTF8_INSTALLING);
         }
+        // размер файла
         pkgi_draw_text(
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         sizew,
                 y,
-                colorTextGray,
+                colorTextSize,
                 size_str);
         pkgi_clip_remove();
 
@@ -607,7 +621,9 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         PKGI_MAIN_COLUMN_PADDING - sizew - col_name,
                 line_height);
-        pkgi_draw_text(col_name, y, color, item->name.c_str());
+
+        // текст
+        pkgi_draw_text(col_name, y, colorTextTitile, item->name.c_str());
         pkgi_clip_remove();
 
         y += font_height + PKGI_MAIN_ROW_PADDING;
