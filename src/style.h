@@ -79,6 +79,7 @@
 // цвет кнопок пс отмена зарыть открыть 
 
 #define PKGI_COLOR_PS_VITA_BUTTON PKGI_COLOR(200, 200, 200)
+// 0,886.f, 0,643.f, 0,169.f, 1.f
 
 // end
 
