@@ -979,7 +979,7 @@ void pkgi_do_tail(Downloader& downloader)
     if(gameview || pkgi_dialog_is_open())
     {
 
-        std::char len = fmt::format("{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+        std::string len = fmt::format("{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
 
         pkgi_draw_text(
             (VITA_WIDTH - pkgi_text_width(len)) / 2,
