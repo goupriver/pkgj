@@ -1341,14 +1341,14 @@ int main()
 
         // подключене своего стиля
         ImGuiStyle* style = &ImGui::GetStyle();
-        style->Colors[ImGuiCol_Button] = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
-        style->Colors[ImGuiCol_ButtonHovered] = ImVec4(0.00f, 0.439, 0.184f, 1.00f);
-        style->Colors[ImGuiCol_ButtonActive] = ImVec4(0.00f, 0.439, 0.184f, 1.00f);
+        style->Colors[ImGuiCol_Button] = PKGI_COLOR_BUTTON;
+        style->Colors[ImGuiCol_ButtonHovered] = PKGI_COLOR_BUTTON_ACTIVE_HOVERED;
+        style->Colors[ImGuiCol_ButtonActive] = PKGI_COLOR_BUTTON_ACTIVE_HOVERED;
 
         // Строка заголовка при фокусе
-        style->Colors[ImGuiCol_TitleBg] = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
-        style->Colors[ImGuiCol_TitleBgActive] = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
-        style->Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
+        style->Colors[ImGuiCol_TitleBg] = PKGI_COLOR_WINDOW_TITLE;
+        style->Colors[ImGuiCol_TitleBgActive] = PKGI_COLOR_WINDOW_TITLE;
+        style->Colors[ImGuiCol_TitleBgCollapsed] = PKGI_COLOR_WINDOW_TITLE;
 
         init_imgui();
 
