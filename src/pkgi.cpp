@@ -872,11 +872,11 @@ void pkgi_do_tail(Downloader& downloader)
         std::string sspeed;
 
         if (speed > 1000 * 1024)
-            sspeed = fmt::format("{:.3g} MB/s", speed / 1024.f / 1024.f);
+            sspeed = fmt::format("{:.3g} МБ/с", speed / 1024.f / 1024.f);
         else if (speed > 1000)
-            sspeed = fmt::format("{:.3g} KB/s", speed / 1024.f);
+            sspeed = fmt::format("{:.3g} КБ/с", speed / 1024.f);
         else
-            sspeed = fmt::format("{} B/s", speed);
+            sspeed = fmt::format("{} Байт/с", speed);
 
         pkgi_snprintf(
                 text,
