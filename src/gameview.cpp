@@ -62,11 +62,15 @@ void GameView::render()
 
     ImGui::Text(" ");
 
-    string pkgi_c_game_version = _game_version.c_str();
-    string v_tmp;
+    // fix версия игры без пробела 
+    // TODO: перенести это в функци
+    std::string pkgi_c_game_version = _game_version.c_str();
+    std::string v_tmp;
 
     for(char c:pkgi_c_game_version) if (c != ' ') v_tmp += c;
     pkgi_c_game_version = v_tmp;
+
+    // :конец fix версия игры без пробела //
 
     ImGui::Text(fmt::format(
                         "Установлена версия: {}",
