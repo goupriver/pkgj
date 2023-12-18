@@ -1340,21 +1340,21 @@ int main()
         io.Fonts->TexID = font_texture;
 
         // подключене своего стиля
-        ImGuiStyle* style = &ImGui::GetStyle();
-        style->Colors[ImGuiCol_Button] = PKGI_COLOR_BUTTON;
-        style->Colors[ImGuiCol_ButtonHovered] = PKGI_COLOR_BUTTON_ACTIVE_HOVERED;
-        style->Colors[ImGuiCol_ButtonActive] = PKGI_COLOR_BUTTON_ACTIVE_HOVERED;
+        ImGuiStyle& style = ImGui::GetStyle();
+        style.Colors[ImGuiCol_Button] = PKGI_COLOR_BUTTON;
+        style.Colors[ImGuiCol_ButtonHovered] = PKGI_COLOR_BUTTON_ACTIVE_HOVERED;
+        style.Colors[ImGuiCol_ButtonActive] = PKGI_COLOR_BUTTON_ACTIVE_HOVERED;
 
         // Строка заголовка при фокусе
-        style->Colors[ImGuiCol_TitleBg] = PKGI_COLOR_WINDOW_TITLE;
-        style->Colors[ImGuiCol_TitleBgActive] = PKGI_COLOR_WINDOW_TITLE;
-        style->Colors[ImGuiCol_TitleBgCollapsed] = PKGI_COLOR_WINDOW_TITLE;
+        style.Colors[ImGuiCol_TitleBg] = PKGI_COLOR_WINDOW_TITLE;
+        style.Colors[ImGuiCol_TitleBgActive] = PKGI_COLOR_WINDOW_TITLE;
+        style.Colors[ImGuiCol_TitleBgCollapsed] = PKGI_COLOR_WINDOW_TITLE;
 
         // ФОн окна и всплывахи
-        style->Colors[ImGuiCol_WindowBg] = PKGI_COLOR_WINDOW_BG;
-        style->Colors[ImGuiCol_ChildBg] = PKGI_COLOR_WINDOW_BG_CHILD;
-        style->Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
-        style->Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER;
+        style.Colors[ImGuiCol_WindowBg] = PKGI_COLOR_WINDOW_BG;
+        style.Colors[ImGuiCol_ChildBg] = PKGI_COLOR_WINDOW_BG_CHILD;
+        style.Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
+        style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER;
 
         style.WindowBorderSize = 0.0f;
         style.ChildBorderSize = 0.0f;
