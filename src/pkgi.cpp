@@ -996,53 +996,53 @@ void pkgi_do_tail(Downloader& downloader)
             " Выбор");
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len + " Выбор" + pkgi_get_cancel_str().c_str())) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str()).c_str())) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON,
-            pkgi_get_cancel_str().c_str());
+            fmt::format("{}", pkgi_get_cancel_str()).c_str());
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len + " Выбор" + pkgi_get_cancel_str().c_str() + " Отмена")) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str() + " Отмена")).c_str()) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Отмена");
     } else if (pkgi_menu_is_open()) 
     {
 
-        std::string len = fmt::format("{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str()).c_str();
+        len = fmt::format("{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len)) / 2,
+            (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON,
-            pkgi_get_ok_str().c_str());
+            fmt::format("{}", pkgi_get_ok_str()).c_str());
         
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len + " Выбор")) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор")).c_str()) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Выбор  ");
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len + " Выбор" + PKGI_UTF8_T)) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T).c_str())) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON,
-            PKGI_UTF8_T.c_str());
+            fmt::format("{}", PKGI_UTF8_T).c_str());
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len + " Выбор" + PKGI_UTF8_T + " Сохранить  ")) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  ")).c_str()) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Сохранить  ");
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str().c_str())) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str()).c_str())) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON,
-            pkgi_get_cancel_str.c_str());
+            fmt::format("{}", pkgi_get_ok_str()).c_str());
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len + " Выбор" + PKGI_UTF8_T.c_str() + " Сохранить  " + + pkgi_get_cancel_str().c_str() + " Отмена")) / 2,
+            (VITA_WIDTH - pkgi_text_width(((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str() + " Отмена"))).c_str()) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Отмена  ");
@@ -1052,16 +1052,16 @@ void pkgi_do_tail(Downloader& downloader)
         if (mode == ModeGames) 
         {
 
-            std::string len = fmt::format("{} Просмотр ", pkgi_get_ok_str()).c_str();
+            len = fmt::format("{} Просмотр ", pkgi_get_ok_str());
 
             pkgi_draw_text(
-                (VITA_WIDTH - pkgi_text_width(len)) / 2,
+                (VITA_WIDTH - pkgi_text_width((len).c_str())) / 2,
                 second_line,
                 PKGI_COLOR_PS_VITA_BUTTON,
-                pkgi_get_ok_str().c_str());
+                fmt::format("{}", pkgi_get_cancel_str).c_str());
             
             pkgi_draw_text(
-                (VITA_WIDTH - pkgi_text_width(len + " Просмотр")) / 2,
+                (VITA_WIDTH - pkgi_text_width((len + " Просмотр").c_str())) / 2,
                 second_line,
                 PKGI_COLOR_PS_VITA_BUTTON_TEXT,
                 " Просмотр");
