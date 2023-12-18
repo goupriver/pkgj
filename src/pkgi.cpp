@@ -1350,6 +1350,12 @@ int main()
         style->Colors[ImGuiCol_TitleBgActive] = PKGI_COLOR_WINDOW_TITLE;
         style->Colors[ImGuiCol_TitleBgCollapsed] = PKGI_COLOR_WINDOW_TITLE;
 
+        // ФОн окна и всплывахи
+        style->Colors[ImGuiCol_WindowBg] = PKGI_COLOR_WINDOW_BG;
+        style->Colors[ImGuiCol_ChildBg] = PKGI_COLOR_WINDOW_BG_CHILD;
+        style->Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
+        style->Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER;
+
         init_imgui();
 
         pkgi_input input;
