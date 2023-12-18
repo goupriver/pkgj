@@ -166,9 +166,7 @@ void GameView::render()
 
 static const auto Red = ImVec4(1.0f, 0.2f, 0.2f, 1.0f);
 static const auto Yellow = ImVec4(1.0f, 1.0f, 0.0f, 1.0f);
-// static const auto Green = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
-static const auto Green = ImVec4(0.961f, 0.792f, 0.271f, 1.00f);
-
+static const auto Green = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
 
 void GameView::printDiagnostic()
 {
