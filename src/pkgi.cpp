@@ -938,44 +938,45 @@ void pkgi_do_tail(Downloader& downloader)
 //  ИСХОДНИК КНОПОК 
 //  КОПИЯ
 
-    // pkgi_clip_set(
-    //         left,
-    //         second_line,
-    //         VITA_WIDTH - right - left,
-    //         VITA_HEIGHT - second_line);
+    pkgi_clip_set(
+            left,
+            second_line,
+            VITA_WIDTH - right - left,
+            VITA_HEIGHT - second_line);
 
     // ////
 
-    // std::string len;
+    std::string len;
 
-    // if(gameview || pkgi_dialog_is_open())
-    // {
+    if(gameview || pkgi_dialog_is_open())
+    {
 
-    //     len = fmt::format("{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+        len = fmt::format("{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
 
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON,
-    //         fmt::format("{}", pkgi_get_ok_str()).c_str());
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
+            second_line,
+            PKGI_COLOR_PS_VITA_BUTTON,
+            fmt::format("{}", pkgi_get_ok_str()).c_str());
         
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор").c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-    //         " Выбор");
+        // pkgi_draw_text(
+        //     (VITA_WIDTH - pkgi_text_width((len + " Выбор").c_str())) / 2,
+        //     second_line,
+        //     PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+        //     " Выбор");
 
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str()).c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON,
-    //         fmt::format("{}", pkgi_get_cancel_str()).c_str());
+        // pkgi_draw_text(
+        //     (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str()).c_str())) / 2,
+        //     second_line,
+        //     PKGI_COLOR_PS_VITA_BUTTON,
+        //     fmt::format("{}", pkgi_get_cancel_str()).c_str());
 
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str() + " Отмена").c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-    //         " Отмена");
+        // pkgi_draw_text(
+        //     (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str() + " Отмена").c_str())) / 2,
+        //     second_line,
+        //     PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+        //     " Отмена");
+    }
     // } else if (pkgi_menu_is_open()) 
     // {
 
@@ -1037,7 +1038,7 @@ void pkgi_do_tail(Downloader& downloader)
     //             " Просмотр");
     //     } 
 
-    //     pkgi_clip_remove();
+    pkgi_clip_remove();
 
         // else 
         // {
@@ -1052,45 +1053,45 @@ void pkgi_do_tail(Downloader& downloader)
 
     // конец исходника кнопок
 
-    std::string bottom_text;
-    if (gameview || pkgi_dialog_is_open())
-    {
-        bottom_text = fmt::format(
-                "{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
-    }
-    else if (pkgi_menu_is_open())
-    {
-        bottom_text = fmt::format(
-                "{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена",
-                pkgi_get_ok_str(),
-                pkgi_get_cancel_str());
-    }
-    else
-    {
-        if (mode == ModeGames)
-            bottom_text += fmt::format("{} Просмотр ", pkgi_get_ok_str());
-        else
-        {
-            DbItem* item = db->get(selected_item);
-            if (item && item->presence == PresenceInstalling)
-                bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
-            else if (item && item->presence != PresenceInstalled)
-                bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
-        }
-        bottom_text += PKGI_UTF8_T " Меню";
-    }
+    // std::string bottom_text;
+    // if (gameview || pkgi_dialog_is_open())
+    // {
+    //     bottom_text = fmt::format(
+    //             "{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+    // }
+    // else if (pkgi_menu_is_open())
+    // {
+    //     bottom_text = fmt::format(
+    //             "{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена",
+    //             pkgi_get_ok_str(),
+    //             pkgi_get_cancel_str());
+    // }
+    // else
+    // {
+    //     if (mode == ModeGames)
+    //         bottom_text += fmt::format("{} Просмотр ", pkgi_get_ok_str());
+    //     else
+    //     {
+    //         DbItem* item = db->get(selected_item);
+    //         if (item && item->presence == PresenceInstalling)
+    //             bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
+    //         else if (item && item->presence != PresenceInstalled)
+    //             bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
+    //     }
+    //     bottom_text += PKGI_UTF8_T " Меню";
+    // }
 
-    pkgi_clip_set(
-            left,
-            second_line,
-            VITA_WIDTH - right - left,
-            VITA_HEIGHT - second_line);
-    pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
-            second_line,
-            PKGI_COLOR_TEXT_TAIL,
-            bottom_text.c_str());
-    pkgi_clip_remove();
+    // pkgi_clip_set(
+    //         left,
+    //         second_line,
+    //         VITA_WIDTH - right - left,
+    //         VITA_HEIGHT - second_line);
+    // pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_TEXT_TAIL,
+    //         bottom_text.c_str());
+    // pkgi_clip_remove();
 }
 
 void pkgi_do_error(void)
