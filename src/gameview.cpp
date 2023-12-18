@@ -269,7 +269,7 @@ void GameView::start_download_package()
         LOGF("[{}] {} - already installed", _item->titleid, _item->name);
         pkgi_dialog_question(
         fmt::format(
-                "{} уже установлено."
+                "{} уже установлено. "
                 "Хотите загрузить его заново?",
                 _item->name)
                 .c_str(),

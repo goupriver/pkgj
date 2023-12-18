@@ -23,14 +23,14 @@ std::string pkgi_mode_to_string(Mode mode)
 #define RET(mode, str) \
     case Mode##mode:   \
         return str
-        RET(Games, "PSV игры");
-        RET(Dlcs, "PSV дополнения");
-        RET(Demos, "PSV демо-версии");
-        RET(Themes, "PSV темы");
-        RET(PsmGames, "PSM игры");
-        RET(PsxGames, "PS1 игры");
-        RET(PspGames, "PSP игры");
-        RET(PspDlcs, "PSP дополнения");
+        RET(Games, "PSV Игры");
+        RET(Dlcs, "PSV Дополнения");
+        RET(Demos, "PSV Демо-версии");
+        RET(Themes, "PSV Темы");
+        RET(PsmGames, "PSM Игры");
+        RET(PsxGames, "PS1 Игры");
+        RET(PspGames, "PSP Игры");
+        RET(PspDlcs, "PSP Дополнения");
 #undef RET
     }
     return "unknown mode";

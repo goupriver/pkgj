@@ -304,7 +304,7 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
         LOGF("[{}] {} - already installed", item->content, item->name);
         pkgi_dialog_question(
         fmt::format(
-                "{} уже установлено."
+                "{} уже установлено. "
                 "Хотите загрузить его заново?", 
                 item->name)
                 .c_str(),
@@ -1016,27 +1016,27 @@ void pkgi_do_tail(Downloader& downloader)
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Отмена  ");
-
-    } else 
-    {
-        if (mode == ModeGames) 
-        {
-
-            len = fmt::format("{} Просмотр ", pkgi_get_ok_str());
-
-            pkgi_draw_text(
-                (VITA_WIDTH - pkgi_text_width((len).c_str())) / 2,
-                second_line,
-                PKGI_COLOR_PS_VITA_BUTTON,
-                fmt::format("{}", pkgi_get_cancel_str).c_str());
-            
-            pkgi_draw_text(
-                (VITA_WIDTH - pkgi_text_width((len + " Просмотр").c_str())) / 2,
-                second_line,
-                PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-                " Просмотр");
-        } 
     }
+    // } else 
+    // {
+    //     if (mode == ModeGames) 
+    //     {
+
+    //         len = fmt::format("{} Просмотр ", pkgi_get_ok_str());
+
+    //         pkgi_draw_text(
+    //             (VITA_WIDTH - pkgi_text_width((len).c_str())) / 2,
+    //             second_line,
+    //             PKGI_COLOR_PS_VITA_BUTTON,
+    //             fmt::format("{}", pkgi_get_cancel_str).c_str());
+            
+    //         pkgi_draw_text(
+    //             (VITA_WIDTH - pkgi_text_width((len + " Просмотр").c_str())) / 2,
+    //             second_line,
+    //             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+    //             " Просмотр");
+    //     } 
+    // }
 
     pkgi_clip_remove();
 
@@ -1341,28 +1341,14 @@ int main()
 
         // подключене своего стиля
         ImGuiStyle* style = &ImGui::GetStyle();
-        style->Colors[ImGuiCol_Button] = ImVec4(0.004f, 0.831f, 0.286f, 1.00f);
-        style->Colors[ImGuiCol_ButtonHovered] = ImVec4(0.043f, 0.588f, 0.227f, 1.00f);
-        style->Colors[ImGuiCol_ButtonActive] = ImVec4(0.043f, 0.588f, 0.227f, 1.00f);
-
-        // style->Colors[ImGuiCol_Header] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        // style->Colors[ImGuiCol_HeaderHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        // style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_Button] = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
+        style->Colors[ImGuiCol_ButtonHovered] = ImVec4(0.00f, 0.439, 0.184f, 1.00f);
+        style->Colors[ImGuiCol_ButtonActive] = ImVec4(0.00f, 0.439, 0.184f, 1.00f);
 
         // Строка заголовка при фокусе
-        style->Colors[ImGuiCol_TitleBg] = ImVec4(0.004f, 0.831f, 0.286f, 1.00f);
-        style->Colors[ImGuiCol_TitleBgActive] = ImVec4(0.004f, 0.831f, 0.286f, 1.00f);
-        style->Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.004f, 0.831f, 0.286f, 1.00f);
-
-        // style->Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        // style->Colors[ImGuiCol_FrameBgActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        // style->Colors[ImGuiCol_HeaderActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-
-        // style->Colors[ImGuiCol_CheckMark] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        // style->Colors[ImGuiCol_SliderGrabActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        // style->Colors[ImGuiCol_ResizeGrip] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        // style->Colors[ImGuiCol_ResizeGripHovered] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
-        // style->Colors[ImGuiCol_ResizeGripActive] = ImVec4(0.024f, 0.565f, 0.267f, 1.00f);
+        style->Colors[ImGuiCol_TitleBg] = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
+        style->Colors[ImGuiCol_TitleBgActive] = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
+        style->Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
 
         init_imgui();
 

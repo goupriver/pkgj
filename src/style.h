@@ -15,10 +15,10 @@
 #define PKGI_UTF8_PARTIAL "\xe2\x97\x8b" // 0x25cb
 #define PKGI_COLOR_GAME_PRESENT PKGI_COLOR(50, 50, 255)
 
-#define PKGI_UTF8_B "B"
-#define PKGI_UTF8_KB "K" // "\xe3\x8e\x85" // 0x3385
-#define PKGI_UTF8_MB "M" // "\xe3\x8e\x86" // 0x3386
-#define PKGI_UTF8_GB "G" // "\xe3\x8e\x87" // 0x3387
+#define PKGI_UTF8_B "Байт"
+#define PKGI_UTF8_KB "Кб" // "\xe3\x8e\x85" // 0x3385
+#define PKGI_UTF8_MB "Мб" // "\xe3\x8e\x86" // 0x3386
+#define PKGI_UTF8_GB "Гб" // "\xe3\x8e\x87" // 0x3387
 
 #define PKGI_UTF8_CLEAR "\xc3\x97" // 0x00d7
 
@@ -35,7 +35,7 @@
 // #define PKGI_COLOR_TEXT_MENU PKGI_COLOR(255, 255, 255)
 
 // текст выбранный в фильтрах и сортировке [styler] menu.cpp
-#define PKGI_COLOR_TEXT_MENU_SELECTED PKGI_COLOR(0, 255, 0)
+#define PKGI_COLOR_TEXT_MENU_SELECTED PKGI_COLOR(250, 221, 0)
 #define PKGI_COLOR_TEXT_MENU PKGI_COLOR(200, 200, 200)
 #define PKGI_COLOR_TEXT PKGI_COLOR(240, 240, 240)
 
@@ -67,9 +67,9 @@
 // текст списоку игр
 #define PKGI_COLOR_LIST_COLOR PKGI_COLOR(200, 200, 200)
 #define PKGI_COLOR_LIST_TITLE_ID PKGI_COLOR(6, 144, 68)
-#define PKGI_COLOR_LIST_REGION PKGI_COLOR(226, 150, 50) 
-#define PKGI_COLOR_LIST_TITLE PKGI_COLOR(200, 200, 200)
-#define PKGI_COLOR_LIST_SIZE PKGI_COLOR(128, 255, 0)
+#define PKGI_COLOR_LIST_REGION PKGI_COLOR(250, 221, 0) 
+#define PKGI_COLOR_LIST_TITLE PKGI_COLOR(250, 221, 0)
+#define PKGI_COLOR_LIST_SIZE PKGI_COLOR(226, 150, 50)
 #define PKGI_COLOR_LIST_CIRCLE PKGI_COLOR(250, 221, 0)
 
 // цвет текста и прямоугольной области в списоке игр в фокусе
