@@ -965,59 +965,59 @@ void pkgi_do_tail(Downloader& downloader)
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Выбор");
 
-        // pkgi_draw_text(
-        //     (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str()).c_str())) / 2,
-        //     second_line,
-        //     PKGI_COLOR_PS_VITA_BUTTON,
-        //     fmt::format("{}", pkgi_get_cancel_str()).c_str());
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str()).c_str())) / 2,
+            second_line,
+            PKGI_COLOR_PS_VITA_BUTTON,
+            fmt::format("{}", pkgi_get_cancel_str()).c_str());
 
-        // pkgi_draw_text(
-        //     (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str() + " Отмена").c_str())) / 2,
-        //     second_line,
-        //     PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-        //     " Отмена");
-    }
-    // } else if (pkgi_menu_is_open()) 
-    // {
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str() + " Отмена").c_str())) / 2,
+            second_line,
+            PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+            " Отмена");
+    } else if (pkgi_menu_is_open()) 
+    {
 
-    //     len = fmt::format("{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+        len = fmt::format("{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
 
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON,
-    //         fmt::format("{}", pkgi_get_ok_str()).c_str());
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
+            second_line,
+            PKGI_COLOR_PS_VITA_BUTTON,
+            fmt::format("{}", pkgi_get_ok_str()).c_str());
         
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор").c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-    //         " Выбор  ");
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор").c_str())) / 2,
+            second_line,
+            PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+            " Выбор  ");
 
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T).c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON,
-    //         fmt::format("{}", PKGI_UTF8_T).c_str());
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T).c_str())) / 2,
+            second_line,
+            PKGI_COLOR_PS_VITA_BUTTON,
+            fmt::format("{}", PKGI_UTF8_T).c_str());
 
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  ").c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-    //         " Сохранить  ");
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  ").c_str())) / 2,
+            second_line,
+            PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+            " Сохранить  ");
 
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str()).c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON,
-    //         fmt::format("{}", pkgi_get_ok_str()).c_str());
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str()).c_str())) / 2,
+            second_line,
+            PKGI_COLOR_PS_VITA_BUTTON,
+            fmt::format("{}", pkgi_get_ok_str()).c_str());
 
-    //     pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width(((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str() + " Отмена").c_str()))) / 2,
-    //         second_line,
-    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-    //         " Отмена  ");
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width(((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str() + " Отмена").c_str()))) / 2,
+            second_line,
+            PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+            " Отмена  ");
 
+    }
     // } else 
     // {
     //     if (mode == ModeGames) 
