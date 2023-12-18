@@ -976,13 +976,15 @@ void pkgi_do_tail(Downloader& downloader)
 
     ////
 
+    std::char len[];
+
     if(gameview || pkgi_dialog_is_open())
     {
 
-        std::string len = fmt::format("{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+        len = (fmt::format("{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str())).c_str();
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len)) / 2,
+            (VITA_WIDTH - strlen(len)) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON,
             pkgi_get_ok_str().c_str());
