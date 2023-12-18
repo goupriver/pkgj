@@ -316,7 +316,7 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
         {{"Да", [&downloader, item] { do_download(downloader, item); }},
          {"Нет", [] {} }});
 
-        ImGui::PopStyleVar();
+        // ImGui::PopStyleVar();
 
         return;
     }
