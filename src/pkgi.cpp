@@ -1017,26 +1017,26 @@ void pkgi_do_tail(Downloader& downloader)
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Отмена  ");
 
-    }
-    // } else 
-    // {
-    //     if (mode == ModeGames) 
-    //     {
+    } else 
+    {
+        if (mode == ModeGames) 
+        {
 
-    //         len = fmt::format("{} Просмотр ", pkgi_get_ok_str());
+            len = fmt::format("{} Просмотр ", pkgi_get_ok_str());
 
-    //         pkgi_draw_text(
-    //             (VITA_WIDTH - pkgi_text_width((len).c_str())) / 2,
-    //             second_line,
-    //             PKGI_COLOR_PS_VITA_BUTTON,
-    //             fmt::format("{}", pkgi_get_cancel_str).c_str());
+            pkgi_draw_text(
+                (VITA_WIDTH - pkgi_text_width((len).c_str())) / 2,
+                second_line,
+                PKGI_COLOR_PS_VITA_BUTTON,
+                fmt::format("{}", pkgi_get_cancel_str).c_str());
             
-    //         pkgi_draw_text(
-    //             (VITA_WIDTH - pkgi_text_width((len + " Просмотр").c_str())) / 2,
-    //             second_line,
-    //             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-    //             " Просмотр");
-    //     } 
+            pkgi_draw_text(
+                (VITA_WIDTH - pkgi_text_width((len + " Просмотр").c_str())) / 2,
+                second_line,
+                PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+                " Просмотр");
+        } 
+    }
 
     pkgi_clip_remove();
 
