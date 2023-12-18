@@ -301,6 +301,11 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
 {
     if (item->presence == PresenceInstalled)
     {
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f)
+        ImGui::PushStyleVar(ImGuiStyleVar_ChildBorderSize, 0.0f)
+        ImGui::PushStyleVar(ImGuiStyleVar_PopupBorderSize, 0.0f)
+        ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 0.0f)
+
         LOGF("[{}] {} - already installed", item->content, item->name);
         pkgi_dialog_question(
         fmt::format(
@@ -310,6 +315,9 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
                 .c_str(),
         {{"Да", [&downloader, item] { do_download(downloader, item); }},
          {"Нет", [] {} }});
+
+        ImGui::PopStyleVar();
+
         return;
     }
     
@@ -1356,10 +1364,10 @@ int main()
         style.Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
         style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER;
 
-        style.WindowBorderSize = 0;
-        style.ChildBorderSize = 0;
-        style.PopupBorderSize = 0;
-        style.FrameBorderSize = 0;
+        // style.WindowBorderSize = 0;
+        // style.ChildBorderSize = 0;
+        // style.PopupBorderSize = 0;
+        // style.FrameBorderSize = 0;
 
         init_imgui();
 
