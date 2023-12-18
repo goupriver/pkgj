@@ -1048,7 +1048,7 @@ void pkgi_do_tail(Downloader& downloader)
         //         bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
 
         // } 
-    }
+    // }
 
     // конец исходника кнопок
 
