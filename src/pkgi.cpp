@@ -1356,6 +1356,11 @@ int main()
         style->Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
         style->Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER;
 
+        style.WindowBorderSize = 0.0f;
+        style.ChildBorderSize = 0.0f;
+        style.PopupBorderSize = 0.0f;
+        style.FrameBorderSize = 0.0f;
+
         init_imgui();
 
         pkgi_input input;
