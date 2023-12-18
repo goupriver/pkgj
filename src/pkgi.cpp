@@ -301,10 +301,10 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
 {
     if (item->presence == PresenceInstalled)
     {
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f)
-        ImGui::PushStyleVar(ImGuiStyleVar_ChildBorderSize, 0.0f)
-        ImGui::PushStyleVar(ImGuiStyleVar_PopupBorderSize, 0.0f)
-        ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 0.0f)
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+        ImGui::PushStyleVar(ImGuiStyleVar_ChildBorderSize, 0.0f);
+        ImGui::PushStyleVar(ImGuiStyleVar_PopupBorderSize, 0.0f);
+        ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 0.0f);
 
         LOGF("[{}] {} - already installed", item->content, item->name);
         pkgi_dialog_question(
