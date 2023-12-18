@@ -1002,7 +1002,7 @@ void pkgi_do_tail(Downloader& downloader)
             fmt::format("{}", pkgi_get_cancel_str()).c_str());
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str() + " Отмена")).c_str()) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str() + " Отмена").c_str())) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Отмена");
@@ -1018,7 +1018,7 @@ void pkgi_do_tail(Downloader& downloader)
             fmt::format("{}", pkgi_get_ok_str()).c_str());
         
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор")).c_str()) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор").c_str())) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Выбор  ");
@@ -1030,7 +1030,7 @@ void pkgi_do_tail(Downloader& downloader)
             fmt::format("{}", PKGI_UTF8_T).c_str());
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  ")).c_str()) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  ").c_str())) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Сохранить  ");
@@ -1042,7 +1042,7 @@ void pkgi_do_tail(Downloader& downloader)
             fmt::format("{}", pkgi_get_ok_str()).c_str());
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str() + " Отмена"))).c_str()) / 2,
+            (VITA_WIDTH - pkgi_text_width(((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str() + " Отмена").c_str()))) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Отмена  ");
