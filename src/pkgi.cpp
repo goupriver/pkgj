@@ -458,11 +458,11 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
     {
         DbItem* item = db->get(i);
 
-        uint32_t colorTextTitileId = PKGI_COLOR_LIST_COLOR;
-        uint32_t colorTextRegion = PKGI_COLOR_LIST_COLOR;
+        uint32_t colorTextTitileId = PKGI_COLOR_LIST_TITLE_ID_UNACTIVE;
+        uint32_t colorTextRegion = PKGI_COLOR_LIST_REGION_UNACTIVE;
         uint32_t colorTextTitile = PKGI_COLOR_LIST_COLOR;
-        uint32_t colorTextSize = PKGI_COLOR_LIST_COLOR;
-        uint32_t colorCircle = PKGI_COLOR_LIST_COLOR;
+        uint32_t colorTextSize = PKGI_COLOR_LIST_SIZE_UNACTIVE;
+        uint32_t colorCircle = PKGI_COLOR_LIST_CIRCLE_UNACTIVE;
 
         const auto titleid = item->titleid.c_str();
 
