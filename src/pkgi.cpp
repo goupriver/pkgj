@@ -20,8 +20,6 @@ extern "C"
 #include "vitahttp.hpp"
 #include "zrif.hpp"
 #include "psm.hpp"
-#include <iostream>
-#include <typeinfo>
 
 #include <vita2d.h>
 
@@ -985,10 +983,6 @@ void pkgi_do_tail(Downloader& downloader)
 
         len = fmt::format("{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
 
-        std::cout << len << std::endl;
-        std::cout << typeid(len).name() << std::endl;
-
-
         pkgi_draw_text(
             (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
             second_line,
@@ -996,7 +990,7 @@ void pkgi_do_tail(Downloader& downloader)
             fmt::format("{}", pkgi_get_ok_str()).c_str());
         
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len + " Выбор")) / 2,
+            (VITA_WIDTH - pkgi_text_width((len + " Выбор")).c_str()) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON_TEXT,
             " Выбор");
