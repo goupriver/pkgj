@@ -62,9 +62,15 @@ void GameView::render()
 
     ImGui::Text(" ");
 
+    string pkgi_c_game_version = _game_version.c_str();
+    string v_tmp;
+
+    for(char c:pkgi_c_game_version) if (c != ' ') v_tmp += c;
+    pkgi_c_game_version = v_tmp;
+
     ImGui::Text(fmt::format(
                         "Установлена версия: {}",
-                        _game_version.empty() ? "не установлена" : _game_version)
+                        _game_version.empty() ? "не установлена" : pkgi_c_game_version)
                         .c_str());
     if (_comppack_versions.present && _comppack_versions.base.empty() &&
         _comppack_versions.patch.empty())
