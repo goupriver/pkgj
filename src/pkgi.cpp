@@ -993,7 +993,7 @@ void pkgi_do_tail(Downloader& downloader)
             (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
             second_line,
             PKGI_COLOR_PS_VITA_BUTTON,
-            pkgi_get_ok_str().c_str());
+            fmt::format("{}", pkgi_get_ok_str()).c_str());
         
         pkgi_draw_text(
             (VITA_WIDTH - pkgi_text_width(len + " Выбор")) / 2,
