@@ -47,7 +47,7 @@
 #define PKGI_COLOR_TEXT_ERROR PKGI_COLOR(255, 50, 50)
 
 // полоска сверху и снизу
-#define PKGI_COLOR_HLINE PKGI_COLOR(113, 131, 140)
+#define PKGI_COLOR_HLINE PKGI_COLOR(0, 0, 0)
 // #define PKGI_COLOR_HLINE PKGI_COLOR(200, 200, 200)
 #define PKGI_COLOR_SCROLL_BAR PKGI_COLOR(255, 255, 255)
 #define PKGI_COLOR_BATTERY_LOW PKGI_COLOR(255, 50, 50)
@@ -77,7 +77,7 @@
 #define PKGI_COLOR_HIGHLIGHT ImVec4(0.051f, 0.051f, 0.051f, 0.00f)
 
 //
-#define PKGI_COLOR_HEAD_HLINE PKGI_COLOR(255, 255, 255)
+#define PKGI_COLOR_HEAD_HLINE PKGI_COLOR(0, 0, 0)
 
 //
 // текст списоку игр
@@ -109,9 +109,9 @@
 #define PKGI_ANIMATION_SPEED 4000 // px/second
 
 #define PKGI_MAIN_COLUMN_PADDING 10
-#define PKGI_MAIN_HLINE_EXTRA 0  // не забывыть убрать
+#define PKGI_MAIN_HLINE_EXTRA 5  // не забывыть убрать
 #define PKGI_MAIN_ROW_PADDING 2
-#define PKGI_MAIN_HLINE_HEIGHT 0 // не забывыть убрать
+#define PKGI_MAIN_HLINE_HEIGHT 2 // не забывыть убрать
 #define PKGI_MAIN_TEXT_PADDING 5
 #define PKGI_MAIN_SCROLL_WIDTH 2
 #define PKGI_MAIN_SCROLL_PADDING 2

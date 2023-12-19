@@ -762,7 +762,7 @@ void pkgi_do_head(void)
             0,
             font_height,
             VITA_WIDTH,
-            10,
+            PKGI_MAIN_HLINE_HEIGHT,
             PKGI_COLOR_HEAD_HLINE);
 
     int rightw;
