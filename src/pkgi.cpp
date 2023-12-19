@@ -760,10 +760,10 @@ void pkgi_do_head(void)
 
     pkgi_draw_rect(
             0,
-            font_height + 1,
+            font_height,
             VITA_WIDTH,
-            PKGI_MAIN_HLINE_HEIGHT,
-            PKGI_COLOR_HLINE);
+            1,
+            PKGI_COLOR_HEAD_HLINE);
 
     int rightw;
     if (pkgi_battery_present())
