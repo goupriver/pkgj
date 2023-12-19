@@ -760,7 +760,7 @@ void pkgi_do_head(void)
 
     pkgi_draw_rect(
             0,
-            font_height + 2,
+            font_height + 1,
             VITA_WIDTH,
             PKGI_MAIN_HLINE_HEIGHT,
             PKGI_COLOR_HLINE);
