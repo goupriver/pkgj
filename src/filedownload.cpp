@@ -40,7 +40,7 @@ void FileDownload::start_download()
 void FileDownload::download_data(uint32_t size)
 {
     if (is_canceled())
-        throw std::runtime_error("download was canceled");
+        throw std::runtime_error("Загрузка отменена");
 
     if (size == 0)
         return;

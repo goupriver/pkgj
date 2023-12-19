@@ -385,7 +385,7 @@ void Download::download_data(
         uint8_t* buffer, uint32_t size, int encrypted, int save)
 {
     if (is_canceled())
-        throw std::runtime_error("download was canceled");
+        throw std::runtime_error("Загрузка отменена");
 
     if (size == 0)
         return;
@@ -877,7 +877,7 @@ int Download::download_files(void)
     for (; item_index < index_count; ++item_index)
     {
         if (is_canceled())
-            throw std::runtime_error("download was canceled");
+            throw std::runtime_error("Загрузка отменена");
 
         uint8_t item[32];
         pkgi_memcpy(
