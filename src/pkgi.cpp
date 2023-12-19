@@ -1396,11 +1396,11 @@ int main()
         // style.Colors[ImGuiCol_ResizeGrip]             = ImVec4(0.35f, 0.35f, 0.35f, 0.00f);
         // style.Colors[ImGuiCol_ResizeGripHovered]      = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
         // style.Colors[ImGuiCol_ResizeGripActive]       = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        style.Colors[ImGuiCol_Tab]                    = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
-        style.Colors[ImGuiCol_TabHovered]             = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
-        style.Colors[ImGuiCol_TabActive]              = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
-        style.Colors[ImGuiCol_TabUnfocused]           = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
-        style.Colors[ImGuiCol_TabUnfocusedActive]     = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
+        // style.Colors[ImGuiCol_Tab]                    = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
+        // style.Colors[ImGuiCol_TabHovered]             = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
+        // style.Colors[ImGuiCol_TabActive]              = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
+        // style.Colors[ImGuiCol_TabUnfocused]           = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
+        // style.Colors[ImGuiCol_TabUnfocusedActive]     = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
         style.Colors[ImGuiCol_PlotLines]              = ImVec4(0.39f, 0.39f, 0.39f, 0.00f);
         style.Colors[ImGuiCol_PlotLinesHovered]       = ImVec4(1.00f, 0.43f, 0.35f, 0.00f);
         style.Colors[ImGuiCol_PlotHistogram]          = ImVec4(0.90f, 0.70f, 0.00f, 0.00f);
