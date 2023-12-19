@@ -1401,7 +1401,7 @@ int main()
         // style.Colors[ImGuiCol_ButtonHovered]          = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
         // style.Colors[ImGuiCol_ButtonActive]           = ImVec4(0.06f, 0.53f, 0.98f, 0.00f);
         // style.Colors[ImGuiCol_Header]                 = ImVec4(0.949f, 0.933f, 0.047f, 1.00f);
-        style.Colors[ImGuiCol_HeaderHovered]          = ImVec4(0.231f, 0.949f, 0.00f, 1.00f);
+        style.Colors[ImGuiCol_HeaderHovered]          = ImVec4(0.231f, 0.949f, 0.00f, 0.00f);
         // style.Colors[ImGuiCol_HeaderActive]           = ImVec4(1.00f, 0.031f, 0.969f, 1.00f);
         style.Colors[ImGuiCol_Separator]              = ImVec4(0.39f, 0.39f, 0.39f, 0.00f);
         style.Colors[ImGuiCol_SeparatorHovered]       = ImVec4(0.14f, 0.44f, 0.80f, 0.00f);
