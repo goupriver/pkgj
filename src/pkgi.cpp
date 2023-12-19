@@ -941,11 +941,11 @@ void pkgi_do_tail(Downloader& downloader)
 //  ИСХОДНИК КНОПОК 
 //  КОПИЯ
 
-    pkgi_clip_set(
-            left,
-            second_line,
-            VITA_WIDTH - right - left,
-            VITA_HEIGHT - second_line);
+    // pkgi_clip_set(
+    //         left,
+    //         second_line,
+    //         VITA_WIDTH - right - left,
+    //         VITA_HEIGHT - second_line);
 
     // ////
 
@@ -1095,7 +1095,7 @@ void pkgi_do_tail(Downloader& downloader)
             PKGI_COLOR_TEXT_TAIL,
             bottom_text.c_str());
     pkgi_clip_remove();
-}
+// }
 
 void pkgi_do_error(void)
 {
