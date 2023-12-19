@@ -77,7 +77,7 @@
 #define PKGI_COLOR_HIGHLIGHT ImVec4(0.051f, 0.051f, 0.051f, 0.00f)
 
 //
-#define PKGI_COLOR_HEAD_HLINE PKGI_COLOR(0, 0, 0)
+#define PKGI_COLOR_HEAD_HLINE PKGI_COLOR(255, 255, 255)
 
 //
 // текст списоку игр
