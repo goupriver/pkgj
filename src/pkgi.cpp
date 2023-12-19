@@ -301,11 +301,6 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
 {
     if (item->presence == PresenceInstalled)
     {
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-        ImGui::PushStyleVar(ImGuiStyleVar_ChildBorderSize, 0.0f);
-        ImGui::PushStyleVar(ImGuiStyleVar_PopupBorderSize, 0.0f);
-        ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 0.0f);
-
         LOGF("[{}] {} - already installed", item->content, item->name);
         pkgi_dialog_question(
         fmt::format(
@@ -954,77 +949,77 @@ void pkgi_do_tail(Downloader& downloader)
 
     // ////
 
-    std::string len;
+    // std::string len;
 
-    if(gameview || pkgi_dialog_is_open())
-    {
+    // if(gameview || pkgi_dialog_is_open())
+    // {
 
-        len = fmt::format("{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+    //     len = fmt::format("{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
 
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON,
-            fmt::format("{}", pkgi_get_ok_str()).c_str());
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON,
+    //         fmt::format("{}", pkgi_get_ok_str()).c_str());
         
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор").c_str())) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-            " Выбор");
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор").c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+    //         " Выбор");
 
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str()).c_str())) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON,
-            fmt::format("{}", pkgi_get_cancel_str()).c_str());
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str()).c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON,
+    //         fmt::format("{}", pkgi_get_cancel_str()).c_str());
 
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str() + " Отмена").c_str())) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-            " Отмена");
-    } else if (pkgi_menu_is_open()) 
-    {
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + pkgi_get_cancel_str() + " Отмена").c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+    //         " Отмена");
+    // } else if (pkgi_menu_is_open()) 
+    // {
 
-        len = fmt::format("{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+    //     len = fmt::format("{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
 
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON,
-            fmt::format("{}", pkgi_get_ok_str()).c_str());
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width(len.c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON,
+    //         fmt::format("{}", pkgi_get_ok_str()).c_str());
         
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор").c_str())) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-            " Выбор  ");
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор").c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+    //         " Выбор  ");
 
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T).c_str())) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON,
-            fmt::format("{}", PKGI_UTF8_T).c_str());
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T).c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON,
+    //         fmt::format("{}", PKGI_UTF8_T).c_str());
 
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  ").c_str())) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-            " Сохранить  ");
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  ").c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+    //         " Сохранить  ");
 
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str()).c_str())) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON,
-            fmt::format("{}", pkgi_get_ok_str()).c_str());
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str()).c_str())) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON,
+    //         fmt::format("{}", pkgi_get_ok_str()).c_str());
 
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str() + " Отмена").c_str()))) / 2,
-            second_line,
-            PKGI_COLOR_PS_VITA_BUTTON_TEXT,
-            " Отмена  ");
-    }
+    //     pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width(((len + " Выбор" + PKGI_UTF8_T + " Сохранить  " + pkgi_get_cancel_str() + " Отмена").c_str()))) / 2,
+    //         second_line,
+    //         PKGI_COLOR_PS_VITA_BUTTON_TEXT,
+    //         " Отмена  ");
+    // }
     // } else 
     // {
     //     if (mode == ModeGames) 
@@ -1046,7 +1041,7 @@ void pkgi_do_tail(Downloader& downloader)
     //     } 
     // }
 
-    pkgi_clip_remove();
+    // pkgi_clip_remove();
 
         // else 
         // {
@@ -1061,46 +1056,46 @@ void pkgi_do_tail(Downloader& downloader)
 
     // конец исходника кнопок
 
-    // std::string bottom_text;
-    // if (gameview || pkgi_dialog_is_open())
-    // {
-    //     bottom_text = fmt::format(
-    //             "{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
-    // }
-    // else if (pkgi_menu_is_open())
-    // {
-    //     bottom_text = fmt::format(
-    //             "{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена",
-    //             pkgi_get_ok_str(),
-    //             pkgi_get_cancel_str());
-    // }
-    // else
-    // {
-    //     if (mode == ModeGames)
-    //         bottom_text += fmt::format("{} Просмотр ", pkgi_get_ok_str());
-    //     else
-    //     {
-    //         DbItem* item = db->get(selected_item);
-    //         if (item && item->presence == PresenceInstalling)
-    //             bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
-    //         else if (item && item->presence != PresenceInstalled)
-    //             bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
-    //     }
-    //     bottom_text += PKGI_UTF8_T " Меню";
-    // }
+    std::string bottom_text;
+    if (gameview || pkgi_dialog_is_open())
+    {
+        bottom_text = fmt::format(
+                "{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+    }
+    else if (pkgi_menu_is_open())
+    {
+        bottom_text = fmt::format(
+                "{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена",
+                pkgi_get_ok_str(),
+                pkgi_get_cancel_str());
+    }
+    else
+    {
+        if (mode == ModeGames)
+            bottom_text += fmt::format("{} Просмотр ", pkgi_get_ok_str());
+        else
+        {
+            DbItem* item = db->get(selected_item);
+            if (item && item->presence == PresenceInstalling)
+                bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
+            else if (item && item->presence != PresenceInstalled)
+                bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
+        }
+        bottom_text += PKGI_UTF8_T " Меню";
+    }
 
-    // pkgi_clip_set(
-    //         left,
-    //         second_line,
-    //         VITA_WIDTH - right - left,
-    //         VITA_HEIGHT - second_line);
-    // pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
-    //         second_line,
-    //         PKGI_COLOR_TEXT_TAIL,
-    //         bottom_text.c_str());
-    // pkgi_clip_remove();
-}
+    pkgi_clip_set(
+            left,
+            second_line,
+            VITA_WIDTH - right - left,
+            VITA_HEIGHT - second_line);
+    pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+            second_line,
+            PKGI_COLOR_TEXT_TAIL,
+            bottom_text.c_str());
+    pkgi_clip_remove();
+// }
 
 void pkgi_do_error(void)
 {
@@ -1362,60 +1357,7 @@ int main()
         style.Colors[ImGuiCol_WindowBg] = PKGI_COLOR_WINDOW_BG;
         style.Colors[ImGuiCol_ChildBg] = PKGI_COLOR_WINDOW_BG_CHILD;
         style.Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
-        style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER;
-
-        // style.WindowBorderSize = 0;
-        // style.ChildBorderSize = 0;
-        // style.PopupBorderSize = 0;
-        // style.FrameBorderSize = 0;
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
-        ImGui::PushStyleVar(ImGuiStyleVar_ChildBorderSize, 0.0f);
-        ImGui::PushStyleVar(ImGuiStyleVar_PopupBorderSize, 0.0f);
-        ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 0.0f);
-
-
-        /////
-    // когда окно создается там вот это прописать типа дочерние элементы убрать нахуй обводку
-        // style.Colors[ImGuiCol_Border]                 = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);  
-        // style.Colors[ImGuiCol_BorderShadow]           = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-        // style.Colors[ImGuiCol_FrameBg]                = ImVec4(1.00f, 1.00f, 1.00f, 0.00f);
-        // style.Colors[ImGuiCol_FrameBgHovered]         = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        // style.Colors[ImGuiCol_FrameBgActive]          = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        // style.Colors[ImGuiCol_MenuBarBg]              = ImVec4(0.86f, 0.86f, 0.86f, 0.00f);
-        // style.Colors[ImGuiCol_ScrollbarBg]            = ImVec4(0.98f, 0.98f, 0.98f, 0.00f);
-        // style.Colors[ImGuiCol_ScrollbarGrab]          = ImVec4(0.69f, 0.69f, 0.69f, 0.00f);
-        // style.Colors[ImGuiCol_ScrollbarGrabHovered]   = ImVec4(0.49f, 0.49f, 0.49f, 0.00f);
-        // style.Colors[ImGuiCol_ScrollbarGrabActive]    = ImVec4(0.49f, 0.49f, 0.49f, 0.00f);
-        // style.Colors[ImGuiCol_CheckMark]              = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        // style.Colors[ImGuiCol_SliderGrab]             = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        // style.Colors[ImGuiCol_SliderGrabActive]       = ImVec4(0.46f, 0.54f, 0.80f, 0.00f);
-        // style.Colors[ImGuiCol_HeaderHovered]          = ImVec4(0.231f, 0.949f, 0.00f, 0.00f);  // не отключать! ОКАНТОВКА
-        // style.Colors[ImGuiCol_Separator]              = ImVec4(0.39f, 0.39f, 0.39f, 0.00f);
-        // style.Colors[ImGuiCol_SeparatorHovered]       = ImVec4(0.14f, 0.44f, 0.80f, 0.00f);
-        // style.Colors[ImGuiCol_SeparatorActive]        = ImVec4(0.14f, 0.44f, 0.80f, 0.00f);  //
-        // style.Colors[ImGuiCol_ResizeGrip]             = ImVec4(0.35f, 0.35f, 0.35f, 0.00f);
-        // style.Colors[ImGuiCol_ResizeGripHovered]      = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        // style.Colors[ImGuiCol_ResizeGripActive]       = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        // style.Colors[ImGuiCol_Tab]                    = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
-        // style.Colors[ImGuiCol_TabHovered]             = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
-        // style.Colors[ImGuiCol_TabActive]              = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
-        // style.Colors[ImGuiCol_TabUnfocused]           = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
-        // style.Colors[ImGuiCol_TabUnfocusedActive]     = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);;
-        // style.Colors[ImGuiCol_PlotLines]              = ImVec4(0.39f, 0.39f, 0.39f, 0.00f);
-        // style.Colors[ImGuiCol_PlotLinesHovered]       = ImVec4(1.00f, 0.43f, 0.35f, 0.00f);
-        // style.Colors[ImGuiCol_PlotHistogram]          = ImVec4(0.90f, 0.70f, 0.00f, 0.00f);
-        // style.Colors[ImGuiCol_PlotHistogramHovered]   = ImVec4(1.00f, 0.45f, 0.00f, 0.00f);
-        // style.Colors[ImGuiCol_TableHeaderBg]          = ImVec4(0.78f, 0.87f, 0.98f, 0.00f);
-        // style.Colors[ImGuiCol_TableBorderStrong]      = ImVec4(0.57f, 0.57f, 0.64f, 0.00f);   // Prefer using Alpha=1.0 here
-        // style.Colors[ImGuiCol_TableBorderLight]       = ImVec4(0.68f, 0.68f, 0.74f, 0.00f);   // Prefer using Alpha=1.0 here
-        // style.Colors[ImGuiCol_TableRowBg]             = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-        // style.Colors[ImGuiCol_TableRowBgAlt]          = ImVec4(0.30f, 0.30f, 0.30f, 0.00f);
-        // style.Colors[ImGuiCol_TextSelectedBg]         = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        // style.Colors[ImGuiCol_DragDropTarget]         = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        style.Colors[ImGuiCol_NavHighlight]           = ImVec4(0.231f, 0.949f, 0.00f, 0.00f);
-        // style.Colors[ImGuiCol_NavWindowingHighlight]  = ImVec4(0.70f, 0.70f, 0.70f, 0.00f);
-        // style.Colors[ImGuiCol_NavWindowingDimBg]      = ImVec4(0.20f, 0.20f, 0.20f, 0.00f);
-        // style.Colors[ImGuiCol_ModalWindowDimBg]       = ImVec4(0.20f, 0.20f, 0.20f, 0.00f);
+        style.Colors[ImGuiCol_NavHighlight] = PKGI_COLOR_HIGHLIGHT;
 
 
 

@@ -72,7 +72,9 @@
 #define PKGI_COLOR_POPUP_BG ImVec4(0.051f, 0.051f, 0.051f, 1.00f)
 
 // БОРДЕР
-#define PKGI_COLOR_BORDER ImVec4(0.051f, 0.051f, 0.051f, 0.00f)
+// #define PKGI_COLOR_BORDER ImVec4(0.051f, 0.051f, 0.051f, 0.00f)
+// Подсветка у кнопок , обводка, бордер
+#define PKGI_COLOR_HIGHLIGHT ImVec4(0.051f, 0.051f, 0.051f, 0.00f)
 
 //
 
