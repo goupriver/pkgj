@@ -1095,7 +1095,7 @@ void pkgi_do_tail(Downloader& downloader)
             PKGI_COLOR_TEXT_TAIL,
             bottom_text.c_str());
     pkgi_clip_remove();
-// }
+}
 
 void pkgi_do_error(void)
 {
