@@ -110,10 +110,10 @@
 
 #define PKGI_MAIN_COLUMN_PADDING 10
 // #define PKGI_MAIN_HLINE_EXTRA 5  // не забывыть убрать
-#define PKGI_MAIN_HLINE_EXTRA 21  // не забывыть убрать
+#define PKGI_MAIN_HLINE_EXTRA 0  // не забывыть убрать
 #define PKGI_MAIN_ROW_PADDING 2
 // #define PKGI_MAIN_HLINE_HEIGHT 2 // не забывыть убрать
-#define PKGI_MAIN_HLINE_HEIGHT 0 // не забывыть убрать
+#define PKGI_MAIN_HLINE_HEIGHT 21 // не забывыть убрать
 #define PKGI_MAIN_TEXT_PADDING 5
 #define PKGI_MAIN_SCROLL_WIDTH 2
 #define PKGI_MAIN_SCROLL_PADDING 2
