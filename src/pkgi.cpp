@@ -864,7 +864,7 @@ void pkgi_do_tail(Downloader& downloader)
 
     pkgi_draw_rect(
             0,
-            bottom_y + PKGI_MAIN_HLINE_HEIGHT,
+            bottom_y + PKGI_MAIN_HLINE_HEIGHT + 4,
             VITA_WIDTH * download_offset / download_size,
             font_height + PKGI_MAIN_ROW_PADDING - 4,
             PKGI_COLOR_PROGRESS_BACKGROUND);
