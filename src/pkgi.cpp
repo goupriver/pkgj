@@ -866,7 +866,7 @@ void pkgi_do_tail(Downloader& downloader)
             0,
             bottom_y + PKGI_MAIN_HLINE_HEIGHT,
             VITA_WIDTH * download_offset / download_size,
-            font_height + PKGI_MAIN_ROW_PADDING - 1,
+            font_height + PKGI_MAIN_ROW_PADDING - 4,
             PKGI_COLOR_PROGRESS_BACKGROUND);
 
     if (current_download)
