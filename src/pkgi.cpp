@@ -1389,7 +1389,7 @@ int main()
         // style.Colors[ImGuiCol_CheckMark]              = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
         // style.Colors[ImGuiCol_SliderGrab]             = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
         // style.Colors[ImGuiCol_SliderGrabActive]       = ImVec4(0.46f, 0.54f, 0.80f, 0.00f);
-        style.Colors[ImGuiCol_HeaderHovered]          = ImVec4(0.231f, 0.949f, 0.00f, 0.00f);  // не отключать! ОКАНТОВКА
+        // style.Colors[ImGuiCol_HeaderHovered]          = ImVec4(0.231f, 0.949f, 0.00f, 0.00f);  // не отключать! ОКАНТОВКА
         // style.Colors[ImGuiCol_Separator]              = ImVec4(0.39f, 0.39f, 0.39f, 0.00f);
         // style.Colors[ImGuiCol_SeparatorHovered]       = ImVec4(0.14f, 0.44f, 0.80f, 0.00f);
         // style.Colors[ImGuiCol_SeparatorActive]        = ImVec4(0.14f, 0.44f, 0.80f, 0.00f);  //
@@ -1412,7 +1412,7 @@ int main()
         // style.Colors[ImGuiCol_TableRowBgAlt]          = ImVec4(0.30f, 0.30f, 0.30f, 0.00f);
         // style.Colors[ImGuiCol_TextSelectedBg]         = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
         // style.Colors[ImGuiCol_DragDropTarget]         = ImVec4(0.26f, 0.59f, 0.98f, 0.00f);
-        style.Colors[ImGuiCol_NavHighlight]           = style.Colors[ImGuiCol_HeaderHovered];
+        style.Colors[ImGuiCol_NavHighlight]           = ImVec4(0.231f, 0.949f, 0.00f, 0.00f);
         // style.Colors[ImGuiCol_NavWindowingHighlight]  = ImVec4(0.70f, 0.70f, 0.70f, 0.00f);
         // style.Colors[ImGuiCol_NavWindowingDimBg]      = ImVec4(0.20f, 0.20f, 0.20f, 0.00f);
         // style.Colors[ImGuiCol_ModalWindowDimBg]       = ImVec4(0.20f, 0.20f, 0.20f, 0.00f);
