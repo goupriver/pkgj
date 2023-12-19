@@ -1368,6 +1368,10 @@ int main()
         // style.ChildBorderSize = 0;
         // style.PopupBorderSize = 0;
         // style.FrameBorderSize = 0;
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+        ImGui::PushStyleVar(ImGuiStyleVar_ChildBorderSize, 0.0f);
+        ImGui::PushStyleVar(ImGuiStyleVar_PopupBorderSize, 0.0f);
+        ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize, 0.0f);
 
         init_imgui();
 
