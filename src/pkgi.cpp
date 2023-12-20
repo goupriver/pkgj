@@ -1434,7 +1434,7 @@ int main()
             }
 
             pkgi_draw_rect(
-            VITA_WIDTH - 38 - (28 - (pkgi_bettery_get_level() * 28 / 100)),
+            VITA_WIDTH - 38 + (28 - (pkgi_bettery_get_level() * 28 / 100)),
             9,
             28 - (28 - (pkgi_bettery_get_level() * 28 / 100)),
             10,
