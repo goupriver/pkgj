@@ -768,21 +768,25 @@ void pkgi_do_head(void)
     int rightw;
     if (pkgi_battery_present())
     {
-        char battery[256];
-        pkgi_snprintf(
-                battery,
-                sizeof(battery),
-                "Аккумулятор: %u%%",
-                pkgi_bettery_get_level());
+        pkgi_texture background = pkgi_load_png(background);
 
-        uint32_t color;
-        if (pkgi_battery_is_low())
-        {
-            color = PKGI_COLOR_BATTERY_LOW;
-        }
-        else if (pkgi_battery_is_charging())
-        {
-            color = PKGI_COLOR_BATTERY_CHARGING;
+        pkgi_draw_texture(background, 0, 0);
+
+        // char battery[256];
+        // pkgi_snprintf(
+        //         battery,
+        //         sizeof(battery),
+        //         "Аккумулятор: %u%%",
+        //         pkgi_bettery_get_level());
+
+        // uint32_t color;
+        // if (pkgi_battery_is_low())
+        // {
+        //     color = PKGI_COLOR_BATTERY_LOW;
+        // }
+        // else if (pkgi_battery_is_charging())
+        // {
+        //     color = PKGI_COLOR_BATTERY_CHARGING;
         }
         else
         {
