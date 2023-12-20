@@ -768,7 +768,7 @@ void pkgi_do_head(void)
     // int rightw;
     int rightw = 22
     if (pkgi_battery_present())
-    {
+    // {
         pkgi_texture batteryCustom = pkgi_load_png(batteryC);
 
         pkgi_draw_texture(batteryCustom,  VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 4);
@@ -797,11 +797,11 @@ void pkgi_do_head(void)
         // rightw = pkgi_text_width(battery);
         // pkgi_draw_text(
                 // VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 0, color, battery);
-    }
+    // }
     else
-    {
+    // {
         rightw = 0;
-    }
+    // }
 
     char text[256];
     int left = pkgi_text_width(search_text) + PKGI_MAIN_TEXT_PADDING;
