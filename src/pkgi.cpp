@@ -764,7 +764,7 @@ void pkgi_do_head(void)
             VITA_WIDTH,
             0,
             PKGI_COLOR_HEAD_HLINE);
-
+            
     // int rightw;
     int rightw = 22;
     // if (pkgi_battery_present())
@@ -774,7 +774,7 @@ void pkgi_do_head(void)
         //         battery,
         //         sizeof(battery),
         //         "Аккумулятор: %u%%",
-        //         pkgi_bettery_get_level());
+        //         pkgi_bettery_get_level());  
 
         // uint32_t color;
         // if (pkgi_battery_is_low())
@@ -1426,16 +1426,24 @@ int main()
             // аккумулятор
             if (pkgi_battery_is_low()) 
             {
-                pkgi_draw_texture(batteryislow, VITA_WIDTH - 45, 4);
+                pkgi_draw_texture(batteryislow, VITA_WIDTH - 42, 5);
             }
             else 
             {
-                pkgi_draw_texture(batterynormal, VITA_WIDTH - 45, 4);
+                pkgi_draw_texture(batterynormal, VITA_WIDTH - 42, 5);
             }
+
+            pkgi_draw_rect(
+            VITA_WIDTH - 38 - (28 - (pkgi_bettery_get_level() * 28 / 100)),
+            9,
+            28 - (28 - (pkgi_bettery_get_level() * 28 / 100)),
+            10,
+            PKGI_COLOR_HEAD_HLINE);
+            // pkgi_bettery_get_level()); * 28 / 100
 
             if (pkgi_battery_is_charging()) 
             {
-                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 45, 4);
+                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 42, 5);
             }
 
             pkgi_do_head();
