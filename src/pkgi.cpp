@@ -660,10 +660,10 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
 
     pkgi_draw_rect(
-                    0,
+                    10,
                     26,
                     8,
-                    VITA_HEIGHT - 67,
+                    VITA_HEIGHT - 71,
                     PKGI_COLOR_SCROLL_BAR_BACKGROUND);
 
 
