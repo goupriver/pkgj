@@ -768,9 +768,9 @@ void pkgi_do_head(void)
     int rightw;
     if (pkgi_battery_present())
     {
-        pkgi_texture background = pkgi_load_png(background);
+        pkgi_texture batteryCustom = pkgi_load_png(batteryC);
 
-        pkgi_draw_texture(background, 0, 0);
+        pkgi_draw_texture(batteryCustom,  VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 4);
 
         // char battery[256];
         // pkgi_snprintf(
@@ -787,15 +787,15 @@ void pkgi_do_head(void)
         // else if (pkgi_battery_is_charging())
         // {
         //     color = PKGI_COLOR_BATTERY_CHARGING;
-        }
-        else
-        {
-            color = PKGI_COLOR_TEXT_HEAD;
-        }
+        // }
+        // else
+        // {
+        //     color = PKGI_COLOR_TEXT_HEAD;
+        // }
 
-        rightw = pkgi_text_width(battery);
-        pkgi_draw_text(
-                VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 0, color, battery);
+        // rightw = pkgi_text_width(battery);
+        // pkgi_draw_text(
+                // VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 0, color, battery);
     }
     else
     {
