@@ -780,16 +780,16 @@ void pkgi_do_head(void)
     //     ImGui::Image(tex, ImVec2(tex_w, tex_h));
     // }
 
-    auto tex1 = batteryCustom;
-    auto = img1 = imgui.CreateTextureFromMemory(tex1, #_tex1);
+    const auto tex1 = batteryCustom;
+    const auto img1 = imgui.CreateTextureFromMemory(tex1, 14);
 
     // ImGui::SetCursorPos(ImVec2(VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 5));
     // ImGui::Image(tex1, ImVec2(35, 16));
     
-    // int rightw;
+    int rightw;
     if (pkgi_battery_present())
     {
-        ImGui::SetCursorPos(ImVec2(VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 5));
+        ImGui::SetCursorPos(ImVec2(VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - 10, 5));
         ImGui::Image(tex1, ImVec2(35, 16));
         
         // char battery[256];
