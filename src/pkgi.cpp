@@ -1434,10 +1434,11 @@ int main()
                 pkgi_draw_texture(batterynormal, VITA_WIDTH - 42, 5);
             }
 
+            // разрядка
             pkgi_draw_rect(
             VITA_WIDTH - 38 + ceil((28 - (pkgi_bettery_get_level() * 28 / 100))),
-            9,
-            28 - (28 - ceil((pkgi_bettery_get_level() * 28 / 100))),
+            8,
+            28 - ceil((pkgi_bettery_get_level() * 28 / 100)),
             10,
             PKGI_COLOR_HEAD_HLINE);
             // pkgi_bettery_get_level()); * 28 / 100
