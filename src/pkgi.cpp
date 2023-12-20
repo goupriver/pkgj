@@ -767,9 +767,8 @@ void pkgi_do_head(void)
 
     // начало батарейки
 
-    //  auto tex = _image_fetcher.get_texture();
+    auto tex = _image_fetcher.get_texture();
     // // Display game image
-    // if (tex != nullptr)
     // {
     //     int tex_w = vita2d_texture_get_width(tex);
     //     int tex_h = vita2d_texture_get_height(tex);
@@ -779,45 +778,37 @@ void pkgi_do_head(void)
     //     ImGui::Image(tex, ImVec2(tex_w, tex_h));
     // }
 
-    // const auto tex1 = batteryCustom;
-    // const auto img1 = ImGui.CreateTextureFromMemory(tex1, ImVec2(35, 16));
-
-    // ImGui::SetCursorPos(ImVec2(VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 5));
-    // ImGui::Image(tex1, ImVec2(35, 16));
-    
     int rightw;
     if (pkgi_battery_present())
     {   
-        pkgi_texture b1 = pkgi_load_png(battery);
-        pkgi_draw_texture(b1, VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - 10, 5);
+        // pkgi_texture b1 = pkgi_load_png(battery);
+        // pkgi_draw_texture(b1, VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - 10, 5);
 
-        // ImGui::SetCursorPos(ImVec2(VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - 10, 5));
-        // ImGui::Image(tex1, ImVec2(35, 16));
         
-        // char battery[256];
-        // pkgi_snprintf(
-        //         battery,
-        //         sizeof(battery),
-        //         "Аккумулятор: %u%%",
-        //         pkgi_bettery_get_level());
+        char battery[256];
+        pkgi_snprintf(
+                battery,
+                sizeof(battery),
+                "Аккумулятор: %u%%",
+                pkgi_bettery_get_level());
 
-        // uint32_t color;
-        // if (pkgi_battery_is_low())
-        // {
-        //     color = PKGI_COLOR_BATTERY_LOW;
-        // }
-        // else if (pkgi_battery_is_charging())
-        // {
-        //     color = PKGI_COLOR_BATTERY_CHARGING;
-        // }
-        // else
-        // {
-        //     color = PKGI_COLOR_TEXT_HEAD;
-        // }
+        uint32_t color;
+        if (pkgi_battery_is_low())
+        {
+            color = PKGI_COLOR_BATTERY_LOW;
+        }
+        else if (pkgi_battery_is_charging())
+        {
+            color = PKGI_COLOR_BATTERY_CHARGING;
+        }
+        else
+        {
+            color = PKGI_COLOR_TEXT_HEAD;
+        }
 
-        // rightw = pkgi_text_width(battery);
-        // pkgi_draw_text(
-        //         VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 0, color, battery);
+        rightw = pkgi_text_width(battery);
+        pkgi_draw_text(
+                VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 0, color, battery);
     }
     else
     {
