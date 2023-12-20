@@ -769,10 +769,6 @@ void pkgi_do_head(void)
     int rightw = 22;
     // if (pkgi_battery_present())
     // {
-    // pkgi_texture batterys = pkgi_load_png(batterys);
-
-    // pkgi_draw_texture(batterys, VITA_WIDTH - 10, 4);
-
         // char battery[256];
         // pkgi_snprintf(
         //         battery,
@@ -1311,7 +1307,9 @@ int main()
         pkgi_open_db();
 
         pkgi_texture background = pkgi_load_png(background);
-        pkgi_texture batterys = pkgi_load_png(batterys);
+        pkgi_texture batteryislow = pkgi_load_png(batteryislow);
+        pkgi_texture batterynormal = pkgi_load_png(batterynormal);
+        pkgi_texture batteryischarging = pkgi_load_png(batteryischarging);
 
 
         if (!config.no_version_check)
@@ -1424,8 +1422,21 @@ int main()
             ImGui::NewFrame();
 
             pkgi_draw_texture(background, 0, 0);
-            pkgi_draw_texture(batterys, VITA_WIDTH - 45, 4);
 
+            // аккумулятор
+            if (pkgi_battery_is_low()) 
+            {
+                pkgi_draw_texture(batteryislow, VITA_WIDTH - 45, 4);
+            }
+            else 
+            {
+                pkgi_draw_texture(batterynormal, VITA_WIDTH - 45, 4);
+            }
+
+            if (pkgi_battery_is_charging()) 
+            {
+                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 45, 4);
+            }
 
             pkgi_do_head();
             switch (state)

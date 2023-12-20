@@ -44,7 +44,9 @@ endfunction()
 
 add_assets(assets
   assets/background.png
-  assets/batterys.png
+  assets/batteryislow.png
+  assets/batterynormal.png
+  assets/batteryischarging.png
   assets/imgui_v_cg.gxp
   assets/imgui_f_cg.gxp
 )
