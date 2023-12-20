@@ -769,9 +769,9 @@ void pkgi_do_head(void)
     int rightw = 22;
     // if (pkgi_battery_present())
     // {
-    pkgi_texture batteryc = pkgi_load_png(batteryc);
+    pkgi_texture batterys = pkgi_load_png(batterys);
 
-    pkgi_draw_texture(batteryc, VITA_WIDTH - 10, 4);
+    pkgi_draw_texture(batterys, VITA_WIDTH - 10, 4);
 
         // char battery[256];
         // pkgi_snprintf(
