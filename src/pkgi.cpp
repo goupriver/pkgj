@@ -766,8 +766,8 @@ void pkgi_do_head(void)
             PKGI_COLOR_HEAD_HLINE);
 
     // int rightw;
-    int rightw = 22
-    if (pkgi_battery_present())
+    int rightw = 22;
+    // if (pkgi_battery_present())
     // {
         pkgi_texture batteryCustom = pkgi_load_png(batteryC);
 
@@ -798,9 +798,9 @@ void pkgi_do_head(void)
         // pkgi_draw_text(
                 // VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 0, color, battery);
     // }
-    else
+    // else
     // {
-        rightw = 0;
+        // rightw = 0;
     // }
 
     char text[256];
