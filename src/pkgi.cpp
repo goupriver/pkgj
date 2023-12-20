@@ -765,7 +765,8 @@ void pkgi_do_head(void)
             0,
             PKGI_COLOR_HEAD_HLINE);
 
-    int rightw;
+    // int rightw;
+    int rightw = 22
     if (pkgi_battery_present())
     {
         pkgi_texture batteryCustom = pkgi_load_png(batteryC);
