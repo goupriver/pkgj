@@ -765,26 +765,9 @@ void pkgi_do_head(void)
             0,
             PKGI_COLOR_HEAD_HLINE);
 
-    // начало батарейки
-
-    auto tex = _image_fetcher.get_texture();
-    // // Display game image
-    // {
-    //     int tex_w = vita2d_texture_get_width(tex);
-    //     int tex_h = vita2d_texture_get_height(tex);
-    //     float tex_x = ImGui::GetWindowContentRegionMax().x - tex_w;
-    //     float tex_y = ImGui::GetWindowContentRegionMin().y;
-    //     ImGui::SetCursorPos(ImVec2(tex_x, tex_y));
-    //     ImGui::Image(tex, ImVec2(tex_w, tex_h));
-    // }
-
     int rightw;
     if (pkgi_battery_present())
-    {   
-        // pkgi_texture b1 = pkgi_load_png(battery);
-        // pkgi_draw_texture(b1, VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - 10, 5);
-
-        
+    {
         char battery[256];
         pkgi_snprintf(
                 battery,
@@ -814,8 +797,6 @@ void pkgi_do_head(void)
     {
         rightw = 0;
     }
-
-    // конец батарейки
 
     char text[256];
     int left = pkgi_text_width(search_text) + PKGI_MAIN_TEXT_PADDING;
