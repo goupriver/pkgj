@@ -781,7 +781,7 @@ void pkgi_do_head(void)
     // }
 
     const auto tex1 = batteryCustom;
-    const auto img1 = imgui.CreateTextureFromMemory(tex1, 14);
+    const auto img1 = imgui.CreateTextureFromMemory(tex1, ImVec2(35, 16));
 
     // ImGui::SetCursorPos(ImVec2(VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 5));
     // ImGui::Image(tex1, ImVec2(35, 16));
