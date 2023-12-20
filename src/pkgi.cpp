@@ -557,7 +557,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         }
 
         // id игры 
-        pkgi_draw_text(col_titleid, y, colorTextTitileId, titleid);
+        pkgi_draw_text(col_titleid + PKGI_SCROLL_PADDING, y, colorTextTitileId, titleid);
         const char* region;
         switch (pkgi_get_region(item->titleid))
         {
@@ -582,25 +582,25 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         }
 
         // регион
-        pkgi_draw_text(col_region, y, colorTextRegion, region);
+        pkgi_draw_text(col_region + PKGI_SCROLL_PADDING, y, colorTextRegion, region);
 
         // кружок 
         // круг
         if (item->presence == PresenceIncomplete)
         {
-            pkgi_draw_text(col_installed, y, colorCircle, PKGI_UTF8_PARTIAL);
+            pkgi_draw_text(col_installed + PKGI_SCROLL_PADDING, y, colorCircle, PKGI_UTF8_PARTIAL);
         }
         // круг
         else if (item->presence == PresenceInstalled)
         {
-            pkgi_draw_text(col_installed, y, colorCircle, PKGI_UTF8_INSTALLED);
+            pkgi_draw_text(col_installed + PKGI_SCROLL_PADDING, y, colorCircle, PKGI_UTF8_INSTALLED);
         }
 
         // круг
         else if (item->presence == PresenceGamePresent)
         {
             pkgi_draw_text(
-                    col_installed,
+                    col_installed + PKGI_SCROLL_PADDING,
                     y,
                     colorCircle,
                     PKGI_UTF8_INSTALLED);
@@ -608,7 +608,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         else if (item->presence == PresenceInstalling)
         // круг
         {
-            pkgi_draw_text(col_installed, y, colorCircle, PKGI_UTF8_INSTALLING);
+            pkgi_draw_text(col_installed + PKGI_SCROLL_PADDING, y, colorCircle, PKGI_UTF8_INSTALLING);
         }
         // размер файла
         pkgi_draw_text(
@@ -620,14 +620,14 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         pkgi_clip_remove();
 
         pkgi_clip_set(
-                col_name,
+                col_name + PKGI_SCROLL_PADDING,
                 y,
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         PKGI_MAIN_COLUMN_PADDING - sizew - col_name,
                 line_height);
 
         // текст
-        pkgi_draw_text(col_name, y, colorTextTitile, item->name.c_str());
+        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
         pkgi_clip_remove();
 
         y += font_height + PKGI_MAIN_ROW_PADDING;
@@ -1446,7 +1446,7 @@ int main()
             // разрядка
             pkgi_draw_rect(
             VITA_WIDTH - 38,
-            7,
+            8,
             28 - ceil((pkgi_bettery_get_level() * 28 / 100)),
             10,
             PKGI_COLOR_HEAD_HLINE);
