@@ -658,6 +658,15 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 (VITA_WIDTH - w) / 2, VITA_HEIGHT / 2, PKGI_COLOR_TEXT, text);
     }
 
+
+    pkgi_draw_rect(
+                    0,
+                    24,
+                    8,
+                    VITA_HEIGHT - 69,
+                    PKGI_COLOR_SCROLL_BAR_BACKGROUND);
+
+
     // scroll-bar
     if (db_count != 0)
     {
@@ -675,7 +684,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     db_count;
             height = max32(height, min_height);
             pkgi_draw_rect(
-                    VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - 1,
+                    0,
                     font_height + PKGI_MAIN_HLINE_EXTRA + start,
                     PKGI_MAIN_SCROLL_WIDTH,
                     height,
@@ -1437,7 +1446,7 @@ int main()
             // разрядка
             pkgi_draw_rect(
             VITA_WIDTH - 38,
-            5,
+            7,
             28 - ceil((pkgi_bettery_get_level() * 28 / 100)),
             10,
             PKGI_COLOR_HEAD_HLINE);
