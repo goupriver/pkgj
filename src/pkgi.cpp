@@ -1436,8 +1436,8 @@ int main()
 
             // разрядка
             pkgi_draw_rect(
-            VITA_WIDTH - 38 + ceil((28 - (pkgi_bettery_get_level() * 28 / 100))),
-            8,
+            VITA_WIDTH - 38,
+            5,
             28 - ceil((pkgi_bettery_get_level() * 28 / 100)),
             10,
             PKGI_COLOR_HEAD_HLINE);
