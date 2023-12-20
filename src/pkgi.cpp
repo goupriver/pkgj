@@ -20,6 +20,7 @@ extern "C"
 #include "vitahttp.hpp"
 #include "zrif.hpp"
 #include "psm.hpp"
+#include <cmath>
 
 #include <vita2d.h>
 
@@ -1434,9 +1435,9 @@ int main()
             }
 
             pkgi_draw_rect(
-            VITA_WIDTH - 38 + (28 - (pkgi_bettery_get_level() * 28 / 100)),
+            VITA_WIDTH - 38 + ceil((28 - (pkgi_bettery_get_level() * 28 / 100))),
             9,
-            28 - (28 - (pkgi_bettery_get_level() * 28 / 100)),
+            28 - (28 - ceil((pkgi_bettery_get_level() * 28 / 100))),
             10,
             PKGI_COLOR_HEAD_HLINE);
             // pkgi_bettery_get_level()); * 28 / 100
