@@ -771,7 +771,7 @@ void pkgi_do_head(void)
     // {
     // pkgi_texture batterys = pkgi_load_png(batterys);
 
-    pkgi_draw_texture(batterys, VITA_WIDTH - 10, 4);
+    // pkgi_draw_texture(batterys, VITA_WIDTH - 10, 4);
 
         // char battery[256];
         // pkgi_snprintf(
@@ -1424,6 +1424,8 @@ int main()
             ImGui::NewFrame();
 
             pkgi_draw_texture(background, 0, 0);
+            pkgi_draw_texture(batterys, VITA_WIDTH - 10, 4);
+
 
             pkgi_do_head();
             switch (state)
