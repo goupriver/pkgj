@@ -1311,7 +1311,7 @@ int main()
         pkgi_open_db();
 
         pkgi_texture background = pkgi_load_png(background);
-        pkgi_texture batteryc = pkgi_load_png(batterys);
+        pkgi_texture batterys = pkgi_load_png(batterys);
 
 
         if (!config.no_version_check)
