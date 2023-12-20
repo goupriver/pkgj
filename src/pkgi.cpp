@@ -684,7 +684,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     db_count;
             height = max32(height, min_height);
             pkgi_draw_rect(
-                    0,
+                    PKGI_SCROLL_LEFT_MARGIN,
                     font_height + PKGI_MAIN_HLINE_EXTRA + start,
                     PKGI_MAIN_SCROLL_WIDTH,
                     height,
