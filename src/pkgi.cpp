@@ -1424,7 +1424,7 @@ int main()
             ImGui::NewFrame();
 
             pkgi_draw_texture(background, 0, 0);
-            pkgi_draw_texture(batterys, 950, 4);
+            pkgi_draw_texture(batterys, 920, 4);
 
 
             pkgi_do_head();
