@@ -769,7 +769,7 @@ void pkgi_do_head(void)
     int rightw = 22;
     // if (pkgi_battery_present())
     // {
-    pkgi_texture batterys = pkgi_load_png(batterys);
+    // pkgi_texture batterys = pkgi_load_png(batterys);
 
     pkgi_draw_texture(batterys, VITA_WIDTH - 10, 4);
 
@@ -1311,7 +1311,7 @@ int main()
         pkgi_open_db();
 
         pkgi_texture background = pkgi_load_png(background);
-        // pkgi_texture batteryc = pkgi_load_png(batteryc);
+        pkgi_texture batteryc = pkgi_load_png(batterys);
 
 
         if (!config.no_version_check)
