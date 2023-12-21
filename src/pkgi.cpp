@@ -663,9 +663,9 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         // текст
         // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
-        pkgi_draw_text(col_name, y, colorTextTitile, y.c_str());
-        pkgi_draw_text(col_name + 20px, y, colorTextTitile, font_height.c_str());
-        pkgi_draw_text(col_name + 40px, y, colorTextTitile, line_height.c_str());
+        pkgi_draw_text(col_name, y, colorTextTitile, y);
+        pkgi_draw_text(col_name + 20, y, colorTextTitile, font_height);
+        pkgi_draw_text(col_name + 40, y, colorTextTitile, line_height);
 
         pkgi_clip_remove();
 
