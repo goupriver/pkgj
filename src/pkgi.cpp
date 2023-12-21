@@ -573,8 +573,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         pkgi_friendly_size(size_str, sizeof(size_str), item->size);
         int sizew = pkgi_text_width(size_str);
 
+        pkgi_clip_set(0, y + TWELAWE, VITA_WIDTH, line_height);
         // pkgi_clip_set(0, y, VITA_WIDTH, line_height);
-        pkgi_clip_set(0, y, VITA_WIDTH, line_height);
 
         if (i == selected_item)
         {
@@ -668,18 +668,21 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         pkgi_clip_remove();
 
-        // y += font_height + PKGI_MAIN_ROW_PADDING - 12;
+        // y += font_height + PKGI_MAIN_ROW_PADDING - TWELAWE;
         y += font_height + PKGI_MAIN_ROW_PADDING;
-        if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE))
+        // if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE))
+        if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
         {
             break;
         }
         else if (
                 y + font_height >
-                VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE))
+                // VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE))
+                VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
         {
             line_height =
-                    (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE)) -
+                    // (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE)) -
+                    (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA)) -
                     (y + 1);
             if (line_height < PKGI_MAIN_ROW_PADDING)
             {
