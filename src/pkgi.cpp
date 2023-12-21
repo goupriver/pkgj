@@ -669,8 +669,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         pkgi_clip_remove();
 
-        y += font_height + PKGI_MAIN_ROW_PADDING + TWELAWE;
-        // y += font_height + PKGI_MAIN_ROW_PADDING;
+        // y += font_height + PKGI_MAIN_ROW_PADDING + TWELAWE;
+        y += font_height + PKGI_MAIN_ROW_PADDING;
         // if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA + TWELAWE))
         if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
         {
