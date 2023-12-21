@@ -661,28 +661,29 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 y,
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         PKGI_MAIN_COLUMN_PADDING - sizew - col_name,
-                line_height + TWELAWE);
+                // line_height + TWELAWE);
+                line_height);
 
         // текст
         pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
 
         pkgi_clip_remove();
 
-        // y += font_height + PKGI_MAIN_ROW_PADDING - TWELAWE;
-        y += font_height + PKGI_MAIN_ROW_PADDING;
-        // if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE))
-        if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
+        y += font_height + PKGI_MAIN_ROW_PADDING + TWELAWE;
+        // y += font_height + PKGI_MAIN_ROW_PADDING;
+        if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA + TWELAWE))
+        // if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
         {
             break;
         }
         else if (
                 y + font_height >
-                // VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE))
-                VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
+                VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA + TWELAWE))
+                // VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
         {
             line_height =
-                    // (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE)) -
-                    (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA)) -
+                    (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA + TWELAWE)) -
+                    // (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA)) -
                     (y + 1);
             if (line_height < PKGI_MAIN_ROW_PADDING)
             {
