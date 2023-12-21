@@ -567,9 +567,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         // НЕ СМОТРЕТЬ КОНЕЦ
 
-        LOG("ЗНАЧЕНИЕ y >> %s", y.c_str());
-        LOG("ЗНАЧЕНИЕ font_height >> %s", font_height.c_str());
-        LOG("ЗНАЧЕНИЕ line_height >> %s", line_height.c_str());
+        
 
         char size_str[64];
         pkgi_friendly_size(size_str, sizeof(size_str), item->size);
@@ -664,7 +662,11 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 line_height);
 
         // текст
-        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
+        // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
+        pkgi_draw_text(col_name, y, colorTextTitile, y.c_str());
+        pkgi_draw_text(col_name + 20px, y, colorTextTitile, font_height.c_str());
+        pkgi_draw_text(col_name + 40px, y, colorTextTitile, line_height.c_str());
+
         pkgi_clip_remove();
 
         y += font_height + PKGI_MAIN_ROW_PADDING;
