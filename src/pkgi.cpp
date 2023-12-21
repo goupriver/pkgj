@@ -456,8 +456,10 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         }
     }
 
-    int y = font_height + PKGI_MAIN_HLINE_EXTRA;
-    int line_height = font_height + PKGI_MAIN_ROW_PADDING;
+    // ЦЕНТР 
+
+    int y = font_height + PKGI_MAIN_HLINE_EXTRA;  // 0px
+    int line_height = font_height + PKGI_MAIN_ROW_PADDING;  // 2px
     for (uint32_t i = first_item; i < db_count; i++)
     {
         DbItem* item = db->get(i);
