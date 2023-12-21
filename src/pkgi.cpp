@@ -573,8 +573,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         pkgi_friendly_size(size_str, sizeof(size_str), item->size);
         int sizew = pkgi_text_width(size_str);
 
-        pkgi_clip_set(0, y + TWELAWE, VITA_WIDTH, line_height);
-        // pkgi_clip_set(0, y, VITA_WIDTH, line_height);
+        // pkgi_clip_set(0, y + TWELAWE, VITA_WIDTH, line_height);
+        pkgi_clip_set(0, y, VITA_WIDTH, line_height);
 
         if (i == selected_item)
         {
@@ -657,8 +657,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         pkgi_clip_set(
                 col_name + PKGI_SCROLL_PADDING,
+                y + TWELAWE,
                 // y,
-                y,
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         PKGI_MAIN_COLUMN_PADDING - sizew - col_name,
                 line_height);
