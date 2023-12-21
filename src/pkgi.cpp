@@ -573,6 +573,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         pkgi_friendly_size(size_str, sizeof(size_str), item->size);
         int sizew = pkgi_text_width(size_str);
 
+        // pkgi_clip_set(0, y, VITA_WIDTH, line_height);
         pkgi_clip_set(0, y, VITA_WIDTH, line_height);
 
         if (i == selected_item)
@@ -656,7 +657,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         pkgi_clip_set(
                 col_name + PKGI_SCROLL_PADDING,
-                y,
+                y - TWELAWE,
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         PKGI_MAIN_COLUMN_PADDING - sizew - col_name,
                 line_height);
@@ -695,15 +696,14 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
     }
 
 
+    // scroll-bar
     pkgi_draw_rect(
                     10,
                     26,
                     8,
                     VITA_HEIGHT - 71,
                     PKGI_COLOR_SCROLL_BAR_BACKGROUND);
-
-
-    // scroll-bar
+    
     if (db_count != 0)
     {
         uint32_t max_items =

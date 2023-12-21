@@ -118,7 +118,9 @@
 #define PKGI_ANIMATION_SPEED 4000 // px/second
 
 #define PKGI_MAIN_COLUMN_PADDING 10
-#define PKGI_MAIN_HLINE_EXTRA 24  // не забывыть убрать
+#define PKGI_MAIN_HLINE_EXTRA 12  // не забывыть убрать
+#define TWELAWE 12  // не забывыть убрать
+
 // #define PKGI_MAIN_HLINE_EXTRA 0  // не забывыть убрать
 #define PKGI_MAIN_ROW_PADDING 2
 // #define PKGI_MAIN_HLINE_HEIGHT 2 // не забывыть убрать
