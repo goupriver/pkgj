@@ -657,7 +657,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         pkgi_clip_set(
                 col_name + PKGI_SCROLL_PADDING,
-                y - TWELAWE,
+                // y,
+                y,
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         PKGI_MAIN_COLUMN_PADDING - sizew - col_name,
                 line_height);
@@ -667,7 +668,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         pkgi_clip_remove();
 
-        y += font_height + PKGI_MAIN_ROW_PADDING;
+        y += font_height + PKGI_MAIN_ROW_PADDING - 12;
         if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
         {
             break;
