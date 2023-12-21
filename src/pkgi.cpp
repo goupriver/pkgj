@@ -456,6 +456,31 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // ЦЕНТР 
 
     int y = font_height + PKGI_MAIN_HLINE_EXTRA;  // 0px
@@ -693,6 +718,33 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     PKGI_COLOR_SCROLL_BAR);
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     if (input && (input->pressed & pkgi_ok_button()))
     {
