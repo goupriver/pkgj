@@ -668,17 +668,18 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         pkgi_clip_remove();
 
-        y += font_height + PKGI_MAIN_ROW_PADDING - 12;
-        if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
+        // y += font_height + PKGI_MAIN_ROW_PADDING - 12;
+        y += font_height + PKGI_MAIN_ROW_PADDING;
+        if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE))
         {
             break;
         }
         else if (
                 y + font_height >
-                VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
+                VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE))
         {
             line_height =
-                    (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA)) -
+                    (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA - TWELAWE)) -
                     (y + 1);
             if (line_height < PKGI_MAIN_ROW_PADDING)
             {
