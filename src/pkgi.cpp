@@ -662,10 +662,13 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 line_height);
 
         // текст
+        auto ys = fmt::format("y >> {}", y);
+        auto fh = fmt::format("f_h >> {}", font_height);
+        auto lh = fmt::format("l_h >> {}", line_height);
         // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
-        // pkgi_draw_text(col_name, y, colorTextTitile, fmt::format("y >> {}", y));
-        // pkgi_draw_text(col_name + 30, y, colorTextTitile, fmt::format("f_h >> {}", font_height));
-        // pkgi_draw_text(col_name + 60, y, colorTextTitile, fmt::format("l_h >> {}", line_height));
+        pkgi_draw_text(col_name, y, colorTextTitile, ys);
+        pkgi_draw_text(col_name + 30, y, colorTextTitile, fh);
+        pkgi_draw_text(col_name + 60, y, colorTextTitile, lh);
 
         pkgi_clip_remove();
 
