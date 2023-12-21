@@ -485,6 +485,10 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
     int y = font_height + PKGI_MAIN_HLINE_EXTRA;  // 0px
     int line_height = font_height + PKGI_MAIN_ROW_PADDING;  // 2px
+
+
+        // НЕ СМОТРЕТЬ НАЧАЛО
+
     for (uint32_t i = first_item; i < db_count; i++)
     {
         DbItem* item = db->get(i);
@@ -560,6 +564,12 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     item->presence = PresenceMissing;
             }
         }
+
+        // НЕ СМОТРЕТЬ КОНЕЦ
+
+        LOG("ЗНАЧЕНИЕ y >> %s", y.c_str());
+        LOG("ЗНАЧЕНИЕ font_height >> %s", font_height.c_str());
+        LOG("ЗНАЧЕНИЕ line_height >> %s", line_height.c_str());
 
         char size_str[64];
         pkgi_friendly_size(size_str, sizeof(size_str), item->size);
