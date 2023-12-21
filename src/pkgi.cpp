@@ -661,7 +661,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 // y,
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         PKGI_MAIN_COLUMN_PADDING - sizew - col_name,
-                line_height);
+                line_height + TWELAWE);
 
         // текст
         pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
