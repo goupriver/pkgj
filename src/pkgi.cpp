@@ -703,13 +703,15 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
     // scroll-bar
     pkgi_draw_rect(
                     10,
-                    39,
+                    43,
                     8,
-                    VITA_HEIGHT - 100,
+                    VITA_HEIGHT - 104,
                     PKGI_COLOR_SCROLL_BAR_BACKGROUND);
     
     if (db_count != 0)
     {
+
+
         uint32_t max_items =
                 (avail_height + font_height + PKGI_MAIN_ROW_PADDING - 1) /
                         (font_height + PKGI_MAIN_ROW_PADDING) -
@@ -725,18 +727,29 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     db_count;
             height = max32(height, min_height);
 
+            // 2015
             pkgi_draw_text(0, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("dc {}", db_count).c_str());
+            // 50
             pkgi_draw_text(120, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mh {}", min_height).c_str());
+            // 10
             pkgi_draw_text(240, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mi {}", max_items).c_str());
+            // 50
             pkgi_draw_text(360, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("h {}", height).c_str());
+            // 0 (каждые 6 строк)
             pkgi_draw_text(480, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("s {}", start).c_str());
+            // 439
             pkgi_draw_text(600, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("ah {}", avail_height).c_str());
+            // 0 . после первого перелистывания начинает меняться
             pkgi_draw_text(720, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fi {}", first_item).c_str());
+
+            pkgi_draw_text(840, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fh {}", font_height).c_str());
 
 
             pkgi_draw_rect(
                     PKGI_SCROLL_LEFT_MARGIN,
+                    // 
                     font_height + PKGI_MAIN_HLINE_EXTRA + start,
+                    // 
                     PKGI_MAIN_SCROLL_WIDTH,
                     height,
                     PKGI_COLOR_SCROLL_BAR);
