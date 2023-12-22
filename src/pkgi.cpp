@@ -22,6 +22,11 @@ extern "C"
 #include "psm.hpp"
 #include <cmath>
 
+#include <iostream>
+#include <iomanip>
+#include <ctime>
+#include <sstream>
+
 #include <vita2d.h>
 
 #include <fmt/format.h>
@@ -729,22 +734,22 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     db_count;
             height = max32(height, min_height);
 
-            // 2015
-            pkgi_draw_text(0, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("dc {}", db_count).c_str());
-            // 50
-            pkgi_draw_text(120, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mh {}", min_height).c_str());
-            // 10
-            pkgi_draw_text(240, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mi {}", max_items).c_str());
-            // 50
-            pkgi_draw_text(360, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("h {}", height).c_str());
-            // 0 (каждые 6 строк)
-            pkgi_draw_text(480, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("s {}", start).c_str());
-            // 439
-            pkgi_draw_text(600, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("ah {}", avail_height).c_str());
-            // 0 . после первого перелистывания начинает меняться
-            pkgi_draw_text(720, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fi {}", first_item).c_str());
-            // 23
-            pkgi_draw_text(840, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fh {}", font_height).c_str());
+            // // 2015
+            // pkgi_draw_text(0, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("dc {}", db_count).c_str());
+            // // 50
+            // pkgi_draw_text(120, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mh {}", min_height).c_str());
+            // // 10
+            // pkgi_draw_text(240, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mi {}", max_items).c_str());
+            // // 50
+            // pkgi_draw_text(360, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("h {}", height).c_str());
+            // // 0 (каждые 6 строк)
+            // pkgi_draw_text(480, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("s {}", start).c_str());
+            // // 439
+            // pkgi_draw_text(600, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("ah {}", avail_height).c_str());
+            // // 0 . после первого перелистывания начинает меняться
+            // pkgi_draw_text(720, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fi {}", first_item).c_str());
+            // // 23
+            // pkgi_draw_text(840, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fh {}", font_height).c_str());
 
 
             pkgi_draw_rect(
@@ -861,6 +866,14 @@ void pkgi_do_head(void)
 
     char title[256];
     pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
+
+    auto t = std::time(nullptr);
+    auto tm = *std::localtime(&t);
+    std::ostringstream oss;
+    oss << std::put_time(&tm, "%d-%m-%Y %H-%M-%S");
+    auto str = oss.str();
+
+    pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, str);
     // pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
 
     pkgi_draw_rect(
