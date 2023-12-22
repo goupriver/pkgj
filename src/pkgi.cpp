@@ -705,7 +705,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     10,
                     43,
                     8,
-                    VITA_HEIGHT - 104,
+                    VITA_HEIGHT - 108,
                     PKGI_COLOR_SCROLL_BAR_BACKGROUND);
     
     if (db_count != 0)
