@@ -301,27 +301,21 @@ void do_download(Downloader& downloader, DbItem* item) {
 void pkgi_install_package(Downloader& downloader, DbItem* item)
 {
     if (item->presence == PresenceInstalled)
-    // {
-    //     LOGF("[{}] {} - already installed", item->content, item->name);
-    //     pkgi_dialog_question(
-    //     fmt::format(
-    //             "{} уже установлено. "
-    //             "Хотите загрузить его заново?", 
-    //             item->name)
-    //             .c_str(),
-    //     {{"Да", [&downloader, item] { do_download(downloader, item); }},
-    //      {"Нет", [] {} }});
+    {
+        LOGF("[{}] {} - already installed", item->content, item->name);
+        pkgi_dialog_question(
+        fmt::format(
+                "{} уже установлено. "
+                "Хотите загрузить его заново?", 
+                item->name)
+                .c_str(),
+        {{"Да", [&downloader, item] { do_download(downloader, item); }},
+         {"Нет", [] {} }});
 
-    //     // ImGui::PopStyleVar();
-
-    //     return;
-    // }
-
-    uint32_t db_count = db->count();
-
-    start_start(db_count, "awd");
+        return;
+    }
     
-    // do_download(downloader, item);
+    do_download(downloader, item);
 }
 
 void pkgi_friendly_size(char* text, uint32_t textlen, int64_t size)
