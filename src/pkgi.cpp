@@ -157,7 +157,7 @@ void configure_db(TitleDatabase* db, const char* search, const Config* config)
         snprintf(
                 error_state,
                 sizeof(error_state),
-                "can't reload list: %s",
+                "Список не перезагружен: %s",
                 e.what());
         pkgi_dialog_error(error_state);
     }
@@ -249,7 +249,7 @@ void pkgi_refresh_thread(void)
         snprintf(
                 error_state,
                 sizeof(error_state),
-                "can't get list: %s",
+                "Невозможно получить список: %s",
                 e.what());
         pkgi_dialog_error(error_state);
     }
@@ -585,7 +585,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             pkgi_draw_rect(
                     0 + 26,
                     y + 3,
-                    VITA_WIDTH - 20,
+                    VITA_WIDTH - 33,
                     font_height + PKGI_MAIN_ROW_PADDING - 4,
                     PKGI_COLOR_SELECTED_BACKGROUND);
         }
@@ -727,13 +727,13 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     db_count;
             height = max32(height, min_height);
 
-            pkgi_draw_text(100, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("d_c >> {}", db_count).c_str());
-            pkgi_draw_text(150, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("m_h >> {}", min_height).c_str());
-            pkgi_draw_text(200, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("m_i >> {}", max_items).c_str());
-            pkgi_draw_text(250, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("h >> {}", height).c_str());
-            pkgi_draw_text(300, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("s >> {}", start).c_str());
-            pkgi_draw_text(350, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("a_h >> {}", avail_height).c_str());
-            pkgi_draw_text(350, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("f_i >> {}", first_item).c_str());
+            pkgi_draw_text(0, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("dc {}", db_count).c_str());
+            pkgi_draw_text(120, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mh {}", min_height).c_str());
+            pkgi_draw_text(240, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mi {}", max_items).c_str());
+            pkgi_draw_text(360, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("h {}", height).c_str());
+            pkgi_draw_text(480, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("s {}", start).c_str());
+            pkgi_draw_text(600, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("ah {}", avail_height).c_str());
+            pkgi_draw_text(720, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fi {}", first_item).c_str());
 
 
             pkgi_draw_rect(
@@ -846,7 +846,7 @@ void pkgi_do_head(void)
 
     char title[256];
     pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
-    pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
+    // pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
 
     pkgi_draw_rect(
             0,
@@ -909,11 +909,11 @@ void pkgi_do_head(void)
             0,
             VITA_WIDTH - right - left,
             font_height + PKGI_MAIN_HLINE_EXTRA);
-    pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(text)) / 2,
-            0,
-            PKGI_COLOR_TEXT_TAIL,
-            text);
+    // pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width(text)) / 2,
+    //         0,
+    //         PKGI_COLOR_TEXT_TAIL,
+    //         text);
     pkgi_clip_remove();
 }
 
@@ -1516,16 +1516,16 @@ int main()
             // аккумулятор
             if (pkgi_battery_is_low()) 
             {
-                pkgi_draw_texture(batteryislow, VITA_WIDTH - 64, 5);
+                pkgi_draw_texture(batteryislow, VITA_WIDTH - 45, 5);
             }
             else 
             {
-                pkgi_draw_texture(batterynormal, VITA_WIDTH - 64, 5);
+                pkgi_draw_texture(batterynormal, VITA_WIDTH - 45, 5);
             }
 
             // разрядка
             pkgi_draw_rect(
-            VITA_WIDTH - 60,
+            VITA_WIDTH - 41,
             8,
             28 - ceil((pkgi_bettery_get_level() * 28 / 100)),
             10,
@@ -1533,7 +1533,7 @@ int main()
 
             if (pkgi_battery_is_charging()) 
             {
-                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 64, 5);
+                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 45, 5);
             }
 
             pkgi_do_head();
@@ -1668,7 +1668,7 @@ int main()
         LOGF("Error in main: {}", e.what());
         state = StateError;
         pkgi_snprintf(
-                error_state, sizeof(error_state), "Fatal error: %s", e.what());
+                error_state, sizeof(error_state), "Фатальная ошибка: %s", e.what());
 
         pkgi_input input;
         while (pkgi_update(&input))
