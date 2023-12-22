@@ -585,9 +585,9 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             colorCircle = PKGI_COLOR_LIST_CIRCLE;
             
             pkgi_draw_rect(
-                    0,
+                    0 + 26,
                     y + 3,
-                    VITA_WIDTH,
+                    VITA_WIDTH - 8,
                     font_height + PKGI_MAIN_ROW_PADDING - 4,
                     PKGI_COLOR_SELECTED_BACKGROUND);
         }
@@ -707,7 +707,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     10,
                     26,
                     8,
-                    VITA_HEIGHT - 71,
+                    VITA_HEIGHT - 74,
                     PKGI_COLOR_SCROLL_BAR_BACKGROUND);
     
     if (db_count != 0)
@@ -1505,16 +1505,16 @@ int main()
             // аккумулятор
             if (pkgi_battery_is_low()) 
             {
-                pkgi_draw_texture(batteryislow, VITA_WIDTH - 42, 5);
+                pkgi_draw_texture(batteryislow, VITA_WIDTH - 55, 5);
             }
             else 
             {
-                pkgi_draw_texture(batterynormal, VITA_WIDTH - 42, 5);
+                pkgi_draw_texture(batterynormal, VITA_WIDTH - 55, 5);
             }
 
             // разрядка
             pkgi_draw_rect(
-            VITA_WIDTH - 38,
+            VITA_WIDTH - 51,
             8,
             28 - ceil((pkgi_bettery_get_level() * 28 / 100)),
             10,
@@ -1523,7 +1523,7 @@ int main()
 
             if (pkgi_battery_is_charging()) 
             {
-                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 42, 5);
+                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 55, 5);
             }
 
             pkgi_do_head();
