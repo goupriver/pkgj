@@ -870,10 +870,8 @@ void pkgi_do_head(void)
     auto t = std::time(nullptr);
     auto tm = *std::localtime(&t);
     std::ostringstream oss;
-    oss << std::put_time(&tm, "%d-%m-%Y %H-%M-%S");
+    oss << std::put_time(&tm, "%d/%m/%Y %H/%M");
     auto str = oss.str();
-
-// str.c_str()
 
     pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, fmt::format("{}", str).c_str());
     // pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
@@ -1486,9 +1484,9 @@ int main()
         style.Colors[ImGuiCol_NavHighlight] = PKGI_COLOR_HIGHLIGHT;
 
         style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER_WINDOW;
-        // style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
-        style.Colors[ImGuiCol_ModalWindowDimBg] = PKGI_COLOR_SHADOW;
-
+        style.Colors[FrameBorderSize] = PKGI_COLOR_BORDER_WINDOW;
+        style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
+        style.Colors[ImGuiCol_FrameBg] = PKGI_COLOR_BORDER_WINDOW;
 
         init_imgui();
 
