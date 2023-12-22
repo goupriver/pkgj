@@ -752,7 +752,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     // 23 + 12 + 0.2 = 35.2
                     // надо 40
                     // 
-                    font_height + PKGI_MAIN_HLINE_EXTRA + 5 + start,
+                    font_height + PKGI_MAIN_HLINE_EXTRA + 8 + start,
                     // 
                     PKGI_MAIN_SCROLL_WIDTH,
                     height,
