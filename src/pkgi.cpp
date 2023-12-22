@@ -590,7 +590,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             pkgi_draw_rect(
                     0 + 26,
                     y + 3,
-                    VITA_WIDTH - 33,
+                    VITA_WIDTH - 34,
                     font_height + PKGI_MAIN_ROW_PADDING - 4,
                     PKGI_COLOR_SELECTED_BACKGROUND);
         }
