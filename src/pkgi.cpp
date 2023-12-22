@@ -705,26 +705,34 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
     // scroll-bar
     pkgi_draw_rect(
                     10,
-                    26,
+                    33,
                     8,
-                    VITA_HEIGHT - 74,
+                    VITA_HEIGHT - 64,
                     PKGI_COLOR_SCROLL_BAR_BACKGROUND);
     
     if (db_count != 0)
     {
+        // (457 + 17 + 2 - 1) / (17 + 2) = 24
+        // max_items = 24
         uint32_t max_items =
                 (avail_height + font_height + PKGI_MAIN_ROW_PADDING - 1) /
                         (font_height + PKGI_MAIN_ROW_PADDING) -
                 1;
         if (max_items < db_count)
-        {
+        {   
+            // min_height = 50
             uint32_t min_height = PKGI_MAIN_SCROLL_MIN_HEIGHT;
+            // height = 3
             uint32_t height = max_items * avail_height / db_count;
+            // start = 0,2
             uint32_t start =
                     first_item *
                     (avail_height - (height < min_height ? min_height : 0)) /
                     db_count;
+            // height = 3 > 50 ? 3 : 50  
+            // height = 50
             height = max32(height, min_height);
+            // (10 , 29.2 , 8, 50)
             pkgi_draw_rect(
                     PKGI_SCROLL_LEFT_MARGIN,
                     font_height + PKGI_MAIN_HLINE_EXTRA + start,
