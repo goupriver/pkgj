@@ -1397,7 +1397,7 @@ int main()
         };
         downloader.error = [](const std::string& error)
         {
-            FIXME this runs on the wrong thread
+            // FIXME this runs on the wrong thread
             pkgi_dialog_error(("Ошибка загрузки: " + error).c_str());
         };
 
