@@ -710,7 +710,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
     
     if (db_count != 0)
     {
-        pkgi_draw_text(25, 0, colorTextTitileId, fmt::format("db_count >> {}", db_count).c_str());
+        pkgi_draw_text(25, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("db_count >> {}", db_count).c_str());
 
         uint32_t max_items =
                 (avail_height + font_height + PKGI_MAIN_ROW_PADDING - 1) /
