@@ -718,6 +718,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 8;
         if (max_items < db_count)
         {   
+
             uint32_t min_height = PKGI_MAIN_SCROLL_MIN_HEIGHT;
             uint32_t height = max_items * avail_height / db_count;
             uint32_t start =
@@ -725,6 +726,15 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     (avail_height - (height < min_height ? min_height : 0)) /
                     db_count;
             height = max32(height, min_height);
+
+            pkgi_draw_text(100, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("d_c >> {}", db_count).c_str());
+            pkgi_draw_text(150, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("m_h >> {}", min_height).c_str());
+            pkgi_draw_text(200, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("m_i >> {}", max_items).c_str());
+            pkgi_draw_text(250, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("h >> {}", height).c_str());
+            pkgi_draw_text(300, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("s >> {}", start).c_str());
+            pkgi_draw_text(350, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("ah >> {}", avail_height).c_str());
+
+
             pkgi_draw_rect(
                     PKGI_SCROLL_LEFT_MARGIN,
                     font_height + PKGI_MAIN_HLINE_EXTRA + start,
