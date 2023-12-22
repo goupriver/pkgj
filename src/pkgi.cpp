@@ -732,7 +732,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             pkgi_draw_text(200, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("m_i >> {}", max_items).c_str());
             pkgi_draw_text(250, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("h >> {}", height).c_str());
             pkgi_draw_text(300, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("s >> {}", start).c_str());
-            pkgi_draw_text(350, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("ah >> {}", avail_height).c_str());
+            pkgi_draw_text(350, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("a_h >> {}", avail_height).c_str());
+            pkgi_draw_text(350, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("f_i >> {}", first_item).c_str());
 
 
             pkgi_draw_rect(
