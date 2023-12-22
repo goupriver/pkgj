@@ -867,14 +867,7 @@ void pkgi_do_head(void)
     char title[256];
     pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
 
-    auto t = std::time(nullptr);
-    auto tm = *std::localtime(&t);
-    std::ostringstream oss;
-    oss << std::put_time(&tm, "%d/%m/%Y %H/%M");
-    auto str = oss.str();
-
-    pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, fmt::format("{}", str).c_str());
-    // pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
+    pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
 
     pkgi_draw_rect(
             0,
@@ -1544,19 +1537,41 @@ int main()
 
             pkgi_draw_texture(background, 0, 0);
 
+
+
+            // дата время
+
+            auto t = std::time(nullptr);
+            auto tm = *std::localtime(&t);
+            std::ostringstream oss;
+            oss << std::put_time(&tm, "%d.%m.%Y %H:%M");
+            auto str = oss.str();
+
+            pkgi_draw_text(VITA_WIDTH - 74 - pkgi_text_width(str) - 10,8 , PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
+
+
             // аккумулятор
+
+            pkgi_draw_text(
+            VITA_WIDTH - 74,
+            8,
+            PKGI_COLOR_TEXT,
+            fmt::format("{}%", pkgi_bettery_get_level()).c_str());
+
+            
+
             if (pkgi_battery_is_low()) 
             {
-                pkgi_draw_texture(batteryislow, VITA_WIDTH - 45, 5);
+                pkgi_draw_texture(batteryislow, VITA_WIDTH - 47, 5);
             }
             else 
             {
-                pkgi_draw_texture(batterynormal, VITA_WIDTH - 45, 5);
+                pkgi_draw_texture(batterynormal, VITA_WIDTH - 47, 5);
             }
 
             // разрядка
             pkgi_draw_rect(
-            VITA_WIDTH - 41,
+            VITA_WIDTH - 43,
             8,
             28 - ceil((pkgi_bettery_get_level() * 28 / 100)),
             10,
@@ -1564,7 +1579,7 @@ int main()
 
             if (pkgi_battery_is_charging()) 
             {
-                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 45, 5);
+                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 47, 5);
             }
 
             pkgi_do_head();
