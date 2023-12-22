@@ -587,7 +587,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             pkgi_draw_rect(
                     0 + 26,
                     y + 3,
-                    VITA_WIDTH - 8,
+                    VITA_WIDTH - 15,
                     font_height + PKGI_MAIN_ROW_PADDING - 4,
                     PKGI_COLOR_SELECTED_BACKGROUND);
         }
@@ -705,9 +705,9 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
     // scroll-bar
     pkgi_draw_rect(
                     10,
-                    33,
+                    39,
                     8,
-                    VITA_HEIGHT - 64,
+                    VITA_HEIGHT - 94,
                     PKGI_COLOR_SCROLL_BAR_BACKGROUND);
     
     if (db_count != 0)
@@ -717,7 +717,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         uint32_t max_items =
                 (avail_height + font_height + PKGI_MAIN_ROW_PADDING - 1) /
                         (font_height + PKGI_MAIN_ROW_PADDING) -
-                1;
+                8;
         if (max_items < db_count)
         {   
             // min_height = 50
