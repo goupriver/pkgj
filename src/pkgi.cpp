@@ -713,14 +713,16 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
 
         uint32_t max_items =
+        // max_items = 17, 52
                 (avail_height + font_height + PKGI_MAIN_ROW_PADDING - 1) /
-                        (font_height + PKGI_MAIN_ROW_PADDING) -
-                8;
+                        (font_height + PKGI_MAIN_ROW_PADDING) - 1;
         if (max_items < db_count)
         {   
-
+            // 50
             uint32_t min_height = PKGI_MAIN_SCROLL_MIN_HEIGHT;
+            // 3.7
             uint32_t height = max_items * avail_height / db_count;
+            // 1 * 389 / 2015 = 0,2  (4)   (147)
             uint32_t start =
                     first_item *
                     (avail_height - (height < min_height ? min_height : 0)) /
@@ -741,14 +743,16 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             pkgi_draw_text(600, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("ah {}", avail_height).c_str());
             // 0 . после первого перелистывания начинает меняться
             pkgi_draw_text(720, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fi {}", first_item).c_str());
-
+            // 23
             pkgi_draw_text(840, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fh {}", font_height).c_str());
 
 
             pkgi_draw_rect(
                     PKGI_SCROLL_LEFT_MARGIN,
+                    // 23 + 12 + 0.2 = 35.2
+                    // надо 40
                     // 
-                    font_height + PKGI_MAIN_HLINE_EXTRA + start,
+                    font_height + PKGI_MAIN_HLINE_EXTRA + 5 + start,
                     // 
                     PKGI_MAIN_SCROLL_WIDTH,
                     height,
