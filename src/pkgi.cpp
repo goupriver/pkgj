@@ -873,9 +873,9 @@ void pkgi_do_head(void)
     oss << std::put_time(&tm, "%d-%m-%Y %H-%M-%S");
     auto str = oss.str();
 
-// fmt::format("{}", str).c_str()
+// str.c_str()
 
-    pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, str.c_str());
+    pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, fmt::format("{}", str).c_str());
     // pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
 
     pkgi_draw_rect(
