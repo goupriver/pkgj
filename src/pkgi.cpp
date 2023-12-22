@@ -301,23 +301,27 @@ void do_download(Downloader& downloader, DbItem* item) {
 void pkgi_install_package(Downloader& downloader, DbItem* item)
 {
     if (item->presence == PresenceInstalled)
-    {
-        LOGF("[{}] {} - already installed", item->content, item->name);
-        pkgi_dialog_question(
-        fmt::format(
-                "{} уже установлено. "
-                "Хотите загрузить его заново?", 
-                item->name)
-                .c_str(),
-        {{"Да", [&downloader, item] { do_download(downloader, item); }},
-         {"Нет", [] {} }});
+    // {
+    //     LOGF("[{}] {} - already installed", item->content, item->name);
+    //     pkgi_dialog_question(
+    //     fmt::format(
+    //             "{} уже установлено. "
+    //             "Хотите загрузить его заново?", 
+    //             item->name)
+    //             .c_str(),
+    //     {{"Да", [&downloader, item] { do_download(downloader, item); }},
+    //      {"Нет", [] {} }});
 
-        // ImGui::PopStyleVar();
+    //     // ImGui::PopStyleVar();
 
-        return;
-    }
+    //     return;
+    // }
+
+    uint32_t db_count = db->count();
+
+    start_start(db_count, "awd");
     
-    do_download(downloader, item);
+    // do_download(downloader, item);
 }
 
 void pkgi_friendly_size(char* text, uint32_t textlen, int64_t size)
@@ -712,27 +716,19 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
     
     if (db_count != 0)
     {
-        // (457 + 17 + 2 - 1) / (17 + 2) = 24
-        // max_items = 24
         uint32_t max_items =
                 (avail_height + font_height + PKGI_MAIN_ROW_PADDING - 1) /
                         (font_height + PKGI_MAIN_ROW_PADDING) -
                 8;
         if (max_items < db_count)
         {   
-            // min_height = 50
             uint32_t min_height = PKGI_MAIN_SCROLL_MIN_HEIGHT;
-            // height = 3
             uint32_t height = max_items * avail_height / db_count;
-            // start = 0,2
             uint32_t start =
                     first_item *
                     (avail_height - (height < min_height ? min_height : 0)) /
                     db_count;
-            // height = 3 > 50 ? 3 : 50  
-            // height = 50
             height = max32(height, min_height);
-            // (10 , 29.2 , 8, 50)
             pkgi_draw_rect(
                     PKGI_SCROLL_LEFT_MARGIN,
                     font_height + PKGI_MAIN_HLINE_EXTRA + start,

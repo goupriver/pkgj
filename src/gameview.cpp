@@ -272,6 +272,15 @@ void GameView::do_download() {
     _item->presence = PresenceUnknown;
 }
 
+// ТЕСТ
+
+void GameView::start_start(a, b)
+{
+    pkgi_dialog_question(fmt::format("{} << count, {} << font_height  ", a, b).c_str(), {{"Нет", [] {} }});
+    return;
+}
+
+
 void GameView::start_download_package()
 {
     if (_item->presence == PresenceInstalled)
