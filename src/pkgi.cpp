@@ -1516,25 +1516,24 @@ int main()
             // аккумулятор
             if (pkgi_battery_is_low()) 
             {
-                pkgi_draw_texture(batteryislow, VITA_WIDTH - 55, 5);
+                pkgi_draw_texture(batteryislow, VITA_WIDTH - 64, 5);
             }
             else 
             {
-                pkgi_draw_texture(batterynormal, VITA_WIDTH - 55, 5);
+                pkgi_draw_texture(batterynormal, VITA_WIDTH - 64, 5);
             }
 
             // разрядка
             pkgi_draw_rect(
-            VITA_WIDTH - 51,
+            VITA_WIDTH - 60,
             8,
             28 - ceil((pkgi_bettery_get_level() * 28 / 100)),
             10,
             PKGI_COLOR_HEAD_HLINE);
-            // pkgi_bettery_get_level()); * 28 / 100
 
             if (pkgi_battery_is_charging()) 
             {
-                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 55, 5);
+                pkgi_draw_texture(batteryischarging, VITA_WIDTH - 64, 5);
             }
 
             pkgi_do_head();
