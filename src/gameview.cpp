@@ -164,7 +164,7 @@ void GameView::render()
     ImGui::End();
 }
 
-static const auto Red = ImVec4(1.0f, 0.2f, 0.2f, 1.0f);
+static const auto Red = ImVec4(0.776f, 0.322f, 0.322f, 1.0f);
 static const auto Yellow = ImVec4(1.0f, 1.0f, 0.0f, 1.0f);
 static const auto Green = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
 
@@ -245,7 +245,7 @@ void GameView::printDiagnostic()
     }
 
     if (ok)
-        ImGui::TextColored(Green, "Все условия соблюдены");
+        ImGui::TextColored(Green, "Игра установлена");
 }
 
 std::string GameView::get_min_system_version()

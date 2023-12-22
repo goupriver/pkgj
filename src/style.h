@@ -79,6 +79,8 @@
 
 //
 #define PKGI_COLOR_HEAD_HLINE PKGI_COLOR(0, 0, 0)
+#define PKGI_COLOR_BORDER_WINDOW ImVec4(0.00f, 0.00f, 0.00f, 1.0f)
+#define PKGI_COLOR_SHADOW ImVec4(0.00f, 0.00f, 0.00f, 0.6f)
 
 //
 // текст списоку игр
@@ -126,7 +128,7 @@
 // #define PKGI_MAIN_HLINE_HEIGHT 2 // не забывыть убрать
 #define PKGI_MAIN_HLINE_HEIGHT 0 // не забывыть убрать
 #define PKGI_MAIN_TEXT_PADDING 5
-#define PKGI_MAIN_SCROLL_WIDTH 8
+#define PKGI_MAIN_SCROLL_WIDTH 10
 #define PKGI_MAIN_SCROLL_PADDING 2
 #define PKGI_MAIN_SCROLL_MIN_HEIGHT 50
 #define PKGI_SCROLL_PADDING 28

@@ -748,7 +748,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
 
             pkgi_draw_rect(
-                    PKGI_SCROLL_LEFT_MARGIN,
+                    PKGI_SCROLL_LEFT_MARGIN - 1,
                     // 23 + 12 + 0.2 = 35.2
                     // надо 40
                     // 
@@ -924,11 +924,12 @@ void pkgi_do_head(void)
             0,
             VITA_WIDTH - right - left,
             font_height + PKGI_MAIN_HLINE_EXTRA);
-    // pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width(text)) / 2,
-    //         0,
-    //         PKGI_COLOR_TEXT_TAIL,
-    //         text);
+            // ДЛЯ ТЕСТА
+    pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width(text)) / 2,
+            0,
+            PKGI_COLOR_TEXT_TAIL,
+            text);
     pkgi_clip_remove();
 }
 
@@ -1396,7 +1397,7 @@ int main()
         };
         downloader.error = [](const std::string& error)
         {
-            // FIXME this runs on the wrong thread
+            FIXME this runs on the wrong thread
             pkgi_dialog_error(("Ошибка загрузки: " + error).c_str());
         };
 
@@ -1469,6 +1470,9 @@ int main()
         style.Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
         style.Colors[ImGuiCol_NavHighlight] = PKGI_COLOR_HIGHLIGHT;
 
+        style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER_WINDOW
+        // style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW
+        style.Colors[ImGuiCol_ModalWindowDimBg] = PKGI_COLOR_SHADOW
 
 
         init_imgui();
