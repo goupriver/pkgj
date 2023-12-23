@@ -870,11 +870,11 @@ void pkgi_do_head(auto ffont)
 
 
     // ImGui::SetCursorPos(ImVec2(0, 0));
-    ImGui::Text("PKGJ q2eq");
+    // ImGui::Text("PKGJ q2eq");
 
     // ImGui::TextColored(ImVec4{1.f, .2f, .2f, 1.f}, "%s", local_text.c_str());
 
-    // pkgi_draw_text(0, 0, PKGI_COLOR_DATE_TIME, title);
+    pkgi_draw_text(0, 0, PKGI_COLOR_DATE_TIME, title);
 
 
     pkgi_draw_rect(
