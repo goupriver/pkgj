@@ -870,7 +870,7 @@ void pkgi_do_head(auto ffont)
 
 
     ImGui::SetCursorPos(ImVec2(0, 0));
-    ImGui::Text("PKGJ q2eq", ImVec2(tex_w, tex_h));
+    ImGui::Text("PKGJ q2eq");
 
     // ImGui::TextColored(ImVec4{1.f, .2f, .2f, 1.f}, "%s", local_text.c_str());
 
