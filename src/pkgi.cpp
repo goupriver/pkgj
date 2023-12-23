@@ -869,7 +869,12 @@ void pkgi_do_head(auto ffont)
     pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
 
 
-    pkgi_draw_text(0, 0, PKGI_COLOR_DATE_TIME, title);
+    ImGui::SetCursorPos(ImVec2(0, 0));
+    ImGui::Text("PKGJ q2eq", ImVec2(tex_w, tex_h));
+
+    // ImGui::TextColored(ImVec4{1.f, .2f, .2f, 1.f}, "%s", local_text.c_str());
+
+    // pkgi_draw_text(0, 0, PKGI_COLOR_DATE_TIME, title);
 
 
     pkgi_draw_rect(
@@ -1442,9 +1447,9 @@ int main()
         uint32_t* pixels = NULL;
         int width, height;
 
-        ImFont* fontCyrillic = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 8.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
-        ImFont* fontDefault = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 55.0f, 0, io.Fonts->GetGlyphRangesDefault());
-        ImFont* fontCyrillicMin = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 14.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
+        ImFont* fontCyrillic = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 20.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
+        ImFont* fontDefault = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 20.0f, 0, io.Fonts->GetGlyphRangesDefault());
+        ImFont* fontCyrillicMin = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 18.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
 
         if (!fontCyrillic)
             throw std::runtime_error("failed to load ltn0.pvf");
