@@ -860,14 +860,18 @@ void pkgi_do_refresh(void)
             text.c_str());
 }
 
-void pkgi_do_head(void)
+void pkgi_do_head(auto ffont)
 {
     const char* version = PKGI_VERSION;
 
     char title[256];
     pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
 
-    pkgi_draw_text(0, 0, PKGI_COLOR_TEXT_HEAD, title);
+    ImGui::PushFont(ffont);
+
+    pkgi_draw_text(0, 0, PKGI_COLOR_DATE_TIME, title);
+
+    ImGui::PopFont();
 
     pkgi_draw_rect(
             0,
@@ -1435,17 +1439,14 @@ int main()
         // Build and load the texture atlas into a texture
         uint32_t* pixels = NULL;
         int width, height;
-        if (!io.Fonts->AddFontFromFileTTF(
-                    "sa0:/data/font/pvf/ltn0.pvf",
-                    20.0f,
-                    0,
-                    io.Fonts->GetGlyphRangesCyrillic()))
+
+        ImFont* fontCyrillic = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 20.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
+        ImFont* fontDefault = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 20.0f, 0, io.Fonts->GetGlyphRangesDefault());
+        ImFont* fontCyrillicMin = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 16.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
+
+        if (!fontCyrillic)
             throw std::runtime_error("failed to load ltn0.pvf");
-        if (!io.Fonts->AddFontFromFileTTF(
-                    "sa0:/data/font/pvf/ltn0.pvf",
-                    20.0f,
-                    0,
-                    io.Fonts->GetGlyphRangesDefault()))
+        if (!fontDefault)
             throw std::runtime_error("failed to load ltn0.pvf");
         io.Fonts->GetTexDataAsRGBA32((uint8_t**)&pixels, &width, &height);
         vita2d_texture* font_texture =
@@ -1582,7 +1583,7 @@ int main()
                 pkgi_draw_texture(batteryischarging, VITA_WIDTH - 47, 5);
             }
 
-            pkgi_do_head();
+            pkgi_do_head(fontCyrillicMin);
             switch (state)
             {
             case StateError:
