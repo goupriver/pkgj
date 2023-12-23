@@ -862,16 +862,15 @@ void pkgi_do_refresh(void)
 
 void pkgi_do_head(auto ffont)
 {
+    ImGui::PushFont(ffont);
     const char* version = PKGI_VERSION;
 
     char title[256];
     pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
 
-    ImGui::PushFont(ffont);
 
     pkgi_draw_text(0, 0, PKGI_COLOR_DATE_TIME, title);
 
-    ImGui::PopFont();
 
     pkgi_draw_rect(
             0,
@@ -913,6 +912,9 @@ void pkgi_do_head(auto ffont)
     // {
         // rightw = 0;
     // }
+
+    ImGui::PopFont();
+
 
     char text[256];
     int left = pkgi_text_width(search_text) + PKGI_MAIN_TEXT_PADDING;
