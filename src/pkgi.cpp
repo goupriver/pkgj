@@ -1449,7 +1449,7 @@ int main()
 
         ImFont* fontCyrillic = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 20.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
         ImFont* fontDefault = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 20.0f, 0, io.Fonts->GetGlyphRangesDefault());
-        ImFont* fontCyrillicMin = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 18.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
+        ImFont* fontCyrillicMin = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 8.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
 
         if (!fontCyrillic)
             throw std::runtime_error("failed to load ltn0.pvf");
