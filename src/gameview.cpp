@@ -164,8 +164,8 @@ void GameView::render()
 
 
         // vita2d_draw_texture(bgIMG, 0, 0);
-        pkgi_texture tex2 = pkgi_load_png(coverdisk);
-        // vita2d_texture *tex2 = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png");
+        // pkgi_texture tex2 = pkgi_load_png(coverdisk);
+        vita2d_texture *tex2 = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png");
 
         vita2d_wait_rendering_done();
         ImGui::SetCursorPos(ImVec2(tex_x, tex_y));
