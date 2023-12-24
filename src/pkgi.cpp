@@ -1557,16 +1557,20 @@ int main()
 
             pkgi_draw_text(VITA_WIDTH - 74 - 190 - 10 - 30 - 10, 0, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
 
-
             // аккумулятор
 
-            pkgi_draw_text(
+            pkgi_draw_text_with_size(
             VITA_WIDTH - 74 - 26,
             0,
+            0.5f,
             PKGI_COLOR_TEXT,
             fmt::format("{}%", pkgi_bettery_get_level()).c_str());
 
-            
+            // pkgi_draw_text(
+            // VITA_WIDTH - 74 - 26,
+            // 0,
+            // PKGI_COLOR_TEXT,
+            // fmt::format("{}%", pkgi_bettery_get_level()).c_str());
 
             if (pkgi_battery_is_low()) 
             {

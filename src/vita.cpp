@@ -856,6 +856,11 @@ void pkgi_draw_text(int x, int y, uint32_t color, const char* text)
     vita2d_pgf_draw_text(g_font, x, y + 20, VITA_COLOR(color), 1.f, text);
 }
 
+void pkgi_draw_text_with_size(int x, int y, auto size, uint32_t color, const char* text)
+{
+    vita2d_pgf_draw_text(g_font, x, y + 20, VITA_COLOR(color), size, text);
+}
+
 int pkgi_text_width(const char* text)
 {
     return vita2d_pgf_text_width(g_font, 1.f, text);
