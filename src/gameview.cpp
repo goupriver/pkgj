@@ -151,14 +151,19 @@ void GameView::render()
 
     auto tex = _image_fetcher.get_texture();
     // Display game image
+    // обложка
+
     if (tex != nullptr)
     {
         int tex_w = vita2d_texture_get_width(tex);
         int tex_h = vita2d_texture_get_height(tex);
-        float tex_x = ImGui::GetWindowContentRegionMax().x - tex_w;
-        float tex_y = ImGui::GetWindowContentRegionMin().y;
+        float tex_x = ImGui::GetWindowContentRegionMax().x - tex_w - 10;
+        float tex_y = ImGui::GetWindowContentRegionMin().y + 10;
         ImGui::SetCursorPos(ImVec2(tex_x, tex_y));
         ImGui::Image(tex, ImVec2(tex_w, tex_h));
+
+        pkgi_texture coverdisk = pkgi_load_png(coverdisk);
+        pkgi_draw_texture(coverdisk, VITA_WIDTH - 363, 97);
     }
 
     ImGui::End();
