@@ -69,6 +69,8 @@ int bottom_y;
 char search_text[256];
 char error_state[256];
 
+vita2d_texture *tex2;
+
 // used for multiple things actually
 Mutex refresh_mutex("refresh_mutex");
 std::string current_action;
@@ -1446,6 +1448,9 @@ int main()
         ImFont* fontDefault = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 20.0f, 0, io.Fonts->GetGlyphRangesDefault());
         ImFont* fontCyrillicMin = io.Fonts->AddFontFromFileTTF("sa0:/data/font/pvf/ltn0.pvf", 8.0f, 0, io.Fonts->GetGlyphRangesCyrillic());
 
+        vita2d_texture *tex2 = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png");
+
+
         if (!fontCyrillic)
             throw std::runtime_error("failed to load ltn0.pvf");
         if (!fontDefault)
@@ -1612,7 +1617,7 @@ int main()
 
             if (gameview)
             {
-                gameview->render();
+                gameview->render(tex2);
                 if (gameview->is_closed())
                     gameview = nullptr;
             }
