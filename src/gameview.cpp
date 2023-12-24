@@ -164,7 +164,7 @@ void GameView::render()
 
 
 
-        vita2d_texture *tex2 = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png".c_str());
+        vita2d_texture *tex2 = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png");
         ImGui::Image(tex2, ImVec2(0.5f, 0.5f));
         // vita2d_free_texture(текс); -> сбой
         // _texture = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png".c_str());
