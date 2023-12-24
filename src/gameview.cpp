@@ -162,8 +162,17 @@ void GameView::render()
         ImGui::SetCursorPos(ImVec2(tex_x, tex_y));
         ImGui::Image(tex, ImVec2(tex_w, tex_h));
 
-        pkgi_texture coverdisk = pkgi_load_png(coverdisk);
-        pkgi_draw_texture(coverdisk, VITA_WIDTH - 363, 97);
+
+
+        vita2d_texture *tex2 = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png".c_str());
+        ImGui::Image(tex2, ImVec2(0.5f, 0.5f));
+        // vita2d_free_texture(текс); -> сбой
+        // _texture = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png".c_str());
+
+        
+
+        // pkgi_texture coverdisk = pkgi_load_png(coverdisk);
+        // pkgi_draw_texture(coverdisk, VITA_WIDTH - 363, 97);
     }
 
     ImGui::End();
