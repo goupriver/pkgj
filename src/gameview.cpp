@@ -33,7 +33,7 @@ GameView::GameView(
     refresh();
 }
 
-void GameView::render(vita2d_texture im)
+void GameView::render()
 {
     ImGui::SetNextWindowPos(
             ImVec2((VITA_WIDTH - GameViewWidth) / 2,
@@ -150,6 +150,8 @@ void GameView::render(vita2d_texture im)
     }
 
     auto tex = _image_fetcher.get_texture();
+    auto tex2 = _image_fetcher.get_texturePNG();
+
     // Display game image
     // обложка
 
@@ -169,8 +171,8 @@ void GameView::render(vita2d_texture im)
 
         ImGui::SetCursorPos(ImVec2(tex_x, tex_y));
         // vita2d_free_texture(tex2);
-        ImGui::Image(im, ImVec2(1.0f, 1.0f));
-        vita2d_wait_rendering_done();
+        ImGui::Image(tex2, ImVec2(1.0f, 1.0f));
+        // vita2d_wait_rendering_done();
         // vita2d_fini();
         // vita2d_free_texture(текс); -> сбой
         // _texture = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png".c_str());
