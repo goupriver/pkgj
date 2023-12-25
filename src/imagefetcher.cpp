@@ -83,21 +83,6 @@ vita2d_texture* ImageFetcher::get_texture()
     return _texture;
 }
 
-// vita2d_texture* ImageFetcher::get_texturePNG()
-// {
-//     std::lock_guard<Mutex> lock(_mutex);
-//     return vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png");
-// }
-
-vita2d_texture* ImageFetcher::get_texturePNG()
-{
-    if (pkgi_file_exists("ux0:pkgj/cover/coverdisk.png"))
-    {
-        std::lock_guard<Mutex> lock(_mutex);
-        return vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png");
-    }
-}
-
 std::optional<std::vector<uint8_t>> download_data(
         Http* http, const std::string& url)
 {

@@ -150,9 +150,6 @@ void GameView::render()
     }
 
     auto tex = _image_fetcher.get_texture();
-    // auto tex2 = _image_fetcher.get_texturePNG();
-    pkgi_texture tex2 = pkgi_load_png(coverdisk);
-
 
     // Display game image
     // обложка
@@ -166,29 +163,7 @@ void GameView::render()
         ImGui::SetCursorPos(ImVec2(tex_x, tex_y));
         ImGui::Image(tex, ImVec2(tex_w, tex_h));
 
-
-        // vita2d_draw_texture(bgIMG, 0, 0);
-        // pkgi_texture tex2 = pkgi_load_png(coverdisk);
-        // vita2d_texture *tex2 = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png");
-
-        // ImGui::SetCursorPos(ImVec2(tex_x, tex_y));
-        // ImGui::SetCursorPos(ImVec2(tex_x, tex_y));
-        // vita2d_free_texture(tex2);
-        // ImGui::Image(tex2, ImVec2(tex_w, tex_h));
-        // vita2d_wait_rendering_done();
-        // vita2d_fini();
-        // vita2d_free_texture(текс); -> сбой
-        // _texture = vita2d_load_PNG_file("ux0:pkgj/cover/coverdisk.png".c_str());
-
-        
-
-        pkgi_draw_texture(tex2, VITA_WIDTH - 363, 97);
     }
-
-	// vita2d_end_drawing();
-    // vita2d_wait_rendering_done();
-    // vita2d_fini();
-
 
     ImGui::End();
 }

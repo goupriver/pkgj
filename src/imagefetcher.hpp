@@ -12,7 +12,6 @@ public:
     ~ImageFetcher();
 
     vita2d_texture* get_texture();
-    vita2d_texture* get_texturePNG();
 
 private:
     Mutex _mutex;
