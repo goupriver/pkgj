@@ -184,7 +184,7 @@ void GameView::render()
     }
 
 	vita2d_end_drawing();
-    vita2d_wait_rendering_done();
+    // vita2d_wait_rendering_done();
     // vita2d_fini();
 
 
