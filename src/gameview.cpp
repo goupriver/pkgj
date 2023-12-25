@@ -183,8 +183,8 @@ void GameView::render()
         // pkgi_draw_texture(coverdisk, VITA_WIDTH - 363, 97);
     }
 
-	vita2d_end_drawing();
-    // vita2d_wait_rendering_done();
+	// vita2d_end_drawing();
+    vita2d_wait_rendering_done();
     // vita2d_fini();
 
 
