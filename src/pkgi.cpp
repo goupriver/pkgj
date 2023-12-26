@@ -968,9 +968,6 @@ void pkgi_do_tail(Downloader& downloader)
 {
     char text[256];
 
-    pkgi_draw_rect(
-            0, bottom_y, VITA_WIDTH, 0, PKGI_COLOR_HLINE);
-
     const auto current_download = downloader.get_current_download();
 
     uint64_t download_offset;
@@ -1557,7 +1554,7 @@ int main()
             pkgi_draw_text_with_size(
             VITA_WIDTH - 74 - 26,
             0,
-            0.8f,
+            0.5f,
             PKGI_COLOR_TEXT,
             fmt::format("{}%", pkgi_bettery_get_level()).c_str());
 
