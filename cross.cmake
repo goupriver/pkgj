@@ -44,7 +44,6 @@ endfunction()
 
 add_assets(assets
   assets/background.png
-  assets/coverdisk.png
   assets/batteryislow.png
   assets/batterynormal.png
   assets/batteryischarging.png
