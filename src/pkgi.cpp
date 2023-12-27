@@ -1044,9 +1044,7 @@ void pkgi_do_tail(Downloader& downloader)
                 static_cast<int>(download_offset * 100 / download_size));
     }
     else
-        // pkgi_snprintf(text, sizeof(text), "Нет активных задач");
-        // text = "";
-        strcpy(text," ".c_str());
+        pkgi_snprintf(text, sizeof(text), "");
 
     pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - 4)/2 - pkgi_text_width(text), bottom_y, PKGI_COLOR_TEXT_TAIL, text);
 
