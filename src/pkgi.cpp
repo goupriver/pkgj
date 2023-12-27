@@ -663,7 +663,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 // y + TWELAWE,
                 y,
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
-                        PKGI_MAIN_COLUMN_PADDING - sizew - col_name,
+                        PKGI_MAIN_COLUMN_PADDING - sizew - col_name - 45,
                 // line_height + TWELAWE);
                 line_height);
 
