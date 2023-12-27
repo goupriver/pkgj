@@ -668,7 +668,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 line_height);
 
         // текст
-        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
+        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, erase_string_elements(item->name).c_str());
 
         pkgi_clip_remove();
 
