@@ -21,8 +21,7 @@ GameView::GameView(
         Downloader* downloader,
         DbItem* item,
         std::optional<CompPackDatabase::Item> base_comppack,
-        std::optional<CompPackDatabase::Item> patch_comppack,
-        mode)
+        std::optional<CompPackDatabase::Item> patch_comppack)
     : _config(config)
     , _downloader(downloader)
     , _item(item)
@@ -41,10 +40,8 @@ void GameView::render()
                    (VITA_HEIGHT - GameViewHeight) / 2));
     ImGui::SetNextWindowSize(ImVec2(GameViewWidth, GameViewHeight), 0);
 
-
-    std::string txt = erase_string_elements(_item->name);
     ImGui::Begin(
-            fmt::format("{} ###gameview", mode ? txt : _item->name)
+            fmt::format("{} ###gameview", _item->name)
                     .c_str(),
             nullptr,
             ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |

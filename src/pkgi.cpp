@@ -809,8 +809,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                     &downloader,
                     item,
                     comppack_db_games->get(item->titleid),
-                    comppack_db_updates->get(item->titleid),
-                    mode_to_type(mode) == Game ? true : false);
+                    comppack_db_updates->get(item->titleid));
         else if (mode == ModeThemes || mode == ModeDemos)
         {
             pkgi_start_download(downloader, *item);
