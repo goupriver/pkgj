@@ -180,3 +180,19 @@ inline bool ends_with(std::string const& value, std::string const& ending)
     return value.compare(value.size() - ending.size(), ending.size(), ending) ==
            0;
 }
+
+//
+
+static inline std::string erase_string_elements(const std::string title)
+{
+    int len;
+    char elem = '(';
+    std::string fin;
+    int indexStart;
+    
+    len = title.length() + 1;
+    indexStart = title.find(elem);
+    fin = title.erase(indexStart, len);
+
+    return fin;
+}
