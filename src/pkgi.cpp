@@ -669,10 +669,12 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 line_height);
 
         // текст
-        std::string txt;
-        txt = mode_to_type(mode) == Game ? erase_string_elements(item->name) : item->name;
+        // std::string txt;
+        // txt = mode_to_type(mode) == Game ? erase_string_elements(item->name) :;
 
-        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, txt.c_str());
+        // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, txt.c_str());
+        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
+
 
         pkgi_clip_remove();
 
