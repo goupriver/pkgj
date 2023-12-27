@@ -879,7 +879,7 @@ void pkgi_do_head(auto ffont)
     pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
 
 
-    pkgi_draw_text(10, 0, PKGI_COLOR_DATE_TIME, title);
+    pkgi_draw_text(9, 0, PKGI_COLOR_DATE_TIME, title);
 
 
     // int rightw;
