@@ -1553,7 +1553,7 @@ int main()
 
             pkgi_draw_text_with_size(
             VITA_WIDTH - 74 - 26,
-            0,
+            -5,
             0.625f,
             PKGI_COLOR_TEXT,
             fmt::format("{}%", pkgi_bettery_get_level()).c_str());
