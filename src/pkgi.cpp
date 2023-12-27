@@ -676,7 +676,6 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         // int len;
         char elem = '(';
-        std::string fin;
         // int indexStart;
         int len = item->name.length() + 1;
         int indexStart = item->name.find(elem);
