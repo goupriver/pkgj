@@ -1035,10 +1035,10 @@ void pkgi_do_tail(Downloader& downloader)
 
         // прогрессбар
         pkgi_draw_rect(
-                12,
-                bottom_y + 6,
-                (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4) * download_offset / download_size,
-                font_height - 1 - 4 - 3,
+                14,
+                bottom_y + 8,
+                (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 8) * download_offset / download_size,
+                font_height - 12,
                 PKGI_COLOR_PROGRESS_BACKGROUND);
 
         pkgi_snprintf(
@@ -1614,7 +1614,7 @@ int main()
             // pkgi_text_width()
 
             pkgi_draw_text_with_size(
-            VITA_WIDTH - 74 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()),
+            VITA_WIDTH - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()),
             -2,
             0.750f,
             PKGI_COLOR_TEXT,
