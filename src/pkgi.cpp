@@ -26,6 +26,7 @@ extern "C"
 #include <iomanip>
 #include <ctime>
 #include <sstream>
+#include <string.h>
 
 #include <vita2d.h>
 
@@ -1044,7 +1045,8 @@ void pkgi_do_tail(Downloader& downloader)
     }
     else
         // pkgi_snprintf(text, sizeof(text), "Нет активных задач");
-        text = ""
+        // text = "";
+        strcpy(text," ".c_str());
 
     pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - 4)/2 - pkgi_text_width(text), bottom_y, PKGI_COLOR_TEXT_TAIL, text);
 
