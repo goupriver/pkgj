@@ -679,7 +679,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
 
         
 
-        pkgi_draw_text(160, 0, colorTextTitile, (typeid(item->name).name()).c_str());
+        pkgi_draw_text(160, 0, colorTextTitile, typeid(item->name).name());
 
         pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
 
