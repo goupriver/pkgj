@@ -1540,7 +1540,7 @@ int main()
             oss << std::put_time(&tm, "%d.%m.%Y  %H:%M");
             auto str = oss.str();
 
-            pkgi_draw_text(VITA_WIDTH - 74 - 190 - 10 - 30 - 10, 0, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
+            pkgi_draw_text(VITA_WIDTH - 74 - 190 - 10 - 10, 0, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
 
             // аккумулятор
 
