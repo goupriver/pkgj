@@ -666,7 +666,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 // y + TWELAWE,
                 y,
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
-                        PKGI_MAIN_COLUMN_PADDING - sizew - col_name - 45,
+                        PKGI_MAIN_COLUMN_PADDING - sizew - col_name - 59,
                 // line_height + TWELAWE);
                 line_height);
 
@@ -1612,8 +1612,10 @@ int main()
 
             // аккумулятор
 
+            // pkgi_text_width()
+
             pkgi_draw_text_with_size(
-            VITA_WIDTH - 74 - 11,
+            VITA_WIDTH - 74 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()),
             -2,
             0.750f,
             PKGI_COLOR_TEXT,
