@@ -183,7 +183,7 @@ inline bool ends_with(std::string const& value, std::string const& ending)
 
 //
 
-static inline std::string erase_string_elements(const std::string title)
+static inline std::string erase_string_elements(std::string title)
 {
     int len;
     char elem = '(';
