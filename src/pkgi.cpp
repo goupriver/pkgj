@@ -869,16 +869,9 @@ void pkgi_do_head(auto ffont)
     pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
 
 
-    pkgi_draw_text(0, 0, PKGI_COLOR_DATE_TIME, title);
+    pkgi_draw_text(10, 0, PKGI_COLOR_DATE_TIME, title);
 
 
-    pkgi_draw_rect(
-            0,
-            font_height,
-            VITA_WIDTH,
-            0,
-            PKGI_COLOR_HEAD_HLINE);
-            
     // int rightw;
     int rightw = 22;
     // if (pkgi_battery_present())
@@ -1009,7 +1002,7 @@ void pkgi_do_tail(Downloader& downloader)
     else
         pkgi_snprintf(text, sizeof(text), "Нет активных задач");
 
-    pkgi_draw_text(0, bottom_y, PKGI_COLOR_TEXT_TAIL, text);
+    pkgi_draw_text(10, bottom_y, PKGI_COLOR_TEXT_TAIL, text);
 
     const auto second_line = bottom_y + font_height + PKGI_MAIN_ROW_PADDING;
 
@@ -1024,7 +1017,7 @@ void pkgi_do_tail(Downloader& downloader)
     {
         pkgi_snprintf(text, sizeof(text), "Показано: %u из %u", count, total);
     }
-    pkgi_draw_text(0, second_line, PKGI_COLOR_TEXT_TAIL, text);
+    pkgi_draw_text(10, second_line, PKGI_COLOR_TEXT_TAIL, text);
 
     // get free space of partition only if looking at psx or psp games else show
     // ux0:

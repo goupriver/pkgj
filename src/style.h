@@ -16,9 +16,9 @@
 #define PKGI_COLOR_GAME_PRESENT PKGI_COLOR(50, 50, 255)
 
 #define PKGI_UTF8_B "Байт"
-#define PKGI_UTF8_KB "Кб" // "\xe3\x8e\x85" // 0x3385
-#define PKGI_UTF8_MB "Мб" // "\xe3\x8e\x86" // 0x3386
-#define PKGI_UTF8_GB "Гб" // "\xe3\x8e\x87" // 0x3387
+#define PKGI_UTF8_KB "КБ" // "\xe3\x8e\x85" // 0x3385
+#define PKGI_UTF8_MB "МБ" // "\xe3\x8e\x86" // 0x3386
+#define PKGI_UTF8_GB "ГБ" // "\xe3\x8e\x87" // 0x3387
 
 #define PKGI_UTF8_CLEAR "\xc3\x97" // 0x00d7
 
