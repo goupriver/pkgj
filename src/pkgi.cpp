@@ -1004,32 +1004,6 @@ void pkgi_do_tail(Downloader& downloader)
         download_size = 1;
 
     // 
-    // подложка
-    pkgi_draw_rect(
-            10,
-            bottom_y + 3,
-            PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
-            font_height - 1,
-            PKGI_COLOR_DATE_TIME);
-
-    // на подложку
-      pkgi_draw_rect(
-            12,
-            bottom_y + 5,
-            PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
-            font_height - 1 - 4,
-            PKGI_COLOR_HEAD_HLINE);
-
-
-    // прогрессбар
-    pkgi_draw_rect(
-            12,
-            bottom_y + 5,
-            // VITA_WIDTH * download_offset / download_size,
-            (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4) * download_offset / download_size,
-            font_height - 1 - 4,
-            PKGI_COLOR_PROGRESS_BACKGROUND);
-
     if (current_download)
     {
         // const auto speed = get_speed(download_offset);
@@ -1041,6 +1015,32 @@ void pkgi_do_tail(Downloader& downloader)
             // sspeed = fmt::format("{:.3g} КБ/с", speed / 1024.f);
         // else
             // sspeed = fmt::format("{} Байт/с", speed);
+
+         // подложка
+        pkgi_draw_rect(
+                10,
+                bottom_y + 3,
+                PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
+                font_height - 1,
+                PKGI_COLOR_DATE_TIME);
+
+        // на подложку
+        pkgi_draw_rect(
+                12,
+                bottom_y + 5,
+                PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
+                font_height - 1 - 4,
+                PKGI_COLOR_HEAD_HLINE);
+
+
+        // прогрессбар
+        pkgi_draw_rect(
+                12,
+                bottom_y + 5,
+                // VITA_WIDTH * download_offset / download_size,
+                (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4) * download_offset / download_size,
+                font_height - 1 - 4,
+                PKGI_COLOR_PROGRESS_BACKGROUND);
 
         pkgi_snprintf(
                 text,
