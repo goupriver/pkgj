@@ -1019,26 +1019,26 @@ void pkgi_do_tail(Downloader& downloader)
          // подложка
         pkgi_draw_rect(
                 10,
-                bottom_y + 4,
+                bottom_y + 8,
                 PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
-                font_height - 4,
+                font_height - 12,
                 PKGI_COLOR_DATE_TIME);
 
         // на подложку
         pkgi_draw_rect(
                 12,
-                bottom_y + 6,
+                bottom_y + 10,
                 PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
-                font_height - 8,
+                font_height - 16,
                 PKGI_COLOR_HEAD_HLINE);
 
 
         // прогрессбар
         pkgi_draw_rect(
                 14,
-                bottom_y + 8,
+                bottom_y + 16,
                 (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 8) * download_offset / download_size,
-                font_height - 12,
+                font_height - 20,
                 PKGI_COLOR_PROGRESS_BACKGROUND);
 
         pkgi_snprintf(
@@ -1084,7 +1084,7 @@ void pkgi_do_tail(Downloader& downloader)
     {
         pkgi_snprintf(text, sizeof(text), "Показано: %u из %u", count, total);
     }
-    pkgi_draw_text(10, second_line, PKGI_COLOR_TEXT_TAIL, text);
+    pkgi_draw_text(9, second_line, PKGI_COLOR_TEXT_TAIL, text);
 
     // get free space of partition only if looking at psx or psp games else show
     // ux0:
