@@ -22,6 +22,8 @@ extern "C"
 #include "psm.hpp"
 #include <cmath>
 
+#include <typeinfo>
+
 #include <iostream>
 #include <iomanip>
 #include <ctime>
@@ -669,39 +671,31 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
                 line_height);
 
         // текст
-        // std::string txt;
-        // txt = mode_to_type(mode) == Game ? erase_string_elements(item->name) :;
+        // char elem = '(';
+        // int len = item->name.length() + 1;
+        // int indexStart = item->name.find(elem);
+        // std::string fin = item->name.erase(indexStart, len);
+        // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, fin.c_str());
 
-        // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, txt.c_str());
+        
 
-        // int len;
-        char elem = '(';
-        // int indexStart;
-        int len = item->name.length() + 1;
-        int indexStart = item->name.find(elem);
-        std::string fin = item->name.erase(indexStart, len);
+        pkgi_draw_text(160, 0, colorTextTitile, (typeid(item->name).name()).c_str());
 
-        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, fin.c_str());
-
-        // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
+        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
 
 
         pkgi_clip_remove();
 
-        // y += font_height + PKGI_MAIN_ROW_PADDING + TWELAWE;
         y += font_height + PKGI_MAIN_ROW_PADDING;
-        // if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA + TWELAWE))
         if (y > VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
         {
             break;
         }
         else if (
                 y + font_height >
-                // VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA + TWELAWE))
                 VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA))
         {
             line_height =
-                    // (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA + TWELAWE)) -
                     (VITA_HEIGHT - (2 * font_height + PKGI_MAIN_HLINE_EXTRA)) -
                     (y + 1);
             if (line_height < PKGI_MAIN_ROW_PADDING)
@@ -1013,7 +1007,7 @@ void pkgi_do_tail(Downloader& downloader)
     // подложка
     pkgi_draw_rect(
             10,
-            bottom_y - 3,
+            bottom_y + 3,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
             font_height - 1,
             PKGI_COLOR_DATE_TIME);
@@ -1021,7 +1015,7 @@ void pkgi_do_tail(Downloader& downloader)
     // на подложку
       pkgi_draw_rect(
             12,
-            bottom_y - 1,
+            bottom_y + 5,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
             font_height - 1 - 4,
             PKGI_COLOR_HEAD_HLINE);
@@ -1030,7 +1024,7 @@ void pkgi_do_tail(Downloader& downloader)
     // прогрессбар
     pkgi_draw_rect(
             12,
-            bottom_y - 1,
+            bottom_y + 5,
             // VITA_WIDTH * download_offset / download_size,
             (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4) * download_offset / download_size,
             font_height - 1 - 4,
