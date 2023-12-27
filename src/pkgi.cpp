@@ -960,8 +960,30 @@ uint64_t get_speed(const uint64_t download_offset)
     return last_progress_speed;
 }
 
+
+// НИЗ
 void pkgi_do_tail(Downloader& downloader)
 {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // ЗАГРУЗКА НАЧАЛО
+
     char text[256];
 
     const auto current_download = downloader.get_current_download();
@@ -974,38 +996,75 @@ void pkgi_do_tail(Downloader& downloader)
     if (download_size == 0)
         download_size = 1;
 
+    // 
+    // подложка
     pkgi_draw_rect(
-            0,
-            bottom_y + PKGI_MAIN_HLINE_HEIGHT,
-            VITA_WIDTH * download_offset / download_size,
-            font_height + PKGI_MAIN_ROW_PADDING - 1,
+            10,
+            bottom_y - 3,
+            PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
+            font_height - 1,
+            PKGI_COLOR_DATE_TIME);
+
+    // на подложку
+      pkgi_draw_rect(
+            12,
+            bottom_y - 1,
+            PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
+            font_height - 1 - 4,
+            PKGI_COLOR_HEAD_HLINE);
+
+
+    // прогрессбар
+    pkgi_draw_rect(
+            12,
+            bottom_y - 1,
+            // VITA_WIDTH * download_offset / download_size,
+            (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4) * download_offset / download_size,
+            font_height - 1 - 4,
             PKGI_COLOR_PROGRESS_BACKGROUND);
 
     if (current_download)
     {
-        const auto speed = get_speed(download_offset);
-        std::string sspeed;
+        // const auto speed = get_speed(download_offset);
+        // std::string sspeed;
 
-        if (speed > 1000 * 1024)
-            sspeed = fmt::format("{:.3g} МБ/с", speed / 1024.f / 1024.f);
-        else if (speed > 1000)
-            sspeed = fmt::format("{:.3g} КБ/с", speed / 1024.f);
-        else
-            sspeed = fmt::format("{} Байт/с", speed);
+        // if (speed > 1000 * 1024)
+            // sspeed = fmt::format("{:.3g} МБ/с", speed / 1024.f / 1024.f);
+        // else if (speed > 1000)
+            // sspeed = fmt::format("{:.3g} КБ/с", speed / 1024.f);
+        // else
+            // sspeed = fmt::format("{} Байт/с", speed);
 
         pkgi_snprintf(
                 text,
                 sizeof(text),
-                "Загрузка %s: %s (%s, %d%%)",
-                type_to_string(current_download->type).c_str(),
-                current_download->name.c_str(),
-                sspeed.c_str(),
+                // "Загрузка %s: %s (%s, %d%%)",
+                "%d%%",
                 static_cast<int>(download_offset * 100 / download_size));
     }
     else
-        pkgi_snprintf(text, sizeof(text), "Нет активных задач");
+        // pkgi_snprintf(text, sizeof(text), "Нет активных задач");
+        text = ""
 
-    pkgi_draw_text(10, bottom_y, PKGI_COLOR_TEXT_TAIL, text);
+    pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - 4)/2 - pkgi_text_width(text), bottom_y, PKGI_COLOR_TEXT_TAIL, text);
+
+    // ЗАГРУЗКА КОНЕЦ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     const auto second_line = bottom_y + font_height + PKGI_MAIN_ROW_PADDING;
 
@@ -1543,7 +1602,7 @@ int main()
             oss << std::put_time(&tm, "%d.%m.%Y  %H:%M");
             auto str = oss.str();
 
-            pkgi_draw_text(VITA_WIDTH - 74 - 190 - 10 - 10, 0, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
+            pkgi_draw_text(VITA_WIDTH - 289, 0, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
 
             // аккумулятор
 
