@@ -1545,7 +1545,7 @@ int main()
             // аккумулятор
 
             pkgi_draw_text_with_size(
-            VITA_WIDTH - 74 - 7,
+            VITA_WIDTH - 74 - 11,
             -2,
             0.750f,
             PKGI_COLOR_TEXT,
