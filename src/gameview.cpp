@@ -41,7 +41,7 @@ void GameView::render()
     ImGui::SetNextWindowSize(ImVec2(GameViewWidth, GameViewHeight), 0);
 
     ImGui::Begin(
-            fmt::format("{} ({})###gameview", _item->name, _item->titleid)
+            fmt::format("{} ###gameview", _item->name)
                     .c_str(),
             nullptr,
             ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
