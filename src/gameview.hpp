@@ -18,7 +18,8 @@ public:
             Downloader* downloader,
             DbItem* item,
             std::optional<CompPackDatabase::Item> base_comppack,
-            std::optional<CompPackDatabase::Item> patch_comppack);
+            std::optional<CompPackDatabase::Item> patch_comppack,
+            bool mode);
 
     const DbItem* get_item() const
     {
