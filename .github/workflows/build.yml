@@ -34,14 +34,21 @@ jobs:
       - name: Upload vita build
         uses: actions/upload-artifact@v3
         with:
-          name: pkgj.vpk
+          name: ${{github.sha}}.vpk
           path: ci/build/pkgj.vpk
       - name: send default message
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          document: ci/build/pkgj.vpk
+          message: |
+            ${{ github.actor }} created commit:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+          document: ci/build/${{github.sha}}.vpk
   publish:
     needs: build
     if: ${{ startsWith(github.event.ref, 'refs/tags/v') }}
