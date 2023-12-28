@@ -195,6 +195,12 @@ static inline std::string erase_string_elements(std::string title)
     int indexStart;
     int indexStart2;
 
+    // вася (awd) [q3da2]
+    // вася [q3da2] (awd)
+    // вася (awd)
+    // вася [q3da2] 
+
+    //
     indexStart = title.find(elem);
 
     if(indexStart >= 0)

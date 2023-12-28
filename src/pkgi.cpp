@@ -1028,7 +1028,8 @@ void pkgi_do_tail(Downloader& downloader)
                 bottom_y + 5,
                 PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
                 font_height - 10,
-                PKGI_COLOR_DATE_TIME);
+                PKGI_COLOR_HEAD_HLINE);
+                // PKGI_COLOR_DATE_TIME);
 
         // на подложку
         pkgi_draw_rect(
@@ -1036,7 +1037,8 @@ void pkgi_do_tail(Downloader& downloader)
                 bottom_y + 7,
                 PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
                 font_height - 14,
-                PKGI_COLOR_HEAD_HLINE);
+                PKGI_DOWNLOAD_BAR_BACKGROUND);
+                // PKGI_COLOR_HEAD_HLINE);
 
 
         // прогрессбар
@@ -1045,7 +1047,8 @@ void pkgi_do_tail(Downloader& downloader)
                 bottom_y + 9,
                 (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 8) * download_offset / download_size,
                 font_height - 18,
-                PKGI_COLOR_PROGRESS_BACKGROUND);
+                PKGI_COLOR_DATE_TIME);
+                // PKGI_COLOR_PROGRESS_BACKGROUND);
 
         pkgi_snprintf(
                 text,
@@ -1057,7 +1060,7 @@ void pkgi_do_tail(Downloader& downloader)
     else
         pkgi_snprintf(text, sizeof(text), "");
 
-    pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - 4)/2 - pkgi_text_width(text), bottom_y - 3, PKGI_COLOR_TEXT_TAIL, text);
+    pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - pkgi_text_width(text))/2, bottom_y - 2, PKGI_COLOR_TEXT_TAIL, text);
 
     // ЗАГРУЗКА КОНЕЦ
 
