@@ -678,7 +678,7 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, fin.c_str());
 
 
-        string title_game;
+        std::string title_game;
 
         if (mode == ModeGames)
             title_game = erase_string_elements(item->name);
