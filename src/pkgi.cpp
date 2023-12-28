@@ -1029,26 +1029,6 @@ void pkgi_do_tail(Downloader& downloader)
             PKGI_DOWNLOAD_BAR_BACKGROUND);
             // PKGI_COLOR_HEAD_HLINE);
 
-
-         // подложка
-        pkgi_draw_rect(
-                10,
-                bottom_y + 5,
-                PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
-                font_height - 10,
-                PKGI_COLOR_HEAD_HLINE);
-                // PKGI_COLOR_DATE_TIME);
-
-        // на подложку
-        pkgi_draw_rect(
-                12,
-                bottom_y + 7,
-                PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
-                font_height - 14,
-                PKGI_DOWNLOAD_BAR_BACKGROUND);
-                // PKGI_COLOR_HEAD_HLINE);
-
-
     // 
     if (current_download)
     {
