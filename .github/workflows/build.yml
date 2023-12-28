@@ -38,18 +38,19 @@ jobs:
       - name: Upload vita build
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.SHA }}.vpk
-          path: ci/build/${{ env.SHA }}.vpk
+          name: pkgj.vpk
+          path: ci/build/pkgj.vpk
       - name: send default message
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          document: ci/build/${{ env.SHA }}.vpk
+          document: ci/build/pkgj.vpk
           message: |
-            **Сообщениие:** ${{ github.event.commits[0].message }}
-            **sha-short код:** ${{ env.SHA }}
-            **Изменения:** https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Сообщениие: ${{ github.event.commits[0].message }}
+            sha-short код: ${{ env.SHA }}
+            
+            https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
 
   publish:
