@@ -677,11 +677,17 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         // std::string fin = item->name.erase(indexStart, len);
         // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, fin.c_str());
 
-        
 
-        pkgi_draw_text(160, 0, colorTextTitile, typeid(item->name).name());
+        string title_game;
 
-        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, item->name.c_str());
+        if (mode == ModeGames)
+            title_game = erase_string_elements(item->name);
+        else
+            title_game = item->name;
+
+        // pkgi_draw_text(160, 0, colorTextTitile, typeid(item->name).name());
+
+        pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, title_game.c_str());
 
 
         pkgi_clip_remove();
