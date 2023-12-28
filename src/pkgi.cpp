@@ -1009,18 +1009,26 @@ void pkgi_do_tail(Downloader& downloader)
     if (download_size == 0)
         download_size = 1;
 
-    // 
-    if (current_download)
-    {
-        // const auto speed = get_speed(download_offset);
-        // std::string sspeed;
 
-        // if (speed > 1000 * 1024)
-            // sspeed = fmt::format("{:.3g} МБ/с", speed / 1024.f / 1024.f);
-        // else if (speed > 1000)
-            // sspeed = fmt::format("{:.3g} КБ/с", speed / 1024.f);
-        // else
-            // sspeed = fmt::format("{} Байт/с", speed);
+    
+        // подложка
+    pkgi_draw_rect(
+            10,
+            bottom_y + 5,
+            PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
+            font_height - 10,
+            PKGI_COLOR_HEAD_HLINE);
+            // PKGI_COLOR_DATE_TIME);
+
+    // на подложку
+    pkgi_draw_rect(
+            12,
+            bottom_y + 7,
+            PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
+            font_height - 14,
+            PKGI_DOWNLOAD_BAR_BACKGROUND);
+            // PKGI_COLOR_HEAD_HLINE);
+
 
          // подложка
         pkgi_draw_rect(
@@ -1040,6 +1048,19 @@ void pkgi_do_tail(Downloader& downloader)
                 PKGI_DOWNLOAD_BAR_BACKGROUND);
                 // PKGI_COLOR_HEAD_HLINE);
 
+
+    // 
+    if (current_download)
+    {
+        // const auto speed = get_speed(download_offset);
+        // std::string sspeed;
+
+        // if (speed > 1000 * 1024)
+            // sspeed = fmt::format("{:.3g} МБ/с", speed / 1024.f / 1024.f);
+        // else if (speed > 1000)
+            // sspeed = fmt::format("{:.3g} КБ/с", speed / 1024.f);
+        // else
+            // sspeed = fmt::format("{} Байт/с", speed);
 
         // прогрессбар
         pkgi_draw_rect(
