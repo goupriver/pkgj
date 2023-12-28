@@ -186,20 +186,31 @@ inline bool ends_with(std::string const& value, std::string const& ending)
 static inline std::string erase_string_elements(std::string title)
 {
     int len;
+
     char elem = '(';
+    char elem2 = '[';
+
     std::string fin;
+
     int indexStart;
-    
+    int indexStart2;
+
     indexStart = title.find(elem);
 
     if(indexStart >= 0)
     {
         len = title.length() - 1;
         fin = title.erase(indexStart, len);
-    }
-    else
+        indexStart2 = title.find(elem2);
+       
+    } else if (indexStart2 >= 0)
+    {
+        len = fin.length() > 0 ? fin.length() - 1 : title.length() - 1;
+        fin = fin.length() > 0 ? fin.erase(indexStart2, len) : title.erase(indexStart2, len);
+    } else 
     {
         fin = title;
-    } 
+    }
+
     return fin;
 }
