@@ -36,8 +36,10 @@ jobs:
         with:
           name: pkgj.vpk
           path: ci/build/pkgj.vpk
-      - name: Add SHORT_SHA env property with commit short sha
-        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+      - uses: benjlevesque/short-sha@v2.2
+        id: short-sha
+        with:
+          length: 6
       - name: send default message
         uses: appleboy/telegram-action@master
         with:
@@ -46,7 +48,7 @@ jobs:
           document: ci/build/pkgj.vpk
           message: |
             Сообщениие: ${{ github.event.commits[0].message }}
-            sha-short код: ${{GITHUB_SHA::7}}
+            sha-short код: ${{ env.SHA }}
             Изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   publish:
     needs: build
