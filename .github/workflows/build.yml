@@ -31,27 +31,27 @@ jobs:
         with:
           name: pkgj_cli
           path: ci/buildhost/pkgj_cli
-      - name: Upload vita build
-        uses: actions/upload-artifact@v3
-        with:
-          name: pkgj.vpk
-          path: ci/build/pkgj.vpk
       - uses: benjlevesque/short-sha@v2.2
         id: short-sha
         with:
           length: 6
+      - name: Upload vita build
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.SHA }}.vpk
+          path: ci/build/${{ env.SHA }}.vpk
       - name: send default message
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          document: ci/build/pkgj.vpk
+          document: ci/build/${{ env.SHA }}.vpk
           message: |
             **Сообщениие:** ${{ github.event.commits[0].message }}
             **sha-short код:** ${{ env.SHA }}
             **Изменения:** https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
-            
+
   publish:
     needs: build
     if: ${{ startsWith(github.event.ref, 'refs/tags/v') }}
