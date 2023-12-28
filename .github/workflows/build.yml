@@ -43,10 +43,10 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          document: pkgj.vpk
+          document: ci/build/pkgj.vpk
           message: |
-            Изменения: ${{ github.event.commits[0].message }}
-            sha-short код: ${SHORT_SHA}
+            Сообщениие: ${{ github.event.commits[0].message }}
+            sha-short код: ${{GITHUB_SHA::7}}
             Изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   publish:
     needs: build
