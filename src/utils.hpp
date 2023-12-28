@@ -187,7 +187,7 @@ static inline std::string erase_string_elements(std::string title)
 {
     int len;
     char elem = '(';
-    string fin;
+    std::string fin;
     int indexStart;
     
     indexStart = title.find(elem);
