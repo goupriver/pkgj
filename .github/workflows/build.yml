@@ -45,9 +45,9 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           document: pkgj.vpk
           message: |
-            Коммит сообщение: ${{ github.event.commits[0].message }}
-            SHA-short код: ${SHORT_SHA}
-            Смотреть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Изменения: ${{ github.event.commits[0].message }}
+            sha-short код: ${SHORT_SHA}
+            Изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   publish:
     needs: build
     if: ${{ startsWith(github.event.ref, 'refs/tags/v') }}
