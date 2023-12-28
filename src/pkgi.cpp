@@ -1061,7 +1061,14 @@ void pkgi_do_tail(Downloader& downloader)
     else
         pkgi_snprintf(text, sizeof(text), "");
 
-    pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - pkgi_text_width(text))/2, bottom_y - 2, PKGI_COLOR_TEXT_TAIL, text);
+    // pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - pkgi_text_width(text))/2, bottom_y - 2, PKGI_COLOR_TEXT_TAIL, text);
+    
+    pkgi_draw_text_with_size(
+            PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 19,
+            bottom_y - 2,
+            0.750f,
+            PKGI_COLOR_TEXT_TAIL,
+            text);
 
     // ЗАГРУЗКА КОНЕЦ
 
@@ -1124,7 +1131,7 @@ void pkgi_do_tail(Downloader& downloader)
 
     int rightw = pkgi_text_width(free);
     pkgi_draw_text(
-            9, 
+            VITA_WIDTH - 12 - pkgi_text_width(free), 
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
             free);

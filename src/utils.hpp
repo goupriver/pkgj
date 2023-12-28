@@ -185,34 +185,40 @@ inline bool ends_with(std::string const& value, std::string const& ending)
 
 static inline std::string erase_string_elements(std::string title)
 {
-    int len;
-
-    char elem = '(';
+    char elem1 = '(';
     char elem2 = '[';
-
+    
     std::string fin;
-
-    int indexStart;
+    int indexStart1;
     int indexStart2;
+    
+    int len;
+    
+    indexStart1 = title.find(elem1);
+    indexStart2 = title.find(elem2);
+    len = title.length() - 1;
 
-    // вася (awd) [q3da2]
-    // вася [q3da2] (awd)
-    // вася (awd)
-    // вася [q3da2] 
-
-    //
-    indexStart = title.find(elem);
-
-    if(indexStart >= 0)
+    if(indexStart1 < 0 && indexStart2 < 0)
     {
-        len = title.length() - 1;
-        fin = title.erase(indexStart, len);
-        indexStart2 = title.find(elem2);
-       
-    } else if (indexStart2 >= 0)
+        fin = title;
+    } else if (indexStart1 >= 0 || indexStart2 >= 0) 
     {
-        len = fin.length() > 0 ? fin.length() - 1 : title.length() - 1;
-        fin = fin.length() > 0 ? fin.erase(indexStart2, len) : title.erase(indexStart2, len);
+        
+        if (indexStart1 >= 0 && indexStart2 < 0) 
+        {
+            fin = title.erase(indexStart1, len);
+            
+        } else if (indexStart1 < 0 && indexStart2 >= 0) 
+        {
+            fin = title.erase(indexStart2, len);
+            
+        } else if (indexStart1 >= 0 && indexStart2 >= 0)
+        {
+            fin = title.erase(indexStart1 < indexStart2 ? indexStart1 : indexStart2, len);
+        } else 
+        {
+            fin = title;
+        }
     } else 
     {
         fin = title;
