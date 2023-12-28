@@ -48,8 +48,8 @@ jobs:
           document: ci/build/pkgj.vpk
           message: |
             Сообщениие: ${{ github.event.commits[0].message }}
-            sha-short код: ${{ env.SHA }}
-            
+            sha-short код: ${{ env.SHA }} 
+
             https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
 
