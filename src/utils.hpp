@@ -193,10 +193,13 @@ static inline std::string erase_string_elements(std::string title)
     indexStart = title.find(elem);
 
     if(indexStart >= 0)
+    {
         len = title.length() - 1;
         fin = title.erase(indexStart, len);
-    else 
+    }
+    else
+    {
         fin = title;
-
+    } 
     return fin;
 }
