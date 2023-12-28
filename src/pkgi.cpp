@@ -1019,26 +1019,26 @@ void pkgi_do_tail(Downloader& downloader)
          // подложка
         pkgi_draw_rect(
                 10,
-                bottom_y + 8,
+                bottom_y + 5,
                 PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
-                font_height - 12,
+                font_height - 10,
                 PKGI_COLOR_DATE_TIME);
 
         // на подложку
         pkgi_draw_rect(
                 12,
-                bottom_y + 10,
+                bottom_y + 7,
                 PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
-                font_height - 16,
+                font_height - 14,
                 PKGI_COLOR_HEAD_HLINE);
 
 
         // прогрессбар
         pkgi_draw_rect(
                 14,
-                bottom_y + 12,
+                bottom_y + 9,
                 (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 8) * download_offset / download_size,
-                font_height - 20,
+                font_height - 18,
                 PKGI_COLOR_PROGRESS_BACKGROUND);
 
         pkgi_snprintf(
@@ -1051,7 +1051,7 @@ void pkgi_do_tail(Downloader& downloader)
     else
         pkgi_snprintf(text, sizeof(text), "");
 
-    pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - 4)/2 - pkgi_text_width(text), bottom_y, PKGI_COLOR_TEXT_TAIL, text);
+    pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - 4)/2 - pkgi_text_width(text), bottom_y - 3, PKGI_COLOR_TEXT_TAIL, text);
 
     // ЗАГРУЗКА КОНЕЦ
 
@@ -1073,21 +1073,29 @@ void pkgi_do_tail(Downloader& downloader)
 
     const auto second_line = bottom_y + font_height + PKGI_MAIN_ROW_PADDING;
 
-    uint32_t count = db->count();
-    uint32_t total = db->total();
+    // СЧЕТЧИК НАЧАЛО
 
-    if (count == total)
-    {
-        pkgi_snprintf(text, sizeof(text), "Показано: %u", count);
-    }
-    else
-    {
-        pkgi_snprintf(text, sizeof(text), "Показано: %u из %u", count, total);
-    }
-    pkgi_draw_text(9, second_line, PKGI_COLOR_TEXT_TAIL, text);
+    // uint32_t count = db->count();
+    // uint32_t total = db->total();
+
+    // if (count == total)
+    // {
+    //     pkgi_snprintf(text, sizeof(text), "Показано: %u", count);
+    // }
+    // else
+    // {
+    //     pkgi_snprintf(text, sizeof(text), "Показано: %u из %u", count, total);
+    // }
+    // pkgi_draw_text(9, second_line, PKGI_COLOR_TEXT_TAIL, text);
+
+    // // СЧЕТЧИК КОНЕЦ
 
     // get free space of partition only if looking at psx or psp games else show
     // ux0:
+
+
+    // НАЧАЛО СВОБОДНО ДИСК
+    
     char size[64];
     if (mode == ModePsxGames || mode == ModePspGames)
     {
@@ -1106,10 +1114,12 @@ void pkgi_do_tail(Downloader& downloader)
 
     int rightw = pkgi_text_width(free);
     pkgi_draw_text(
-            VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw,
-            second_line,
+            9, 
+            second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
             free);
+
+    // КОНЕЦ СВОБОДНО ДИСК
 
     int left = pkgi_text_width(text) + PKGI_MAIN_TEXT_PADDING;
     int right = rightw + PKGI_MAIN_TEXT_PADDING;
@@ -1262,12 +1272,12 @@ void pkgi_do_tail(Downloader& downloader)
 
     pkgi_clip_set(
             left,
-            second_line,
+            second_line - 2,
             VITA_WIDTH - right - left,
             VITA_HEIGHT - second_line);
     pkgi_draw_text(
             (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
-            second_line,
+            second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
             bottom_text.c_str());
     pkgi_clip_remove();
@@ -1614,7 +1624,7 @@ int main()
             // pkgi_text_width()
 
             pkgi_draw_text_with_size(
-            VITA_WIDTH - 58 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()),
+            VITA_WIDTH - 44 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()),
             -2,
             0.750f,
             PKGI_COLOR_TEXT,
