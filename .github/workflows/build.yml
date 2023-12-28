@@ -34,21 +34,20 @@ jobs:
       - name: Upload vita build
         uses: actions/upload-artifact@v3
         with:
-          name: ${{github.sha}}.vpk
+          name: pkgj.vpk
           path: ci/build/pkgj.vpk
+      - name: Add SHORT_SHA env property with commit short sha
+        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
       - name: send default message
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          document: pkgj.vpk
           message: |
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
-            
-            Repository: ${{ github.repository }}
-            
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-          document: ci/build/${{github.sha}}.vpk
+            Коммит сообщение: ${{ github.event.commits[0].message }}
+            SHA-short код: ${SHORT_SHA}
+            Смотреть изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
   publish:
     needs: build
     if: ${{ startsWith(github.event.ref, 'refs/tags/v') }}
