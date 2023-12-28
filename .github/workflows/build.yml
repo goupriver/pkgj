@@ -47,8 +47,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           document: ci/build/pkgj.vpk
           message: |
-            Сообщениие: ${{ github.event.commits[0].message }}
-            sha-short код: ${{ env.SHA }} 
+            ${{ github.event.commits[0].message }}
 
             https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
