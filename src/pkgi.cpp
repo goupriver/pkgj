@@ -1066,7 +1066,7 @@ void pkgi_do_tail(Downloader& downloader)
     pkgi_draw_text_with_size(
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 19,
             bottom_y - 2,
-            0.750f,
+            0.700f,
             PKGI_COLOR_TEXT_TAIL,
             text);
 
