@@ -5,3 +5,5 @@
 .tags
 CMakeUserPresets.json
 TODO
+/.idea
+/cmake-build-debug

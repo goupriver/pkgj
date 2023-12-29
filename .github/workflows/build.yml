@@ -42,8 +42,10 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           document: ci/build/pkgj.vpk
+          format: markdown
+          disable_web_page_preview: true
           message: |
-            ${{ github.event.commits[0].message }}
+            **${{ github.event.commits[0].message }}**
 
             https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
