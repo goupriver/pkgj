@@ -1128,7 +1128,7 @@ void pkgi_do_tail(Downloader& downloader)
     }
 
     char free[64];
-    pkgi_snprintf(free, sizeof(free), "Свободно: %s", size);
+    // pkgi_snprintf(free, sizeof(free), "Свободно: %s", size);
 
     int rightw = pkgi_text_width(free);
     pkgi_draw_text(
@@ -1513,6 +1513,8 @@ int main()
         pkgi_texture batteryislow = pkgi_load_png(batteryislow);
         pkgi_texture batterynormal = pkgi_load_png(batterynormal);
         pkgi_texture batteryischarging = pkgi_load_png(batteryischarging);
+        // pkgi_texture v1 = pkgi_load_png(v1);
+        pkgi_texture v2 = pkgi_load_png(v2);
 
 
         if (!config.no_version_check)
@@ -1662,6 +1664,10 @@ int main()
             {
                 pkgi_draw_texture(batterynormal, VITA_WIDTH - 47, 5);
             }
+
+            // иконка карты памяти
+                pkgi_draw_texture(v2, VITA_WIDTH - 111);
+            //
 
             // разрядка
             pkgi_draw_rect(
