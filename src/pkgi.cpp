@@ -1670,7 +1670,7 @@ int main()
             // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
             // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
             // pkgi_draw_texture(notfill, VITA_WIDTH - 44 - 29 - pkgi_text_width(fmt::format("{}", pkgi_get_free_space(pkgi_get_mode_partition())).c_str()), VITA_HEIGHT - 20);
-            pkgi_draw_texture(notfill, VITA_WIDTH - pkgi_text_width(fmt::format("{}", pkgi_get_free_space(pkgi_get_mode_partition())).c_str()), VITA_HEIGHT - 20);
+            pkgi_draw_texture(notfill, VITA_WIDTH - pkgi_text_width(fmt::format("{}", pkgi_get_free_space("ux0:")).c_str()), VITA_HEIGHT - 20);
 
 
 
