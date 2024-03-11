@@ -1514,9 +1514,7 @@ int main()
         pkgi_texture batteryislow = pkgi_load_png(batteryislow);
         pkgi_texture batterynormal = pkgi_load_png(batterynormal);
         pkgi_texture batteryischarging = pkgi_load_png(batteryischarging);
-        pkgi_texture v2 = pkgi_load_png(v2);
-        // pkgi_texture fill = pkgi_load_png(fill);
-        // pkgi_texture notfill = pkgi_load_png(notfill);
+        pkgi_texture notfill = pkgi_load_png(notfill);
 
 
 
@@ -1669,9 +1667,12 @@ int main()
             }
 
             // иконка карты памяти
-            pkgi_draw_texture(v2, VITA_WIDTH - 130, VITA_HEIGHT - 21);
-            // pkgi_draw_texture(fill, VITA_WIDTH - 130, VITA_HEIGHT - 21);
-            // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 21);
+            // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
+            // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
+            pkgi_draw_texture(notfill, VITA_WIDTH - 39 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()), VITA_HEIGHT - 20);
+
+
+            // pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str())
 
             //
 
