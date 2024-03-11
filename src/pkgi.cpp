@@ -1514,8 +1514,8 @@ int main()
         pkgi_texture batteryislow = pkgi_load_png(batteryislow);
         pkgi_texture batterynormal = pkgi_load_png(batterynormal);
         pkgi_texture batteryischarging = pkgi_load_png(batteryischarging);
-        pkgi_texture v1 = pkgi_load_png(v1);
-        // pkgi_texture v2 = pkgi_load_png(v2);
+        // pkgi_texture v1 = pkgi_load_png(v1);
+        pkgi_texture v2 = pkgi_load_png(v2);
 
 
         if (!config.no_version_check)
@@ -1667,8 +1667,8 @@ int main()
             }
 
             // иконка карты памяти
-            // pkgi_draw_texture(v2, VITA_WIDTH - 130, VITA_HEIGHT - 21);
-            pkgi_draw_texture(v1, VITA_WIDTH - 130, VITA_HEIGHT - 21);
+            pkgi_draw_texture(v2, VITA_WIDTH - 130, VITA_HEIGHT - 21);
+            // pkgi_draw_texture(v1, VITA_WIDTH - 130, VITA_HEIGHT - 21);
 
             //
 
