@@ -1669,7 +1669,7 @@ int main()
             // иконка карты памяти
             // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
             // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
-            pkgi_draw_texture(notfill, VITA_WIDTH - 39 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()), VITA_HEIGHT - 20);
+            pkgi_draw_texture(notfill, VITA_WIDTH - 39 - pkgi_text_width(fmt::format("{}%", 5555555).c_str()), VITA_HEIGHT - 20);
 
 
             // pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str())
