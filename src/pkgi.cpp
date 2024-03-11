@@ -1666,9 +1666,6 @@ int main()
                 pkgi_draw_texture(batterynormal, VITA_WIDTH - 47, 5);
             }
 
-            char free[64];
-            char size[64];
-
             // иконка карты памяти
             // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
             // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
