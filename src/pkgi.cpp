@@ -1013,16 +1013,17 @@ void pkgi_do_tail(Downloader& downloader)
     
         // подложка
     pkgi_draw_rect(
-            10,
+            10+277,
             bottom_y + 5,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
             font_height - 10,
-            PKGI_COLOR_HEAD_HLINE);
+            // PKGI_COLOR_HEAD_HLINE);
+            PKGI_COLOR_DATE_TIME);
             // PKGI_COLOR_DATE_TIME);
 
     // на подложку
     pkgi_draw_rect(
-            12,
+            12+277,
             bottom_y + 7,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
             font_height - 14,
@@ -1044,7 +1045,7 @@ void pkgi_do_tail(Downloader& downloader)
 
         // прогрессбар
         pkgi_draw_rect(
-                14,
+                14+277,
                 bottom_y + 9,
                 (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 8) * download_offset / download_size,
                 font_height - 18,
