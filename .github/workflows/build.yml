@@ -36,7 +36,7 @@ jobs:
         with:
           name: pkgj.vpk
           path: ci/build/pkgj.vpk
-      - name: send default message
+      - name: telegram notify
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
