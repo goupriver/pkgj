@@ -1056,6 +1056,7 @@ void pkgi_do_tail(Downloader& downloader)
                 text,
                 sizeof(text),
                 // "Загрузка %s: %s (%s, %d%%)",
+                // "%d%%",
                 "%d%%",
                 static_cast<int>(download_offset * 100 / download_size));
     }
