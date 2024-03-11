@@ -1666,7 +1666,7 @@ int main()
             }
 
             // иконка карты памяти
-            pkgi_draw_texture(v2, VITA_WIDTH - 111);
+            pkgi_draw_texture(v2, VITA_WIDTH - 111, VITA_HEIGHT - 3);
             //
 
             // разрядка
