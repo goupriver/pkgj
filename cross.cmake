@@ -47,6 +47,8 @@ add_assets(assets
   assets/batteryislow.png
   assets/batterynormal.png
   assets/batteryischarging.png
+  assets/v1.png
+  assets/v2.png
   assets/imgui_v_cg.gxp
   assets/imgui_f_cg.gxp
 )
