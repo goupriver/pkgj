@@ -1013,7 +1013,7 @@ void pkgi_do_tail(Downloader& downloader)
     
         // подложка
     pkgi_draw_rect(
-            10+277,
+            10+278,
             bottom_y + 5 + 2,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
             font_height - 10,
@@ -1023,7 +1023,7 @@ void pkgi_do_tail(Downloader& downloader)
 
     // на подложку
     pkgi_draw_rect(
-            12+277,
+            12+278,
             bottom_y + 7 + 2,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
             font_height - 14,
@@ -1045,7 +1045,7 @@ void pkgi_do_tail(Downloader& downloader)
 
         // прогрессбар
         pkgi_draw_rect(
-                14+277,
+                14+278,
                 bottom_y + 9,
                 (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 8) * download_offset / download_size,
                 font_height - 18 + 2,
