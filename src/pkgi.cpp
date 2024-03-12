@@ -1130,15 +1130,15 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard)
     char free[64];
     pkgi_snprintf(free, sizeof(free), "%s", size);
     // pkgi_snprintf(free, sizeof(free), "Свободно: %s", size);
+     char hello3[]{"23456435.12352465"};
 
     int rightw = pkgi_text_width(free);
     pkgi_draw_text(
             VITA_WIDTH - 12 - pkgi_text_width(free), 
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
-            free);
+            hello3);
 
-     char hello3[]{"23456435.12352465"};
 
     // pkgi_draw_texture(memoryCard, VITA_WIDTH - pkgi_text_width(fmt::format("{}", pkgi_get_free_space("ux0:")).c_str()), VITA_HEIGHT - 20);
     // pkgi_draw_texture(memoryCard, VITA_WIDTH - 12 - 16 - 4 - 16 - pkgi_text_width(free), VITA_HEIGHT - 20);
