@@ -39,8 +39,8 @@ jobs:
       - name: telegram notify alexander
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TO_GOUPRIVER }}
+          to: ${{ secrets.TELEGRAM_TO_GOUPRIVER }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
           document: ci/build/pkgj.vpk
           format: markdown
           disable_web_page_preview: true
@@ -51,8 +51,8 @@ jobs:
       - name: telegram notify gudwin
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TO_GUDWIN }}
+          to: ${{ secrets.TELEGRAM_TO_GUDWIN }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
           document: ci/build/pkgj.vpk
           format: markdown
           disable_web_page_preview: true
