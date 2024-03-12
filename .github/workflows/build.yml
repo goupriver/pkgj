@@ -26,21 +26,33 @@ jobs:
           path: ~/.conan2/p
           key: ${{ runner.os }}-conan
       - run: ci/ci.sh
-      - name: Upload linux build
-        uses: actions/upload-artifact@v3
-        with:
-          name: pkgj_cli
-          path: ci/buildhost/pkgj_cli
+      # - name: Upload linux build
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: pkgj_cli
+      #     path: ci/buildhost/pkgj_cli
       - name: Upload vita build
         uses: actions/upload-artifact@v3
         with:
           name: pkgj.vpk
           path: ci/build/pkgj.vpk
-      - name: telegram notify
+      - name: telegram notify alexander
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
+          token: ${{ secrets.TELEGRAM_TO_GOUPRIVER }}
+          document: ci/build/pkgj.vpk
+          format: markdown
+          disable_web_page_preview: true
+          message: |
+            **${{ github.event.commits[0].message }}**
+
+            https://github.com/${{ github.repository }}/commit/${{github.sha}}
+      - name: telegram notify gudwin
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TO_GUDWIN }}
           document: ci/build/pkgj.vpk
           format: markdown
           disable_web_page_preview: true
