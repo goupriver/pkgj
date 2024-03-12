@@ -975,7 +975,7 @@ uint64_t get_speed(const uint64_t download_offset)
 
 
 // НИЗ
-void pkgi_do_tail(Downloader& downloader)
+void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard)
 {
 
 
@@ -1137,6 +1137,8 @@ void pkgi_do_tail(Downloader& downloader)
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
             free);
+
+    pkgi_draw_texture(notfill, VITA_WIDTH - pkgi_text_width(fmt::format("{}", pkgi_get_free_space("ux0:")).c_str()), VITA_HEIGHT - 20);
 
     // КОНЕЦ СВОБОДНО ДИСК
 
@@ -1670,7 +1672,7 @@ int main()
             // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
             // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
             // pkgi_draw_texture(notfill, VITA_WIDTH - 44 - 29 - pkgi_text_width(fmt::format("{}", pkgi_get_free_space(pkgi_get_mode_partition())).c_str()), VITA_HEIGHT - 20);
-            pkgi_draw_texture(notfill, VITA_WIDTH - pkgi_text_width(fmt::format("{}", pkgi_get_free_space("ux0:")).c_str()), VITA_HEIGHT - 20);
+            // pkgi_draw_texture(notfill, VITA_WIDTH - pkgi_text_width(fmt::format("{}", pkgi_get_free_space("ux0:")).c_str()), VITA_HEIGHT - 20);
 
 
 
@@ -1711,7 +1713,7 @@ int main()
                 break;
             }
 
-            pkgi_do_tail(downloader);
+            pkgi_do_tail(downloader, notfill);
 
             if (gameview)
             {
