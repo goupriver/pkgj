@@ -1138,7 +1138,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard)
             PKGI_COLOR_TEXT_TAIL,
             free);
 
-    pkgi_draw_texture(notfill, VITA_WIDTH - pkgi_text_width(fmt::format("{}", pkgi_get_free_space("ux0:")).c_str()), VITA_HEIGHT - 20);
+    pkgi_draw_texture(memoryCard, VITA_WIDTH - pkgi_text_width(fmt::format("{}", pkgi_get_free_space("ux0:")).c_str()), VITA_HEIGHT - 20);
 
     // КОНЕЦ СВОБОДНО ДИСК
 
