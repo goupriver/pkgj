@@ -1130,7 +1130,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard)
     char free[64];
     pkgi_snprintf(free, sizeof(free), "%s", size);
     // pkgi_snprintf(free, sizeof(free), "Свободно: %s", size);
-    char hello3[]{"233.12 МБ"};
+    char hello3[]{"1.28 ГБ"};
 
     int rightw = pkgi_text_width(free);
     pkgi_draw_text(
