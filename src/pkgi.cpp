@@ -975,7 +975,7 @@ uint64_t get_speed(const uint64_t download_offset)
 
 
 // НИЗ
-void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard)
+void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture btn_x, pkgi_texture btn_square, pkgi_texture btn_triangle, pkgi_texture btn_circle)
 {
 
 
@@ -1264,13 +1264,39 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard)
         // } 
     // }
 
-    // конец исходника кнопок
+    
+    
+    
+    // КНОПКИ НИЖНИЕ НАЧАЛО
 
-    std::string bottom_text;
+    // btn_x, 
+    // btn_square, 
+    // btn_triangle, 
+    // btn_circle
+
+    // pkgi_draw_texture(memoryCard, VITA_WIDTH - 12 - 16 - 2 - 16 - pkgi_text_width(free), VITA_HEIGHT - 20);
+
+
+    pkgi_clip_set(
+            left,
+            second_line - 2,
+            VITA_WIDTH - right - left,
+            VITA_HEIGHT - second_line);
+
+    
+    
+    std::string bottom_text = "  Выбор  Отмена";
     if (gameview || pkgi_dialog_is_open())
     {
-        bottom_text = fmt::format(
-                "{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+
+        pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+            second_line - 2,
+            PKGI_COLOR_TEXT_TAIL,
+            bottom_text.c_str());
+
+        // bottom_text = fmt::format(
+                // "  Выбор  Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
     }
     else if (pkgi_menu_is_open())
     {
@@ -1294,17 +1320,57 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard)
         bottom_text += PKGI_UTF8_T " Меню";
     }
 
-    pkgi_clip_set(
-            left,
-            second_line - 2,
-            VITA_WIDTH - right - left,
-            VITA_HEIGHT - second_line);
     pkgi_draw_text(
             (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
             bottom_text.c_str());
     pkgi_clip_remove();
+
+
+
+
+    // std::string bottom_text;
+    // if (gameview || pkgi_dialog_is_open())
+    // {
+    //     bottom_text = fmt::format(
+    //             "{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+    // }
+    // else if (pkgi_menu_is_open())
+    // {
+    //     bottom_text = fmt::format(
+    //             "{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена",
+    //             pkgi_get_ok_str(),
+    //             pkgi_get_cancel_str());
+    // }
+    // else
+    // {
+    //     if (mode == ModeGames)
+    //         bottom_text += fmt::format("{} Просмотр ", pkgi_get_ok_str());
+    //     else
+    //     {
+    //         DbItem* item = db->get(selected_item);
+    //         if (item && item->presence == PresenceInstalling)
+    //             bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
+    //         else if (item && item->presence != PresenceInstalled)
+    //             bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
+    //     }
+    //     bottom_text += PKGI_UTF8_T " Меню";
+    // }
+
+    // pkgi_clip_set(
+    //         left,
+    //         second_line - 2,
+    //         VITA_WIDTH - right - left,
+    //         VITA_HEIGHT - second_line);
+    // pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+    //         second_line - 2,
+    //         PKGI_COLOR_TEXT_TAIL,
+    //         bottom_text.c_str());
+    // pkgi_clip_remove();
+
+    // КОНЕЦ КНОПКИ
 }
 
 void pkgi_do_error(void)
@@ -1520,6 +1586,10 @@ int main()
         pkgi_texture batterynormal = pkgi_load_png(batterynormal);
         pkgi_texture batteryischarging = pkgi_load_png(batteryischarging);
         pkgi_texture notfill = pkgi_load_png(notfill);
+        pkgi_texture btn_x = pkgi_load_png(btn_x);
+        pkgi_texture btn_square = pkgi_load_png(btn_square);
+        pkgi_texture btn_triangle = pkgi_load_png(btn_triangle);
+        pkgi_texture btn_circle = pkgi_load_png(btn_circle);
 
 
 
@@ -1716,7 +1786,7 @@ int main()
                 break;
             }
 
-            pkgi_do_tail(downloader, notfill);
+            pkgi_do_tail(downloader, notfill, btn_x, btn_square, btn_triangle, btn_circle);
 
             if (gameview)
             {
