@@ -1285,7 +1285,8 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
     
     
-    std::string bottom_text = "  Выбор  Отмена";
+    std::string bottom_text;
+
     if (gameview || pkgi_dialog_is_open())
     {
 
@@ -1293,31 +1294,40 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
-            bottom_text.c_str());
-
-        // bottom_text = fmt::format(
-                // "  Выбор  Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
+            "Выбор  Отмена".c_str());
     }
     else if (pkgi_menu_is_open())
     {
-        bottom_text = fmt::format(
-                "{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена",
-                pkgi_get_ok_str(),
-                pkgi_get_cancel_str());
+            pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+            second_line - 2,
+            PKGI_COLOR_TEXT_TAIL,
+            "Выбор Сохранить Отмена".c_str());
     }
     else
     {
         if (mode == ModeGames)
-            bottom_text += fmt::format("{} Просмотр ", pkgi_get_ok_str());
+            pkgi_draw_text(
+                (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+                second_line - 2,
+                PKGI_COLOR_TEXT_TAIL,
+                "Просмотр Меню".c_str());
         else
         {
             DbItem* item = db->get(selected_item);
             if (item && item->presence == PresenceInstalling)
-                bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
+                 pkgi_draw_text(
+                    (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+                    second_line - 2,
+                    PKGI_COLOR_TEXT_TAIL,
+                    "Отмена Меню".c_str());
             else if (item && item->presence != PresenceInstalled)
-                bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
+                pkgi_draw_text(
+                    (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+                    second_line - 2,
+                    PKGI_COLOR_TEXT_TAIL,
+                    "Установить Меню".c_str());
         }
-        bottom_text += PKGI_UTF8_T " Меню";
     }
 
     pkgi_draw_text(
