@@ -50,6 +50,10 @@ add_assets(assets
   assets/notfill.png
   assets/imgui_v_cg.gxp
   assets/imgui_f_cg.gxp
+  assets/btn_x
+  assets/btn_square 
+  assets/btn_triangle 
+  assets/btn_circle
 )
 
 add_executable(pkgj
