@@ -1172,24 +1172,24 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
         std::string bottom_text_circle = "Отмена";
 
         pkgi_draw_texture(btn_x, 
-            (VITA_WIDTH - pkgi_text_width(bottom_text_x.c_str()) - pkgi_text_width(bottom_text_circle.c_str()) - (PKGI_MAIN_BTN_WIDTH * 2) - (PKGI_MAIN_BTN_PADDING * 3))/2, 
-            second_line + 10);
+            (VITA_WIDTH/2) - (pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_circle.c_str()) + (PKGI_MAIN_BTN_WIDTH * 2) + (PKGI_MAIN_BTN_PADDING * 3))/2, 
+            second_line + 5);
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(bottom_text_circle.c_str()) - pkgi_text_width(bottom_text_x.c_str()) - (PKGI_MAIN_BTN_WIDTH * 1) - (PKGI_MAIN_BTN_PADDING * 2))/2,
-            second_line - 2,
-            PKGI_COLOR_TEXT_TAIL,
-            bottom_text_circle.c_str());
-
-        pkgi_draw_texture(btn_circle, 
-            (VITA_WIDTH - pkgi_text_width(bottom_text_circle.c_str()) - (PKGI_MAIN_BTN_WIDTH * 1) - (PKGI_MAIN_BTN_PADDING * 1)) / 2, 
-            second_line + 10);
-
-        pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(bottom_text_circle.c_str())) / 2, 
+            (VITA_WIDTH/2) - (pkgi_text_width(bottom_text_circle.c_str()) + pkgi_text_width(bottom_text_x.c_str()) + (PKGI_MAIN_BTN_WIDTH * 1) + (PKGI_MAIN_BTN_PADDING * 2))/2,
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
             bottom_text_x.c_str());
+
+        pkgi_draw_texture(btn_circle, 
+            (VITA_WIDTH)/2 - (pkgi_text_width(bottom_text_circle.c_str()) + (PKGI_MAIN_BTN_WIDTH * 1) + (PKGI_MAIN_BTN_PADDING * 1)) / 2, 
+            second_line + 5);
+
+        pkgi_draw_text(
+            (VITA_WIDTH)/2 - (pkgi_text_width(bottom_text_circle.c_str()))/ 2, 
+            second_line - 2,
+            PKGI_COLOR_TEXT_TAIL,
+            bottom_text_circle.c_str());
     }
     else if (pkgi_menu_is_open())
     {
