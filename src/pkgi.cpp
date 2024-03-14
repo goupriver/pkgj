@@ -1228,6 +1228,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
             pkgi_draw_text(
                 VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 3 + PKGI_MAIN_BTN_PADDING * 5 + pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()),
+                second_line - 2,
                 PKGI_COLOR_TEXT_TAIL,
                 bottom_text_square.c_str()); 
     }
