@@ -1171,22 +1171,24 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
         std::string bottom_text_x = "Выбор";
         std::string bottom_text_circle = "Отмена";
 
+        int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_circle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3
+
         pkgi_draw_texture(btn_x, 
-            (VITA_WIDTH/2) - (pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_circle.c_str()) + (PKGI_MAIN_BTN_WIDTH * 2) + (PKGI_MAIN_BTN_PADDING * 3))/2, 
+            VITA_WIDTH/2 - width_all_buttons/2, 
             second_line + 5);
 
         pkgi_draw_text(
-            (VITA_WIDTH/2) - (pkgi_text_width(bottom_text_circle.c_str()) + pkgi_text_width(bottom_text_x.c_str()) + (PKGI_MAIN_BTN_WIDTH * 1) + (PKGI_MAIN_BTN_PADDING * 2))/2,
+            VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING,
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
             bottom_text_x.c_str());
 
         pkgi_draw_texture(btn_circle, 
-            (VITA_WIDTH)/2 - (pkgi_text_width(bottom_text_circle.c_str()) + (PKGI_MAIN_BTN_WIDTH * 1) + (PKGI_MAIN_BTN_PADDING * 1)) / 2, 
+            VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING * 2 + pkgi_text_width(bottom_text_x.c_str()),
             second_line + 5);
 
         pkgi_draw_text(
-            (VITA_WIDTH)/2 - (pkgi_text_width(bottom_text_circle.c_str()))/ 2, 
+            VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3 + pkgi_text_width(bottom_text_x.c_str()),
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
             bottom_text_circle.c_str());
@@ -1198,27 +1200,36 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             std::string bottom_text_triangle = "Сохранить";
             std::string bottom_text_square = "Отмена";
 
-            pkgi_draw_texture(btn_x, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
-            pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
-            pkgi_draw_texture(btn_square, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+            int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + pkgi_text_width(bottom_text_square.c_str()) + PKGI_MAIN_BTN_WIDTH * 3 + PKGI_MAIN_BTN_PADDING * 5
+
+            pkgi_draw_texture(btn_x, 
+                VITA_WIDTH/2 - width_all_buttons/2, 
+                second_line + 5);
 
             pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(bottom_text_x.c_str())) / 2,
-            second_line - 2,
-            PKGI_COLOR_TEXT_TAIL,
-            bottom_text_x.c_str());
+                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING,
+                second_line - 2,
+                PKGI_COLOR_TEXT_TAIL,
+                bottom_text_x.c_str());
+
+            pkgi_draw_texture(btn_triangle, 
+                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING * 2 + pkgi_text_width(bottom_text_x.c_str()),
+                second_line + 5);
 
             pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
-            second_line - 2,
-            PKGI_COLOR_TEXT_TAIL,
-            bottom_text_triangle.c_str());
+                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3 + pkgi_text_width(bottom_text_x.c_str()),
+                second_line - 2,
+                PKGI_COLOR_TEXT_TAIL,
+                bottom_text_triangle.c_str());
+
+            pkgi_draw_texture(btn_square, 
+                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 4 + pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()),
+                second_line + 5);
 
             pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(bottom_text_square.c_str())) / 2,
-            second_line - 2,
-            PKGI_COLOR_TEXT_TAIL,
-            bottom_text_square.c_str());
+                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 3 + PKGI_MAIN_BTN_PADDING * 5 + pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()),
+                PKGI_COLOR_TEXT_TAIL,
+                bottom_text_square.c_str());
     }
     else
     {
@@ -1228,17 +1239,24 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             std::string bottom_text_x = "Просмотр";
             std::string bottom_text_triangle = "Меню";
 
-            pkgi_draw_texture(btn_x, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
-            pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+            int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3
+
+            pkgi_draw_texture(btn_x, 
+                VITA_WIDTH/2 - width_all_buttons/2, 
+                second_line + 5);
 
             pkgi_draw_text(
-                (VITA_WIDTH - pkgi_text_width(bottom_text_x.c_str())) / 2,
+                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING,
                 second_line - 2,
                 PKGI_COLOR_TEXT_TAIL,
                 bottom_text_x.c_str());
 
+            pkgi_draw_texture(btn_triangle, 
+                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING * 2 + pkgi_text_width(bottom_text_x.c_str()),
+                second_line + 5);
+
             pkgi_draw_text(
-                (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
+                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3 + pkgi_text_width(bottom_text_x.c_str()),
                 second_line - 2,
                 PKGI_COLOR_TEXT_TAIL,
                 bottom_text_triangle.c_str());
@@ -1252,17 +1270,24 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
                 std::string bottom_text_circle = "Отмена";
                 std::string bottom_text_triangle = "Меню";
 
-                pkgi_draw_texture(btn_circle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
-                pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+                int width_all_buttons = pkgi_text_width(bottom_text_circle.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3
+
+                pkgi_draw_texture(btn_circle, 
+                    VITA_WIDTH/2 - width_all_buttons/2, 
+                    second_line + 5);
 
                 pkgi_draw_text(
-                    (VITA_WIDTH - pkgi_text_width(bottom_text_circle.c_str())) / 2,
+                    VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING,
                     second_line - 2,
                     PKGI_COLOR_TEXT_TAIL,
                     bottom_text_circle.c_str());
 
+                pkgi_draw_texture(btn_triangle, 
+                    VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING * 2 + pkgi_text_width(bottom_text_circle.c_str()),
+                    second_line + 5);
+
                 pkgi_draw_text(
-                    (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
+                    VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3 + pkgi_text_width(bottom_text_circle.c_str()),
                     second_line - 2,
                     PKGI_COLOR_TEXT_TAIL,
                     bottom_text_triangle.c_str());
@@ -1272,17 +1297,24 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
                 std::string bottom_text_x = "Установить";
                 std::string bottom_text_triangle = "Меню";
 
-                pkgi_draw_texture(btn_x, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
-                pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+                int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3
+
+                pkgi_draw_texture(btn_x, 
+                    VITA_WIDTH/2 - width_all_buttons/2, 
+                    second_line + 5);
 
                 pkgi_draw_text(
-                    (VITA_WIDTH - pkgi_text_width(bottom_text_x.c_str())) / 2,
+                    VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING,
                     second_line - 2,
                     PKGI_COLOR_TEXT_TAIL,
                     bottom_text_x.c_str());
 
+                pkgi_draw_texture(btn_triangle, 
+                    VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING * 2 + pkgi_text_width(bottom_text_x.c_str()),
+                    second_line + 5);
+
                 pkgi_draw_text(
-                    (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
+                    VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3 + pkgi_text_width(bottom_text_x.c_str()),
                     second_line - 2,
                     PKGI_COLOR_TEXT_TAIL,
                     bottom_text_triangle.c_str());
@@ -1290,13 +1322,18 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
             std::string bottom_text_triangle = "Меню";
 
-            pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+            int width_all_buttons = pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING
+
+            pkgi_draw_texture(btn_triangle, 
+                VITA_WIDTH/2 - width_all_buttons/2, 
+                second_line + 5);
 
             pkgi_draw_text(
-                    (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
-                    second_line - 2,
-                    PKGI_COLOR_TEXT_TAIL,
-                    bottom_text_triangle.c_str());
+                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING,
+                second_line - 2,
+                PKGI_COLOR_TEXT_TAIL,
+                bottom_text_triangle.c_str());
+
         }
     }
 
