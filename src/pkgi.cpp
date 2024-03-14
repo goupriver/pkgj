@@ -1191,7 +1191,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3 + pkgi_text_width(bottom_text_x.c_str()),
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
-            bottom_text_circle.c_str());
+            bottom_text_circle);
     }
     else if (pkgi_menu_is_open())
     {
