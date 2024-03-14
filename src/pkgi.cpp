@@ -1164,74 +1164,147 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             VITA_WIDTH - right - left,
             VITA_HEIGHT - second_line);
 
-    
-    
-    std::string bottom_text;
+    // std::string bottom_text;
 
     if (gameview || pkgi_dialog_is_open())
     {
-        bottom_text = "Выбор  Отмена";
+        std::string bottom_text_x = "Выбор";
+        std::string bottom_text_circle = "Отмена";
+
+        pkgi_draw_texture(btn_x, 
+            VITA_WIDTH / 2 - pkgi_text_width(bottom_text_x.c_str()) - pkgi_text_width(bottom_text_circle.c_str()) - (PKGI_MAIN_BTN_WIDTH * 2) - (PKGI_MAIN_BTN_PADDING * 3), 
+            second_line - 2);
 
         pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+            VITA_WIDTH / 2 - pkgi_text_width(bottom_text_circle.c_str()) - pkgi_text_width(bottom_text_x.c_str()) - (PKGI_MAIN_BTN_WIDTH * 1) - (PKGI_MAIN_BTN_PADDING * 2),
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
-            bottom_text.c_str());
+            bottom_text_circle.c_str());
+
+        pkgi_draw_texture(btn_circle, 
+            VITA_WIDTH / 2 - pkgi_text_width(bottom_text_circle.c_str()) - (PKGI_MAIN_BTN_WIDTH * 1) - (PKGI_MAIN_BTN_PADDING * 2), 
+            second_line - 2);
+
+        pkgi_draw_text(
+            VITA_WIDTH / 2 - pkgi_text_width(bottom_text_circle.c_str()), 
+            second_line - 2,
+            PKGI_COLOR_TEXT_TAIL,
+            bottom_text_x.c_str());
     }
     else if (pkgi_menu_is_open())
     {
-            bottom_text = "Выбор Сохранить Отмена";
+
+            std::string bottom_text_x = "Выбор";
+            std::string bottom_text_triangle = "Сохранить";
+            std::string bottom_text_square = "Отмена";
+
+            pkgi_draw_texture(btn_x, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+            pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+            pkgi_draw_texture(btn_square, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
 
             pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+            (VITA_WIDTH - pkgi_text_width(bottom_text_x.c_str())) / 2,
             second_line - 2,
             PKGI_COLOR_TEXT_TAIL,
-            bottom_text.c_str());
+            bottom_text_x.c_str());
+
+            pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
+            second_line - 2,
+            PKGI_COLOR_TEXT_TAIL,
+            bottom_text_triangle.c_str());
+
+            pkgi_draw_text(
+            (VITA_WIDTH - pkgi_text_width(bottom_text_square.c_str())) / 2,
+            second_line - 2,
+            PKGI_COLOR_TEXT_TAIL,
+            bottom_text_square.c_str());
     }
     else
     {
         if (mode == ModeGames) 
         {
 
-            bottom_text = "Просмотр Меню";
+            std::string bottom_text_x = "Просмотр";
+            std::string bottom_text_triangle = "Меню";
+
+            pkgi_draw_texture(btn_x, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+            pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
 
             pkgi_draw_text(
-                (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+                (VITA_WIDTH - pkgi_text_width(bottom_text_x.c_str())) / 2,
                 second_line - 2,
                 PKGI_COLOR_TEXT_TAIL,
-                bottom_text.c_str());
+                bottom_text_x.c_str());
+
+            pkgi_draw_text(
+                (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
+                second_line - 2,
+                PKGI_COLOR_TEXT_TAIL,
+                bottom_text_triangle.c_str());
         }
         else
         {
             DbItem* item = db->get(selected_item);
             if (item && item->presence == PresenceInstalling)
             {
-                bottom_text = "Отмена Меню";
+
+                std::string bottom_text_circle = "Отмена";
+                std::string bottom_text_triangle = "Меню";
+
+                pkgi_draw_texture(btn_circle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+                pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
 
                 pkgi_draw_text(
-                    (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+                    (VITA_WIDTH - pkgi_text_width(bottom_text_circle.c_str())) / 2,
                     second_line - 2,
                     PKGI_COLOR_TEXT_TAIL,
-                    bottom_text.c_str());
+                    bottom_text_circle.c_str());
+
+                pkgi_draw_text(
+                    (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
+                    second_line - 2,
+                    PKGI_COLOR_TEXT_TAIL,
+                    bottom_text_triangle.c_str());
             }
             else if (item && item->presence != PresenceInstalled)
             {
-                bottom_text = "Установить Меню";
+                std::string bottom_text_x = "Установить";
+                std::string bottom_text_triangle = "Меню";
+
+                pkgi_draw_texture(btn_x, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+                pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
 
                 pkgi_draw_text(
-                    (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+                    (VITA_WIDTH - pkgi_text_width(bottom_text_x.c_str())) / 2,
                     second_line - 2,
                     PKGI_COLOR_TEXT_TAIL,
-                    bottom_text.c_str());
+                    bottom_text_x.c_str());
+
+                pkgi_draw_text(
+                    (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
+                    second_line - 2,
+                    PKGI_COLOR_TEXT_TAIL,
+                    bottom_text_triangle.c_str());
             }
+
+            std::string bottom_text_triangle = "Меню";
+
+            pkgi_draw_texture(btn_triangle, VITA_WIDTH - 12 - pkgi_text_width(free), second_line - 2);
+
+            pkgi_draw_text(
+                    (VITA_WIDTH - pkgi_text_width(bottom_text_triangle.c_str())) / 2,
+                    second_line - 2,
+                    PKGI_COLOR_TEXT_TAIL,
+                    bottom_text_triangle.c_str());
         }
     }
 
-    pkgi_draw_text(
-            (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
-            second_line - 2,
-            PKGI_COLOR_TEXT_TAIL,
-            bottom_text.c_str());
+    // pkgi_draw_text(
+    //         (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
+    //         second_line - 2,
+    //         PKGI_COLOR_TEXT_TAIL,
+    //         bottom_text.c_str());
     pkgi_clip_remove();
 
 
