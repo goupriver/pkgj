@@ -1171,7 +1171,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
         std::string bottom_text_x = "Выбор";
         std::string bottom_text_circle = "Отмена";
 
-        int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_circle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3
+        int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_circle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3;
 
         pkgi_draw_texture(btn_x, 
             VITA_WIDTH/2 - width_all_buttons/2, 
@@ -1200,7 +1200,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             std::string bottom_text_triangle = "Сохранить";
             std::string bottom_text_square = "Отмена";
 
-            int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + pkgi_text_width(bottom_text_square.c_str()) + PKGI_MAIN_BTN_WIDTH * 3 + PKGI_MAIN_BTN_PADDING * 5
+            int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + pkgi_text_width(bottom_text_square.c_str()) + PKGI_MAIN_BTN_WIDTH * 3 + PKGI_MAIN_BTN_PADDING * 5;
 
             pkgi_draw_texture(btn_x, 
                 VITA_WIDTH/2 - width_all_buttons/2, 
@@ -1239,7 +1239,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             std::string bottom_text_x = "Просмотр";
             std::string bottom_text_triangle = "Меню";
 
-            int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3
+            int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3;
 
             pkgi_draw_texture(btn_x, 
                 VITA_WIDTH/2 - width_all_buttons/2, 
@@ -1270,7 +1270,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
                 std::string bottom_text_circle = "Отмена";
                 std::string bottom_text_triangle = "Меню";
 
-                int width_all_buttons = pkgi_text_width(bottom_text_circle.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3
+                int width_all_buttons = pkgi_text_width(bottom_text_circle.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3;
 
                 pkgi_draw_texture(btn_circle, 
                     VITA_WIDTH/2 - width_all_buttons/2, 
@@ -1297,7 +1297,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
                 std::string bottom_text_x = "Установить";
                 std::string bottom_text_triangle = "Меню";
 
-                int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3
+                int width_all_buttons = pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3;
 
                 pkgi_draw_texture(btn_x, 
                     VITA_WIDTH/2 - width_all_buttons/2, 
@@ -1322,7 +1322,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
             std::string bottom_text_triangle = "Меню";
 
-            int width_all_buttons = pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING
+            int width_all_buttons = pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING;
 
             pkgi_draw_texture(btn_triangle, 
                 VITA_WIDTH/2 - width_all_buttons/2, 
