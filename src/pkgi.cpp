@@ -1046,7 +1046,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
         // прогрессбар
         pkgi_draw_rect(
                 14+278,
-                bottom_y + 9,
+                bottom_y + 8,
                 (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 8) * download_offset / download_size,
                 font_height - 18 + 2,
                 PKGI_COLOR_DATE_TIME);
