@@ -24,7 +24,7 @@ public:
         return _item;
     }
 
-    void render();
+    void render(bool mode);
     void refresh();
 
     bool is_closed() const

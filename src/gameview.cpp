@@ -1,7 +1,7 @@
 #include "gameview.hpp"
 
 #include <fmt/format.h>
-
+#include "db.hpp"
 #include "dialog.hpp"
 #include "file.hpp"
 #include "utils.hpp"
@@ -35,10 +35,10 @@ GameView::GameView(
     refresh();
 }
 
-void GameView::render()
+void GameView::render(bool mode)
 {
-    // std::string title_game = mode == ModeGames ? erase_string_elements(_item->name) : _item->name;
-    std::string title_game = erase_string_elements(_item->name);
+    std::string title_game = mode ? erase_string_elements(_item->name) : _item->name;
+    // std::string title_game = erase_string_elements(_item->name);
 
     ImGui::SetNextWindowPos(
             ImVec2((VITA_WIDTH - GameViewWidth) / 2,

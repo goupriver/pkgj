@@ -1810,7 +1810,9 @@ int main()
 
             if (gameview)
             {
-                gameview->render();
+                bool mode_mode = mode == ModeGames;
+
+                gameview->render(mode_mode);
                 if (gameview->is_closed())
                     gameview = nullptr;
             }
