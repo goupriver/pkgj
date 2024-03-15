@@ -1222,7 +1222,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
                 PKGI_COLOR_TEXT_TAIL,
                 bottom_text_triangle.c_str());
 
-            pkgi_draw_texture(btn_square, 
+            pkgi_draw_texture(btn_circle, 
                 VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 4 + pkgi_text_width(bottom_text_x.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()),
                 second_line + 5);
 
@@ -1273,7 +1273,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
                 int width_all_buttons = pkgi_text_width(bottom_text_circle.c_str()) + pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH * 2 + PKGI_MAIN_BTN_PADDING * 3;
 
-                pkgi_draw_texture(btn_circle, 
+                pkgi_draw_texture(btn_x, 
                     VITA_WIDTH/2 - width_all_buttons/2, 
                     second_line + 5);
 
