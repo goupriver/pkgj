@@ -79,7 +79,7 @@ void GameView::render()
     if (_comppack_versions.present && _comppack_versions.base.empty() &&
         _comppack_versions.patch.empty())
     {
-        ImGui::Text("Installed compatibility pack: unknown version");
+        ImGui::Text("Версия совместимости: неизвестна");
     }
     else
     {
@@ -210,9 +210,9 @@ void GameView::printDiagnostic()
     {
         ImGui::TextColored(
                 Yellow,
-                "- Пакет совместимости установлен, но не PKGj, пожалуйста "
+                "- Пакет совместимости установлен, но не PKGj."
                 "Убедитесь, что он соответствует установленной версии, "
-                "или переустановите его с помощью PKGj");
+                "или переустановите его.");
         ok = false;
     }
 
