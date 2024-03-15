@@ -1325,16 +1325,20 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
             int width_all_buttons = pkgi_text_width(bottom_text_triangle.c_str()) + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING;
 
-            pkgi_draw_texture(btn_triangle, 
-                VITA_WIDTH/2 - width_all_buttons/2, 
-                second_line + 5);
+            DbItem* item = db->get(selected_item);
 
-            pkgi_draw_text(
-                VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING,
-                second_line - 2,
-                PKGI_COLOR_TEXT_TAIL,
-                bottom_text_triangle.c_str());
+            if (item && item->presence == PresenceInstalled)
+            {
+                pkgi_draw_texture(btn_triangle, 
+                    VITA_WIDTH/2 - width_all_buttons/2, 
+                    second_line + 5);
 
+                pkgi_draw_text(
+                    VITA_WIDTH/2 - width_all_buttons/2 + PKGI_MAIN_BTN_WIDTH + PKGI_MAIN_BTN_PADDING,
+                    second_line - 2,
+                    PKGI_COLOR_TEXT_TAIL,
+                    bottom_text_triangle.c_str());
+            }
         }
     }
 
