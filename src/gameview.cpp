@@ -37,7 +37,8 @@ GameView::GameView(
 
 void GameView::render()
 {
-    std::string title_game = mode == ModeGames ? erase_string_elements(_item->name) : _item->name;
+    // std::string title_game = mode == ModeGames ? erase_string_elements(_item->name) : _item->name;
+    std::string title_game = erase_string_elements(_item->name);
 
     ImGui::SetNextWindowPos(
             ImVec2((VITA_WIDTH - GameViewWidth) / 2,
