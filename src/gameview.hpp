@@ -24,7 +24,7 @@ public:
         return _item;
     }
 
-    void render(Mode ModeGames);
+    void render();
     void refresh();
 
     bool is_closed() const

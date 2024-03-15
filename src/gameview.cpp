@@ -6,6 +6,7 @@
 #include "file.hpp"
 #include "utils.hpp"
 #include "imgui.hpp"
+#include "db.hpp"
 extern "C"
 {
 #include "style.h"
@@ -34,9 +35,9 @@ GameView::GameView(
     refresh();
 }
 
-void GameView::render(ModeGames)
+void GameView::render()
 {
-    std::string title_game = ModeGames == ModeGames ? erase_string_elements(_item->name) : _item->name;
+    std::string title_game = mode == ModeGames ? erase_string_elements(_item->name) : _item->name;
 
     ImGui::SetNextWindowPos(
             ImVec2((VITA_WIDTH - GameViewWidth) / 2,
