@@ -1065,7 +1065,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
     // pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - pkgi_text_width(text))/2, bottom_y - 2, PKGI_COLOR_TEXT_TAIL, text);
     
     pkgi_draw_text_with_size(
-            VITA_WIDTH/2 - pkgi_text_width(text)/2,
+            VITA_WIDTH/2 - pkgi_text_width(text)/2 + 7,
             bottom_y - 2,
             0.700f,
             PKGI_COLOR_TEXT_TAIL,
