@@ -1013,7 +1013,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
     
         // подложка
     pkgi_draw_rect(
-            10+278,
+            9+278,
             bottom_y + 5 + 2,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
             font_height - 10,
@@ -1023,7 +1023,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
     // на подложку
     pkgi_draw_rect(
-            12+278,
+            11+278,
             bottom_y + 7 + 2,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
             font_height - 14,
@@ -1045,8 +1045,8 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
         // прогрессбар
         pkgi_draw_rect(
-                14+278,
-                bottom_y + 8,
+                13+278,
+                bottom_y + 10,
                 (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 8) * download_offset / download_size,
                 font_height - 18 + 2,
                 PKGI_COLOR_DATE_TIME);
