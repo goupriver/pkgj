@@ -590,11 +590,6 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
             colorTextSize = PKGI_COLOR_LIST_SIZE;
             colorCircle = PKGI_COLOR_LIST_CIRCLE;
             
-            if (item->presence == PresenceInstalled)
-            {
-                pkgi_draw_texture(ps_ico, col_installed + PKGI_SCROLL_PADDING, y);
-            }
-            
             pkgi_draw_rect(
                     0 + 26,
                     y + 3,
@@ -642,6 +637,10 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
         {
             pkgi_draw_text(col_installed + PKGI_SCROLL_PADDING, y, colorCircle, PKGI_UTF8_INSTALLED);
             
+            if (i == selected_item)
+            {
+                pkgi_draw_texture(ps_ico, col_installed + PKGI_SCROLL_PADDING, y);
+            }
             // pkgi_draw_texture(ps_ico, col_installed + PKGI_SCROLL_PADDING, y);
         }
 
