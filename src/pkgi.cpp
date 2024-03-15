@@ -369,7 +369,7 @@ void pkgi_refresh_list()
     pkgi_start_thread("refresh_thread", &pkgi_refresh_thread);
 }
 
-void pkgi_do_main(Downloader& downloader, pkgi_input* input)
+void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico)
 {
     int col_titleid = 0;
     int col_region = col_titleid + pkgi_text_width("PCSE00000") +
@@ -590,6 +590,11 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
             colorTextSize = PKGI_COLOR_LIST_SIZE;
             colorCircle = PKGI_COLOR_LIST_CIRCLE;
             
+            if (item->presence == PresenceInstalled)
+            {
+                pkgi_draw_texture(ps_ico, col_installed + PKGI_SCROLL_PADDING, y);
+            }
+            
             pkgi_draw_rect(
                     0 + 26,
                     y + 3,
@@ -636,6 +641,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input)
         else if (item->presence == PresenceInstalled)
         {
             pkgi_draw_text(col_installed + PKGI_SCROLL_PADDING, y, colorCircle, PKGI_UTF8_INSTALLED);
+            
+            // pkgi_draw_texture(ps_ico, col_installed + PKGI_SCROLL_PADDING, y);
         }
 
         // круг
@@ -977,23 +984,6 @@ uint64_t get_speed(const uint64_t download_offset)
 // НИЗ
 void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture btn_x, pkgi_texture btn_square, pkgi_texture btn_triangle, pkgi_texture btn_circle)
 {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // ЗАГРУЗКА НАЧАЛО
 
@@ -1610,8 +1600,7 @@ int main()
         pkgi_texture btn_square = pkgi_load_png(btn_square);
         pkgi_texture btn_triangle = pkgi_load_png(btn_triangle);
         pkgi_texture btn_circle = pkgi_load_png(btn_circle);
-
-
+        pkgi_texture ps_ico = pkgi_load_png(ps_ico);
 
         if (!config.no_version_check)
             start_update_thread();
@@ -1802,7 +1791,8 @@ int main()
                 pkgi_do_main(
                         downloader,
                         pkgi_dialog_is_open() || pkgi_menu_is_open() ? NULL
-                                                                     : &input);
+                                                                     : &input, 
+                        ps_ico);
                 break;
             }
 

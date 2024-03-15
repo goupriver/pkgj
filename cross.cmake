@@ -54,6 +54,7 @@ add_assets(assets
   assets/btn_square.png
   assets/btn_triangle.png
   assets/btn_circle.png
+  assets/ps_ico.png
 )
 
 add_executable(pkgj
