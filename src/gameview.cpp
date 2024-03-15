@@ -4,6 +4,7 @@
 
 #include "dialog.hpp"
 #include "file.hpp"
+#include "utils.hpp"
 #include "imgui.hpp"
 extern "C"
 {
@@ -33,15 +34,17 @@ GameView::GameView(
     refresh();
 }
 
-void GameView::render()
+void GameView::render(is_ModeGames)
 {
+    std::string title_game = is_ModeGames ? erase_string_elements(_item->name) : _item->name;
+
     ImGui::SetNextWindowPos(
             ImVec2((VITA_WIDTH - GameViewWidth) / 2,
                    (VITA_HEIGHT - GameViewHeight) / 2));
     ImGui::SetNextWindowSize(ImVec2(GameViewWidth, GameViewHeight), 0);
 
     ImGui::Begin(
-            fmt::format("{} ###gameview", _item->name)
+            fmt::format("{} ###gameview", title_game)
                     .c_str(),
             nullptr,
             ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove |
