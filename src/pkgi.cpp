@@ -315,7 +315,7 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
         LOGF("[{}] {} - already installed", item->content, item->name);
         pkgi_dialog_question(
         fmt::format(
-                "{} уже установлено. "
+                "{}уже установлено. "
                 "Хотите переустановить?", 
                 title_game)
                 .c_str(),
@@ -1656,6 +1656,11 @@ int main()
         style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
         style.Colors[ImGuiCol_FrameBg] = PKGI_COLOR_BORDER_WINDOW;
 
+
+        style.Colors[ImGuiCol_Border] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+        style.Colors[ImGuiCol_PopupBorderSize] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+        style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+        style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
         init_imgui();
 
         pkgi_input input;
