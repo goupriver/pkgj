@@ -58,7 +58,7 @@ private:
     std::string get_min_system_version();
     void printDiagnostic();
     void do_download();
-    void start_download_package();
+    void start_download_package(bool mode);
     void cancel_download_package();
     void start_download_comppack(bool patch);
     void cancel_download_comppacks(bool patch);

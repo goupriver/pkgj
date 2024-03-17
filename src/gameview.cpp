@@ -111,12 +111,12 @@ void GameView::render(bool mode)
     if (_patch_info_fetcher.get_status() == PatchInfoFetcher::Status::Found)
     {
         if (ImGui::Button("Установить игру и патч###installgame"))
-            start_download_package();
+            start_download_package(mode);
     }
     else
     {
         if (ImGui::Button("Установить игру###installgame"))
-            start_download_package();
+            start_download_package(mode);
     }
     ImGui::SetItemDefaultFocus();
 
@@ -282,16 +282,18 @@ void GameView::do_download() {
     _item->presence = PresenceUnknown;
 }
 
-void GameView::start_download_package()
+void GameView::start_download_package(mode)
 {
+    std::string title_game = mode ? erase_string_elements(_item->name) : _item->name;
+
     if (_item->presence == PresenceInstalled)
     {
         LOGF("[{}] {} - already installed", _item->titleid, _item->name);
         pkgi_dialog_question(
         fmt::format(
                 "{} уже установлено. "
-                "Хотите загрузить его заново?",
-                _item->name)
+                "Хотите переустановить?",
+                title_game)
                 .c_str(),
         {{"Да", [this] { this->do_download(); }},
          {"Нет", [] {} }});

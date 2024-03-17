@@ -308,14 +308,16 @@ void do_download(Downloader& downloader, DbItem* item) {
 
 void pkgi_install_package(Downloader& downloader, DbItem* item)
 {
+    std::string title_game = mode == ModeGames ? erase_string_elements(item->name) : item->name;
+
     if (item->presence == PresenceInstalled)
     {
         LOGF("[{}] {} - already installed", item->content, item->name);
         pkgi_dialog_question(
         fmt::format(
                 "{} уже установлено. "
-                "Хотите загрузить его заново?", 
-                item->name)
+                "Хотите переустановить?", 
+                title_game)
                 .c_str(),
         {{"Да", [&downloader, item] { do_download(downloader, item); }},
          {"Нет", [] {} }});
