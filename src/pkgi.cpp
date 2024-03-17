@@ -308,7 +308,7 @@ void do_download(Downloader& downloader, DbItem* item) {
 
 void pkgi_install_package(Downloader& downloader, DbItem* item)
 {
-    std::string title_game = mode == ModeGames ? erase_string_elements(item->name) : item->name;
+    std::string title_game = erase_string_elements(item->name);
 
     if (item->presence == PresenceInstalled)
     {

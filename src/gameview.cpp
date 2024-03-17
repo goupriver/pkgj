@@ -111,12 +111,12 @@ void GameView::render(bool mode)
     if (_patch_info_fetcher.get_status() == PatchInfoFetcher::Status::Found)
     {
         if (ImGui::Button("Установить игру и патч###installgame"))
-            start_download_package(mode);
+            start_download_package();
     }
     else
     {
         if (ImGui::Button("Установить игру###installgame"))
-            start_download_package(mode);
+            start_download_package();
     }
     ImGui::SetItemDefaultFocus();
 
@@ -282,9 +282,9 @@ void GameView::do_download() {
     _item->presence = PresenceUnknown;
 }
 
-void GameView::start_download_package(mode)
+void GameView::start_download_package()
 {
-    std::string title_game = mode ? erase_string_elements(_item->name) : _item->name;
+    std::string title_game = erase_string_elements(_item->name);
 
     if (_item->presence == PresenceInstalled)
     {
