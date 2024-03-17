@@ -145,7 +145,7 @@ void pkgi_do_dialog()
     ImGui::PopTextWrapPos();
     if (local_type == DialogQuestion)
     {
-        ImGui::Separator();
+        // ImGui::Separator();
         int i = 0;
         for (auto const& response : responses)
         {

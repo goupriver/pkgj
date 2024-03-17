@@ -314,16 +314,14 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
     {
         LOGF("[{}] {} - already installed", item->content, item->name);
 
-        gameview->render(true);
-        
-        // pkgi_dialog_question(
-        // fmt::format(
-        //         "{}уже установлено. "
-        //         "Хотите переустановить?", 
-        //         title_game)
-        //         .c_str(),
-        // {{"Да", [&downloader, item] { do_download(downloader, item); }},
-        //  {"Нет", [] {} }});
+        pkgi_dialog_question(
+        fmt::format(
+                "{}уже установлено. "
+                "Хотите переустановить?", 
+                title_game)
+                .c_str(),
+        {{"Да", [&downloader, item] { do_download(downloader, item); }},
+         {"Нет", [] {} }});
 
         return;
     }
@@ -1134,7 +1132,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             free);
 
 
-    pkgi_draw_texture(memoryCard, VITA_WIDTH - 12 - 16 - 2 - 16 - pkgi_text_width(free), VITA_HEIGHT - 20);
+    pkgi_draw_texture(memoryCard, VITA_WIDTH - 42 - pkgi_text_width(free), VITA_HEIGHT - 20);
 
 
     // КОНЕЦ СВОБОДНО ДИСК

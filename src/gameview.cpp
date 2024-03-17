@@ -290,16 +290,14 @@ void GameView::start_download_package()
     {
         LOGF("[{}] {} - already installed", _item->titleid, _item->name);
 
-        this->render(true);
-        
-        // pkgi_dialog_question(
-        // fmt::format(
-        //         "{}уже установлено. "
-        //         "Хотите переустановить?",
-        //         title_game)
-        //         .c_str(),
-        // {{"Да", [this] { this->do_download(); }},
-        //  {"Нет", [] {} }});
+        pkgi_dialog_question(
+        fmt::format(
+                "{}уже установлено. "
+                "Хотите переустановить?",
+                title_game)
+                .c_str(),
+        {{"Да", [this] { this->do_download(); }},
+         {"Нет", [] {} }});
         return;
     }
     this->do_download();
