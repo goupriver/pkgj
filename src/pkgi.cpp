@@ -1663,6 +1663,8 @@ int main()
         // style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
         // style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
         style.PopupBorderSize = 0.7f;
+        style.WindowBorderSize = 0.3f;
+        style.FrameBorderSize = 0.3f;
 
         init_imgui();
 
