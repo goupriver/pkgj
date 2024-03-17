@@ -145,7 +145,7 @@ void pkgi_do_dialog()
     ImGui::PopTextWrapPos();
 
     ImGui::Text("");
-    
+
     if (local_type == DialogQuestion)
     {
         // ImGui::Separator();
@@ -176,7 +176,7 @@ void pkgi_do_dialog()
     }
     else if (local_allow_close)
     {
-        ImGui::Separator();
+        // ImGui::Separator();
         if (ImGui::Button(
                     "OK",
                     ImVec2{ImGui::GetWindowContentRegionWidth(),
