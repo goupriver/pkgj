@@ -216,7 +216,7 @@ void GameView::printDiagnostic()
     {
         ImGui::TextColored(
                 Yellow,
-                "- Установлен сторонний пакет в папку rePatch. Убедитесь, "
+                "Установлен сторонний пакет в папку rePatch. Убедитесь, "
                 "что данный пакет соответствует TITLE_ID игры. В противном "
                 "случае, переустановите его");
         ok = false;
@@ -289,14 +289,17 @@ void GameView::start_download_package()
     if (_item->presence == PresenceInstalled)
     {
         LOGF("[{}] {} - already installed", _item->titleid, _item->name);
-        pkgi_dialog_question(
-        fmt::format(
-                "{}уже установлено. "
-                "Хотите переустановить?",
-                title_game)
-                .c_str(),
-        {{"Да", [this] { this->do_download(); }},
-         {"Нет", [] {} }});
+
+        this->render(true);
+        
+        // pkgi_dialog_question(
+        // fmt::format(
+        //         "{}уже установлено. "
+        //         "Хотите переустановить?",
+        //         title_game)
+        //         .c_str(),
+        // {{"Да", [this] { this->do_download(); }},
+        //  {"Нет", [] {} }});
         return;
     }
     this->do_download();

@@ -313,14 +313,17 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
     if (item->presence == PresenceInstalled)
     {
         LOGF("[{}] {} - already installed", item->content, item->name);
-        pkgi_dialog_question(
-        fmt::format(
-                "{}уже установлено. "
-                "Хотите переустановить?", 
-                title_game)
-                .c_str(),
-        {{"Да", [&downloader, item] { do_download(downloader, item); }},
-         {"Нет", [] {} }});
+
+        gameview->render(true);
+        
+        // pkgi_dialog_question(
+        // fmt::format(
+        //         "{}уже установлено. "
+        //         "Хотите переустановить?", 
+        //         title_game)
+        //         .c_str(),
+        // {{"Да", [&downloader, item] { do_download(downloader, item); }},
+        //  {"Нет", [] {} }});
 
         return;
     }
@@ -1652,16 +1655,17 @@ int main()
         style.Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
         style.Colors[ImGuiCol_NavHighlight] = PKGI_COLOR_HIGHLIGHT;
 
-        // style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER_WINDOW;
-        // style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
+        style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER_WINDOW;
+        style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
         style.Colors[ImGuiCol_FrameBg] = PKGI_COLOR_BORDER_WINDOW;
 
 
-        style.Colors[ImGuiCol_Border] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+        // style.Colors[ImGuiCol_Border] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
         // style.Colors[ImGuiCol_PopupBorderSize] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-        style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
+        // style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
         // style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-        style.PopupBorderSize = 0.00f;
+        // style.PopupBorderSize = 0.00f;
+
         init_imgui();
 
         pkgi_input input;
