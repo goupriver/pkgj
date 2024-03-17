@@ -143,6 +143,9 @@ void pkgi_do_dialog()
     else
         ImGui::TextUnformatted(local_text.c_str());
     ImGui::PopTextWrapPos();
+
+    ImGui::Text("");
+    
     if (local_type == DialogQuestion)
     {
         // ImGui::Separator();
