@@ -113,7 +113,7 @@ void pkgi_dialog_close()
 
 void pkgi_do_dialog()
 {
-    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.125f, 0.125f, 0.125f, 1.0f)); // Set window background to red
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, PKGI_COLOR_DIALOG_BG); // Set window background to red
     // ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.075f, 0.075f, 0.075f, 1.0f)); // Set window background to red
     // ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.075f, 0.075f, 0.075f, 1.0f)); // Set window background to red
 
