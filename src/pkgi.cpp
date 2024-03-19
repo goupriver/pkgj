@@ -1659,8 +1659,8 @@ int main()
         style.Colors[ImGuiCol_NavHighlight] = PKGI_COLOR_HIGHLIGHT;
 
         // style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER_WINDOW;
-        // style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
-        style.Colors[ImGuiCol_FrameBg] = PKGI_COLOR_BORDER_WINDOW;
+        style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
+        // style.Colors[ImGuiCol_FrameBg] = PKGI_COLOR_BORDER_WINDOW;
 
 
         // style.Colors[ImGuiCol_Border] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
