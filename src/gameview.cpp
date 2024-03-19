@@ -89,11 +89,11 @@ void GameView::render(bool mode)
     else
     {
         ImGui::Text(fmt::format(
-                            "Пак для игры установлен: {}",
+                            "Пакет для игры установлен: {}",
                             _comppack_versions.base.empty() ? "нет" : "да")
                             .c_str());
         ImGui::Text(fmt::format(
-                            "Пак для патча установлен: {}",
+                            "Пакет для патча установлен: {}",
                             _comppack_versions.patch.empty()
                                     ? "нет"
                                     : _comppack_versions.patch)
