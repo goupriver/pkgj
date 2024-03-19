@@ -655,6 +655,11 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
                     y,
                     colorCircle,
                     PKGI_UTF8_INSTALLED);
+            
+            if (i == selected_item)
+            {
+                pkgi_draw_texture(ps_ico, col_installed + PKGI_SCROLL_PADDING + 1, y+7);
+            }
         }
         else if (item->presence == PresenceInstalling)
         // круг
