@@ -1655,11 +1655,13 @@ int main()
         // ФОн окна и всплывахи
         style.Colors[ImGuiCol_WindowBg] = PKGI_COLOR_WINDOW_BG;
         style.Colors[ImGuiCol_ChildBg] = PKGI_COLOR_WINDOW_BG_CHILD;
+
         style.Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
+        
         style.Colors[ImGuiCol_NavHighlight] = PKGI_COLOR_HIGHLIGHT;
 
-        // style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER_WINDOW;
-        style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
+        style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER_WINDOW;
+        // style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
         // style.Colors[ImGuiCol_FrameBg] = PKGI_COLOR_BORDER_WINDOW;
 
 

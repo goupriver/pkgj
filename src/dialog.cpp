@@ -113,6 +113,10 @@ void pkgi_dialog_close()
 
 void pkgi_do_dialog()
 {
+    // ImGui::PushStyleVar(ImGuiStyleVar_PopupBg, 0.075);
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.075f, 0.075f, 0.075f, 1.0f)); // Set window background to red
+    // ImGui::PopStyleColor();
+
     pkgi_dialog_lock();
 
     DialogType local_type = dialog_type;
@@ -193,4 +197,6 @@ void pkgi_do_dialog()
 
     if (callback)
         callback();
+
+    ImGui::PopStyleColor();
 }
