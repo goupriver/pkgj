@@ -1740,14 +1740,17 @@ int main()
             oss << std::put_time(&tm, "%H:%M");
             auto str = oss.str();
 
-            pkgi_draw_text(VITA_WIDTH - 289, 0, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
+            pkgi_draw_text_with_size(VITA_WIDTH - 289, 0, 0.750f, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
+
+            // pkgi_draw_text(VITA_WIDTH - 289, 0, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
+            
 
             // аккумулятор
 
             pkgi_draw_text_with_size(VITA_WIDTH - 64, -2, 0.750f, PKGI_COLOR_TEXT, fmt::format("%").c_str());
             
             // pkgi_draw_text_with_size(VITA_WIDTH - 57 - pkgi_text_width(fmt::format("{}", pkgi_bettery_get_level()).c_str()),
-            pkgi_draw_text_with_size(VITA_WIDTH - 57 - pkgi_text_width(fmt::format("{}", "9").c_str()),
+            pkgi_draw_text_with_size(VITA_WIDTH - 60 - pkgi_text_width(fmt::format("{}", "9").c_str()),
              -2, 
              0.750f, 
              PKGI_COLOR_TEXT, 

@@ -45,7 +45,7 @@ void GameView::render(bool mode)
                    (VITA_HEIGHT - GameViewHeight) / 2));
     ImGui::SetNextWindowSize(ImVec2(GameViewWidth, GameViewHeight), 0);
 
-    ImGui::PushStyleColor(ImGuiCol_Text, PKGI_COLOR_DIALOG_TEXT_GRAY);
+    ImGui::PushStyleColor(ImGuiCol_Text, PKGI_COLOR_DIALOG_TEXT_WHITE);
     ImGui::Begin(
             fmt::format("{} ###gameview", title_game)
                     .c_str(),
