@@ -1749,13 +1749,13 @@ int main()
 
             pkgi_draw_text_with_size(VITA_WIDTH - 64, -2, 0.750f, PKGI_COLOR_TEXT, fmt::format("%").c_str());
             
-            pkgi_draw_text_with_size(VITA_WIDTH - 61 - pkgi_text_width(fmt::format("{}", pkgi_bettery_get_level()).c_str()),
-            // pkgi_draw_text_with_size(VITA_WIDTH - 61 - pkgi_text_width(fmt::format("{}", "54").c_str()),
+            // pkgi_draw_text_with_size(VITA_WIDTH - 61 - pkgi_text_width(fmt::format("{}", pkgi_bettery_get_level()).c_str()),
+            pkgi_draw_text_with_size(VITA_WIDTH - 61 - pkgi_text_width(fmt::format("{}", "9").c_str()),
              -2, 
              0.750f, 
              PKGI_COLOR_TEXT, 
-             fmt::format("{}", pkgi_bettery_get_level()).c_str()
-            //  fmt::format("{}", "54").c_str()
+            //  fmt::format("{}", pkgi_bettery_get_level()).c_str()
+             fmt::format("{}", "9").c_str()
             );
 
             // pkgi_draw_text_with_size(
