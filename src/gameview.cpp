@@ -45,6 +45,7 @@ void GameView::render(bool mode)
                    (VITA_HEIGHT - GameViewHeight) / 2));
     ImGui::SetNextWindowSize(ImVec2(GameViewWidth, GameViewHeight), 0);
 
+    ImGui::PushStyleColor(ImGuiCol_Text, PKGI_COLOR_DIALOG_TEXT_GRAY);
     ImGui::Begin(
             fmt::format("{} ###gameview", title_game)
                     .c_str(),
@@ -54,6 +55,7 @@ void GameView::render(bool mode)
                     ImGuiWindowFlags_NoScrollWithMouse |
                     ImGuiWindowFlags_NoCollapse |
                     ImGuiWindowFlags_NoSavedSettings);
+    ImGui::PopStyleColor();
 
     ImGui::PushTextWrapPos(
             _image_fetcher.get_texture() == nullptr ? 0.f
