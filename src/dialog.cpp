@@ -147,7 +147,8 @@ void pkgi_do_dialog()
         ImGui::TextColored(
                 ImVec4{1.f, .2f, .2f, 1.f}, "%s", local_text.c_str());
     else
-        ImGui::TextUnformatted(local_text.c_str());
+        ImGui::TextColored(PKGI_COLOR_DIALOG_TEXT_GRAY, local_text.c_str());
+        // ImGui::TextUnformatted(local_text.c_str());
     ImGui::PopTextWrapPos();
     // TODO
     // ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 1.0f);
