@@ -1737,7 +1737,7 @@ int main()
             auto t = std::time(nullptr);
             auto tm = *std::localtime(&t);
             std::ostringstream oss;
-            oss << std::put_time(&tm, "%d.%m.%Y  %H:%M");
+            oss << std::put_time(&tm, "%H:%M");
             auto str = oss.str();
 
             pkgi_draw_text(VITA_WIDTH - 289, 0, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
@@ -1745,13 +1745,20 @@ int main()
             // аккумулятор
 
             pkgi_draw_text_with_size(VITA_WIDTH - 64, -2, 0.750f, PKGI_COLOR_TEXT, fmt::format("%").c_str());
+            
+            pkgi_draw_text_with_size(VITA_WIDTH - 67 - pkgi_text_width(fmt::format("{}", pkgi_bettery_get_level()).c_str()),
+             -2, 
+             0.750f, 
+             PKGI_COLOR_TEXT, 
+             fmt::format("{}", pkgi_bettery_get_level()).c_str()
+            );
 
-            pkgi_draw_text_with_size(
-            VITA_WIDTH - 44 + 4 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()),
-            -2,
-            0.750f,
-            PKGI_COLOR_TEXT,
-            fmt::format("{}%", pkgi_bettery_get_level()).c_str());
+            // pkgi_draw_text_with_size(
+            // VITA_WIDTH - 44 + 4 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()),
+            // -2,
+            // 0.750f,
+            // PKGI_COLOR_TEXT,
+            // fmt::format("{}%", pkgi_bettery_get_level()).c_str());
 
             if (pkgi_battery_is_low()) 
             {

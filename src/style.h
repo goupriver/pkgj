@@ -75,7 +75,7 @@
 #define PKGI_COLOR_POPUP_BG ImVec4(0.051f, 0.051f, 0.051f, 1.00f)
 
 #define PKGI_COLOR_BORDER_BUTTON ImVec4(0.075f, 0.075f, 0.075f, 1.00f)
-#define PKGI_COLOR_DIALOG_BG ImVec4(0.051f, 0.051f, 0.051f, 1.00f)
+#define PKGI_COLOR_DIALOG_BG ImVec4(0.075f, 0.075f, 0.075f, 1.00f)
 
 // БОРДЕР
 // #define PKGI_COLOR_BORDER ImVec4(0.051f, 0.051f, 0.051f, 0.00f)
