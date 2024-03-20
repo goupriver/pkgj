@@ -1744,7 +1744,7 @@ int main()
 
             // аккумулятор
 
-            // pkgi_text_width()
+            pkgi_draw_text_with_size(VITA_WIDTH - 64, -2, 0.750f, PKGI_COLOR_TEXT, fmt::format("%"));
 
             pkgi_draw_text_with_size(
             VITA_WIDTH - 44 + 4 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()),
@@ -1752,12 +1752,6 @@ int main()
             0.750f,
             PKGI_COLOR_TEXT,
             fmt::format("{}%", pkgi_bettery_get_level()).c_str());
-
-            // pkgi_draw_text(
-            // VITA_WIDTH - 74 - 26,
-            // 0,
-            // PKGI_COLOR_TEXT,
-            // fmt::format("{}%", pkgi_bettery_get_level()).c_str());
 
             if (pkgi_battery_is_low()) 
             {
@@ -1768,18 +1762,6 @@ int main()
                 pkgi_draw_texture(batterynormal, VITA_WIDTH - 47, 5);
             }
 
-            // иконка карты памяти
-            // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
-            // pkgi_draw_texture(notfill, VITA_WIDTH - 130, VITA_HEIGHT - 20);
-            // pkgi_draw_texture(notfill, VITA_WIDTH - 44 - 29 - pkgi_text_width(fmt::format("{}", pkgi_get_free_space(pkgi_get_mode_partition())).c_str()), VITA_HEIGHT - 20);
-            // pkgi_draw_texture(notfill, VITA_WIDTH - pkgi_text_width(fmt::format("{}", pkgi_get_free_space("ux0:")).c_str()), VITA_HEIGHT - 20);
-
-
-
-
-            // pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str())
-
-            //
 
             // разрядка
             pkgi_draw_rect(
@@ -1793,6 +1775,9 @@ int main()
             {
                 pkgi_draw_texture(batteryischarging, VITA_WIDTH - 47, 5);
             }
+
+
+            // конец аккумулятора
 
             pkgi_do_head(fontCyrillicMin);
             switch (state)
