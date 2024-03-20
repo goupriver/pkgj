@@ -316,7 +316,7 @@ void pkgi_install_package(Downloader& downloader, DbItem* item)
 
         pkgi_dialog_question(
         fmt::format(
-                "{}уже установлено. "
+                "{} уже установлено. "
                 "Хотите переустановить?", 
                 title_game)
                 .c_str(),
