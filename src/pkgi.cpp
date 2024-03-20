@@ -1762,8 +1762,8 @@ int main()
              -2, 
              0.750f, 
              PKGI_COLOR_TEXT, 
-            //  fmt::format("{}", pkgi_bettery_get_level()).c_str()
-             fmt::format("{}", "9").c_str()
+             fmt::format("{}", pkgi_bettery_get_level()).c_str()
+            //  fmt::format("{}", "9").c_str()
             );
 
             // pkgi_draw_text_with_size(
