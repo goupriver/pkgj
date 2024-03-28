@@ -26,11 +26,11 @@ jobs:
           path: ~/.conan2/p
           key: ${{ runner.os }}-conan
       - run: ci/ci.sh
-      # - name: Upload linux build
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: pkgj_cli
-      #     path: ci/buildhost/pkgj_cli
+      - name: Upload linux build
+        uses: actions/upload-artifact@v3
+        with:
+          name: pkgj_cli
+          path: ci/buildhost/pkgj_cli
       - name: Upload vita build
         uses: actions/upload-artifact@v3
         with:

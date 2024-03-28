@@ -113,11 +113,7 @@ void pkgi_dialog_close()
 
 void pkgi_do_dialog()
 {
-    ImGui::PushStyleColor(ImGuiCol_WindowBg, PKGI_COLOR_DIALOG_BG); // Set window background to red
-    // ImGui::PushStyleColor(ImGuiCol_ChildBg, ImVec4(0.075f, 0.075f, 0.075f, 1.0f)); // Set window background to red
-    // ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.075f, 0.075f, 0.075f, 1.0f)); // Set window background to red
-
-    // ImGui::PopStyleColor();
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, PKGI_COLOR_DIALOG_BG);
 
     pkgi_dialog_lock();
 
@@ -148,15 +144,11 @@ void pkgi_do_dialog()
                 ImVec4{1.f, .2f, .2f, 1.f}, "%s", local_text.c_str());
     else
         ImGui::TextColored(PKGI_COLOR_DIALOG_TEXT_GRAY, local_text.c_str());
-        // ImGui::TextUnformatted(local_text.c_str());
     ImGui::PopTextWrapPos();
-    // TODO
-    // ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 1.0f);
     ImGui::Text("");
 
     if (local_type == DialogQuestion)
     {
-        // ImGui::Separator();
         int i = 0;
         for (auto const& response : responses)
         {
@@ -173,7 +165,6 @@ void pkgi_do_dialog()
             }
             if (++i == 1)
             {
-                // ImGui::SetItemDefaultFocus doesn't seem to work here...
                 ImGuiContext& g = *GImGui;
                 ImGuiWindow* window = g.CurrentWindow;
                 if (window->Appearing)
@@ -184,7 +175,6 @@ void pkgi_do_dialog()
     }
     else if (local_allow_close)
     {
-        // ImGui::Separator();
         if (ImGui::Button(
                     "OK",
                     ImVec2{ImGui::GetWindowContentRegionWidth(),

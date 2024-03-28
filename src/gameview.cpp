@@ -38,7 +38,6 @@ GameView::GameView(
 void GameView::render(bool mode)
 {
     std::string title_game = mode ? erase_string_elements(_item->name) : _item->name;
-    // std::string title_game = erase_string_elements(_item->name);
 
     ImGui::SetNextWindowPos(
             ImVec2((VITA_WIDTH - GameViewWidth) / 2,
@@ -70,14 +69,12 @@ void GameView::render(bool mode)
     ImGui::Text(" ");
 
     // fix версия игры без пробела 
-    // TODO: перенести это в функци
     std::string pkgi_c_game_version = _game_version.c_str();
     std::string v_tmp;
 
     for(char c:pkgi_c_game_version) if (c != ' ') v_tmp += c;
     pkgi_c_game_version = v_tmp;
-
-    // :конец fix версия игры без пробела //
+    // конец версия игры без пробела
 
     ImGui::Text(fmt::format(
                         "Установлена версия: {}",
@@ -176,7 +173,6 @@ void GameView::render(bool mode)
 }
 
 static const auto Red = ImVec4(0.776f, 0.322f, 0.322f, 1.0f);
-// static const auto Yellow = ImVec4(1.0f, 1.0f, 0.0f, 1.0f);
 static const auto Yellow = ImVec4(0.98f, 0.867f, 0.0f, 1.0f);
 static const auto Green = ImVec4(0.00f, 0.569f, 0.235f, 1.00f);
 

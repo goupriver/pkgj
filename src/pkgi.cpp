@@ -465,38 +465,9 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
         }
     }
 
+    int y = font_height + PKGI_MAIN_HLINE_EXTRA;  
+    int line_height = font_height + PKGI_MAIN_ROW_PADDING;  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // ЦЕНТР 
-
-    int y = font_height + PKGI_MAIN_HLINE_EXTRA;  // 0px
-    int line_height = font_height + PKGI_MAIN_ROW_PADDING;  // 2px
-
-
-        // НЕ СМОТРЕТЬ НАЧАЛО
 
     for (uint32_t i = first_item; i < db_count; i++)
     {
@@ -574,15 +545,10 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
             }
         }
 
-        // НЕ СМОТРЕТЬ КОНЕЦ
-
-        
-
         char size_str[64];
         pkgi_friendly_size(size_str, sizeof(size_str), item->size);
         int sizew = pkgi_text_width(size_str);
 
-        // pkgi_clip_set(0, y + TWELAWE, VITA_WIDTH, line_height);
         pkgi_clip_set(0, y, VITA_WIDTH, line_height);
 
         if (i == selected_item)
@@ -601,7 +567,6 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
                     PKGI_COLOR_SELECTED_BACKGROUND);
         }
 
-        // id игры 
         pkgi_draw_text(col_titleid + PKGI_SCROLL_PADDING, y, colorTextTitileId, titleid);
         const char* region;
         switch (pkgi_get_region(item->titleid))
@@ -626,16 +591,13 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
             break;
         }
 
-        // регион
         pkgi_draw_text(col_region + PKGI_SCROLL_PADDING, y, colorTextRegion, region);
 
-        // кружок 
         // круг
         if (item->presence == PresenceIncomplete)
         {
             pkgi_draw_text(col_installed + PKGI_SCROLL_PADDING, y, colorCircle, PKGI_UTF8_PARTIAL);
         }
-        // круг
         else if (item->presence == PresenceInstalled)
         {
             pkgi_draw_text(col_installed + PKGI_SCROLL_PADDING, y, colorCircle, PKGI_UTF8_INSTALLED);
@@ -644,10 +606,8 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
             {
                 pkgi_draw_texture(ps_ico, col_installed + PKGI_SCROLL_PADDING + 1, y+7);
             }
-            // pkgi_draw_texture(ps_ico, col_installed + PKGI_SCROLL_PADDING, y);
         }
 
-        // круг
         else if (item->presence == PresenceGamePresent)
         {
             pkgi_draw_text(
@@ -662,7 +622,6 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
             }
         }
         else if (item->presence == PresenceInstalling)
-        // круг
         {
             pkgi_draw_text(col_installed + PKGI_SCROLL_PADDING, y, colorCircle, PKGI_UTF8_INSTALLING);
         }
@@ -677,29 +636,12 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
 
         pkgi_clip_set(
                 col_name + PKGI_SCROLL_PADDING,
-                // y + TWELAWE,
                 y,
                 VITA_WIDTH - PKGI_MAIN_SCROLL_WIDTH - PKGI_MAIN_SCROLL_PADDING -
                         PKGI_MAIN_COLUMN_PADDING - sizew - col_name - 59,
-                // line_height + TWELAWE);
                 line_height);
 
-        // текст
-        // char elem = '(';
-        // int len = item->name.length() + 1;
-        // int indexStart = item->name.find(elem);
-        // std::string fin = item->name.erase(indexStart, len);
-        // pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, fin.c_str());
-
-
         std::string title_game = mode == ModeGames ? erase_string_elements(item->name) : item->name;
-
-        // if ()
-            // title_game = ;
-        // else
-            // title_game = ;
-
-        // pkgi_draw_text(160, 0, colorTextTitile, typeid(item->name).name());
 
         pkgi_draw_text(col_name + PKGI_SCROLL_PADDING, y, colorTextTitile, title_game.c_str());
 
@@ -734,7 +676,6 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
                 (VITA_WIDTH - w) / 2, VITA_HEIGHT / 2, PKGI_COLOR_TEXT, text);
     }
 
-
     // scroll-bar
     pkgi_draw_rect(
                     10,
@@ -745,82 +686,27 @@ void pkgi_do_main(Downloader& downloader, pkgi_input* input, pkgi_texture ps_ico
     
     if (db_count != 0)
     {
-
-
         uint32_t max_items =
-        // max_items = 17, 52
                 (avail_height + font_height + PKGI_MAIN_ROW_PADDING - 1) /
                         (font_height + PKGI_MAIN_ROW_PADDING) - 1;
         if (max_items < db_count)
         {   
-            // 50
             uint32_t min_height = PKGI_MAIN_SCROLL_MIN_HEIGHT;
-            // 3.7
             uint32_t height = max_items * avail_height / db_count;
-            // 1 * 389 / 2015 = 0,2  (4)   (147)
             uint32_t start =
                     first_item *
                     (avail_height - (height < min_height ? min_height : 0)) /
                     db_count;
             height = max32(height, min_height);
 
-            // // 2015
-            // pkgi_draw_text(0, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("dc {}", db_count).c_str());
-            // // 50
-            // pkgi_draw_text(120, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mh {}", min_height).c_str());
-            // // 10
-            // pkgi_draw_text(240, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("mi {}", max_items).c_str());
-            // // 50
-            // pkgi_draw_text(360, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("h {}", height).c_str());
-            // // 0 (каждые 6 строк)
-            // pkgi_draw_text(480, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("s {}", start).c_str());
-            // // 439
-            // pkgi_draw_text(600, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("ah {}", avail_height).c_str());
-            // // 0 . после первого перелистывания начинает меняться
-            // pkgi_draw_text(720, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fi {}", first_item).c_str());
-            // // 23
-            // pkgi_draw_text(840, 0, PKGI_COLOR_SCROLL_BAR, fmt::format("fh {}", font_height).c_str());
-
-
             pkgi_draw_rect(
                     PKGI_SCROLL_LEFT_MARGIN - 1,
-                    // 23 + 12 + 0.2 = 35.2
-                    // надо 40
-                    // 
                     font_height + PKGI_MAIN_HLINE_EXTRA + 8 + start,
-                    // 
                     PKGI_MAIN_SCROLL_WIDTH,
                     height,
                     PKGI_COLOR_SCROLL_BAR);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     if (input && (input->pressed & pkgi_ok_button()))
     {
@@ -898,46 +784,11 @@ void pkgi_do_head(auto ffont)
     char title[256];
     pkgi_snprintf(title, sizeof(title), "PKGj v%s ", version);
 
-
     pkgi_draw_text(9, 0, PKGI_COLOR_DATE_TIME, title);
 
-
-    // int rightw;
     int rightw = 22;
-    // if (pkgi_battery_present())
-    // {
-        // char battery[256];
-        // pkgi_snprintf(
-        //         battery,
-        //         sizeof(battery),
-        //         "Аккумулятор: %u%%",
-        //         pkgi_bettery_get_level());  
-
-        // uint32_t color;
-        // if (pkgi_battery_is_low())
-        // {
-        //     color = PKGI_COLOR_BATTERY_LOW;
-        // }
-        // else if (pkgi_battery_is_charging())
-        // {
-        //     color = PKGI_COLOR_BATTERY_CHARGING;
-        // }
-        // else
-        // {
-        //     color = PKGI_COLOR_TEXT_HEAD;
-        // }
-
-        // rightw = pkgi_text_width(battery);
-        // pkgi_draw_text(
-                // VITA_WIDTH - PKGI_MAIN_HLINE_EXTRA - rightw, 0, color, battery);
-    // }
-    // else
-    // {
-        // rightw = 0;
-    // }
 
     ImGui::PopFont();
-
 
     char text[256];
     int left = pkgi_text_width(search_text) + PKGI_MAIN_TEXT_PADDING;
@@ -959,7 +810,6 @@ void pkgi_do_head(auto ffont)
             0,
             VITA_WIDTH - right - left,
             font_height + PKGI_MAIN_HLINE_EXTRA);
-            // ДЛЯ ТЕСТА
     pkgi_draw_text(
             (VITA_WIDTH - pkgi_text_width(text)) / 2,
             0,
@@ -991,7 +841,6 @@ uint64_t get_speed(const uint64_t download_offset)
 // НИЗ
 void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture btn_x, pkgi_texture btn_square, pkgi_texture btn_triangle, pkgi_texture btn_circle)
 {
-
     // ЗАГРУЗКА НАЧАЛО
 
     char text[256];
@@ -1002,11 +851,8 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
     uint64_t download_size;
     std::tie(download_offset, download_size) =
             downloader.get_current_download_progress();
-    // avoid divide by 0
     if (download_size == 0)
         download_size = 1;
-
-
     
         // подложка
     pkgi_draw_rect(
@@ -1014,9 +860,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             bottom_y + 5 + 2,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH,
             font_height - 10,
-            // PKGI_COLOR_HEAD_HLINE);
             PKGI_DOWNLOAD_BAR_BACKGROUND);
-            // PKGI_COLOR_DATE_TIME);
 
     // на подложку
     pkgi_draw_rect(
@@ -1024,22 +868,10 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             bottom_y + 7 + 2,
             PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 4,
             font_height - 14,
-            // PKGI_DOWNLOAD_BAR_BACKGROUND);
             PKGI_COLOR_HEAD_HLINE);
 
-    // 
     if (current_download)
     {
-        // const auto speed = get_speed(download_offset);
-        // std::string sspeed;
-
-        // if (speed > 1000 * 1024)
-            // sspeed = fmt::format("{:.3g} МБ/с", speed / 1024.f / 1024.f);
-        // else if (speed > 1000)
-            // sspeed = fmt::format("{:.3g} КБ/с", speed / 1024.f);
-        // else
-            // sspeed = fmt::format("{} Байт/с", speed);
-
         // прогрессбар
         pkgi_draw_rect(
                 13+278,
@@ -1047,19 +879,15 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
                 (PKGI_MAIN_DOWNLOAD_BAR_WIDTH - 8) * download_offset / download_size,
                 font_height - 18 + 2,
                 PKGI_COLOR_DATE_TIME);
-                // PKGI_COLOR_PROGRESS_BACKGROUND);
 
         pkgi_snprintf(
                 text,
                 sizeof(text),
-                // "Загрузка %s: %s (%s, %d%%)",
                 "%d%%",
                 static_cast<int>(download_offset * 100 / download_size));
     }
     else
         pkgi_snprintf(text, sizeof(text), "");
-
-    // pkgi_draw_text((PKGI_MAIN_DOWNLOAD_BAR_WIDTH + 10 - pkgi_text_width(text))/2, bottom_y - 2, PKGI_COLOR_TEXT_TAIL, text);
     
     pkgi_draw_text_with_size(
             VITA_WIDTH/2 - pkgi_text_width(text)/2 + 7,
@@ -1067,50 +895,10 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             0.700f,
             PKGI_COLOR_TEXT_TAIL,
             text);
-
     // ЗАГРУЗКА КОНЕЦ
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     const auto second_line = bottom_y + font_height + PKGI_MAIN_ROW_PADDING;
 
-    // СЧЕТЧИК НАЧАЛО
-
-    // uint32_t count = db->count();
-    // uint32_t total = db->total();
-
-    // if (count == total)
-    // {
-    //     pkgi_snprintf(text, sizeof(text), "Показано: %u", count);
-    // }
-    // else
-    // {
-    //     pkgi_snprintf(text, sizeof(text), "Показано: %u из %u", count, total);
-    // }
-    // pkgi_draw_text(9, second_line, PKGI_COLOR_TEXT_TAIL, text);
-
-    // // СЧЕТЧИК КОНЕЦ
-
-    // get free space of partition only if looking at psx or psp games else show
-    // ux0:
-
-
-    // НАЧАЛО СВОБОДНО ДИСК
-    
     char size[64];
     if (mode == ModePsxGames || mode == ModePspGames)
     {
@@ -1126,8 +914,6 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
     char free[64];
     pkgi_snprintf(free, sizeof(free), "%s", size);
-    // pkgi_snprintf(free, sizeof(free), "Свободно: %s", size);
-    // char hello3[]{"1.28 ГБ"};
 
     int rightw = pkgi_text_width(free);
     pkgi_draw_text(
@@ -1136,9 +922,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
             PKGI_COLOR_TEXT_TAIL,
             free);
 
-
     pkgi_draw_texture(memoryCard, VITA_WIDTH - 42 - pkgi_text_width(free), VITA_HEIGHT - 20);
-
 
     // КОНЕЦ СВОБОДНО ДИСК
 
@@ -1147,21 +931,11 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
 
     // КНОПКИ НИЖНИЕ НАЧАЛО
 
-    // btn_x, 
-    // btn_square, 
-    // btn_triangle, 
-    // btn_circle
-
-    // pkgi_draw_texture(memoryCard, VITA_WIDTH - 12 - 16 - 2 - 16 - pkgi_text_width(free), VITA_HEIGHT - 20);
-
-
     pkgi_clip_set(
             left,
             second_line - 2,
             VITA_WIDTH - right - left,
             VITA_HEIGHT - second_line);
-
-    // std::string bottom_text;
 
     if (gameview || pkgi_dialog_is_open())
     {
@@ -1337,55 +1111,7 @@ void pkgi_do_tail(Downloader& downloader, pkgi_texture memoryCard, pkgi_texture 
         }
     }
 
-    // pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
-    //         second_line - 2,
-    //         PKGI_COLOR_TEXT_TAIL,
-    //         bottom_text.c_str());
     pkgi_clip_remove();
-
-
-
-
-    // std::string bottom_text;
-    // if (gameview || pkgi_dialog_is_open())
-    // {
-    //     bottom_text = fmt::format(
-    //             "{} Выбор {} Отмена", pkgi_get_ok_str(), pkgi_get_cancel_str());
-    // }
-    // else if (pkgi_menu_is_open())
-    // {
-    //     bottom_text = fmt::format(
-    //             "{} Выбор  " PKGI_UTF8_T " Сохранить  {} Отмена",
-    //             pkgi_get_ok_str(),
-    //             pkgi_get_cancel_str());
-    // }
-    // else
-    // {
-    //     if (mode == ModeGames)
-    //         bottom_text += fmt::format("{} Просмотр ", pkgi_get_ok_str());
-    //     else
-    //     {
-    //         DbItem* item = db->get(selected_item);
-    //         if (item && item->presence == PresenceInstalling)
-    //             bottom_text += fmt::format("{} Отмена ", pkgi_get_ok_str());
-    //         else if (item && item->presence != PresenceInstalled)
-    //             bottom_text += fmt::format("{} Установить ", pkgi_get_ok_str());
-    //     }
-    //     bottom_text += PKGI_UTF8_T " Меню";
-    // }
-
-    // pkgi_clip_set(
-    //         left,
-    //         second_line - 2,
-    //         VITA_WIDTH - right - left,
-    //         VITA_HEIGHT - second_line);
-    // pkgi_draw_text(
-    //         (VITA_WIDTH - pkgi_text_width(bottom_text.c_str())) / 2,
-    //         second_line - 2,
-    //         PKGI_COLOR_TEXT_TAIL,
-    //         bottom_text.c_str());
-    // pkgi_clip_remove();
 
     // КОНЕЦ КНОПКИ
 }
@@ -1641,7 +1367,6 @@ int main()
 
         io.Fonts->TexID = font_texture;
 
-        // подключене своего стиля
         ImGuiStyle& style = ImGui::GetStyle();
         style.Colors[ImGuiCol_Button] = PKGI_COLOR_BUTTON;
         style.Colors[ImGuiCol_ButtonHovered] = PKGI_COLOR_BUTTON_ACTIVE_HOVERED;
@@ -1655,22 +1380,9 @@ int main()
         // ФОн окна и всплывахи
         style.Colors[ImGuiCol_WindowBg] = PKGI_COLOR_WINDOW_BG;
         style.Colors[ImGuiCol_ChildBg] = PKGI_COLOR_WINDOW_BG_CHILD;
-
         style.Colors[ImGuiCol_PopupBg] = PKGI_COLOR_POPUP_BG;
-
         style.Colors[ImGuiCol_NavHighlight] = PKGI_COLOR_HIGHLIGHT;
-
         style.Colors[ImGuiCol_Border] = PKGI_COLOR_BORDER_BUTTON;
-        // style.Colors[ImGuiCol_BorderShadow] = PKGI_COLOR_BORDER_WINDOW;
-        // style.Colors[ImGuiCol_FrameBg] = PKGI_COLOR_BORDER_WINDOW;
-
-
-        // style.Colors[ImGuiCol_Border] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-        // style.Colors[ImGuiCol_PopupBorderSize] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-        // style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-        // style.Colors[ImGuiCol_ModalWindowDarkening] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-        // style.PopupBorderSize = 0.1f;
-        // style.WindowBorderSize = 5.0f;
         style.FrameBorderSize = 1.0f;
 
         init_imgui();
@@ -1730,8 +1442,6 @@ int main()
 
             pkgi_draw_texture(background, 0, 0);
 
-
-
             // дата время
 
             auto t = std::time(nullptr);
@@ -1741,9 +1451,6 @@ int main()
             auto str = oss.str();
 
             pkgi_draw_text_with_size(VITA_WIDTH - 151, -2, 0.750f, PKGI_COLOR_TIME, fmt::format("{}", str).c_str());
-
-            // pkgi_draw_text(VITA_WIDTH - 289, 0, PKGI_COLOR_DATE_TIME, fmt::format("{}", str).c_str());
-            
 
             // аккумулятор
 
@@ -1758,20 +1465,11 @@ int main()
             pkgi_draw_text_with_size(VITA_WIDTH - 64, -2, 0.750f, PKGI_COLOR_TEXT, fmt::format("%").c_str());
             
             pkgi_draw_text_with_size(VITA_WIDTH - 61 + padding_battery - pkgi_text_width(fmt::format("{}", pkgi_bettery_get_level()).c_str()),
-            // pkgi_draw_text_with_size(VITA_WIDTH - 61 + padding_battery - pkgi_text_width(fmt::format("{}", "9").c_str()),
              -2, 
              0.750f, 
              PKGI_COLOR_TEXT, 
              fmt::format("{}", pkgi_bettery_get_level()).c_str()
-            //  fmt::format("{}", "9").c_str()
             );
-
-            // pkgi_draw_text_with_size(
-            // VITA_WIDTH - 44 + 4 - pkgi_text_width(fmt::format("{}%", pkgi_bettery_get_level()).c_str()),
-            // -2,
-            // 0.750f,
-            // PKGI_COLOR_TEXT,
-            // fmt::format("{}%", pkgi_bettery_get_level()).c_str());
 
             if (pkgi_battery_is_low()) 
             {
@@ -1795,7 +1493,6 @@ int main()
             {
                 pkgi_draw_texture(batteryischarging, VITA_WIDTH - 47, 5);
             }
-
 
             // конец аккумулятора
 
