@@ -18,14 +18,14 @@ jobs:
         with:
           python-version: '3.9'
           cache: 'poetry'
-      - name: Cache Conan packages
-        id: cache-conan
-        if: ${{ github.event.ref == 'refs/heads/master' }}
-        uses: actions/cache@v3
-        with:
-          path: ~/.conan2/p
-          key: ${{ runner.os }}-conan
-      - run: ci/ci.sh
+      # - name: Cache Conan packages
+      #   id: cache-conan
+      #   if: ${{ github.event.ref == 'refs/heads/master' }}
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ~/.conan2/p
+      #     key: ${{ runner.os }}-conan
+      # - run: ci/ci.sh
       - name: Upload linux build
         uses: actions/upload-artifact@v3
         with:
