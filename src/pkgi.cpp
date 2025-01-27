@@ -1244,6 +1244,10 @@ void pkgi_start_download(Downloader& downloader, const DbItem& item)
                 if (MODE_IS_PSPEMU(mode)) {
                     pkgi_create_psp_rif(item.content, rif);
                 }
+
+                // std::string title_game = erase_string_elements(item->name);
+                // std::string title_game = mode ? erase_string_elements(_item->name) : _item->name;
+                std::string title_game = mode == ModeGames ? erase_string_elements(item.name) : item.name;
                 
                 pkgi_start_bgdl(
                         mode_to_bgdl_type(mode),
@@ -1253,7 +1257,7 @@ void pkgi_start_download(Downloader& downloader, const DbItem& item)
                 pkgi_dialog_message(
                         fmt::format(
                                 "Установка {} поставлена в очередь в LiveArea",
-                                item.name)
+                                title_game)
                                 .c_str());
             }
             else {
