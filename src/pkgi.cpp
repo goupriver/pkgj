@@ -1247,7 +1247,7 @@ void pkgi_start_download(Downloader& downloader, const DbItem& item)
 
                 // std::string title_game = erase_string_elements(item->name);
                 // std::string title_game = mode ? erase_string_elements(_item->name) : _item->name;
-                std::string title_game = mode == ModeGames ? erase_string_elements(item.name) : item.name;
+                // std::string title_game = mode == ModeGames ? erase_string_elements(item.name) : item.name;
                 
                 pkgi_start_bgdl(
                         mode_to_bgdl_type(mode),
